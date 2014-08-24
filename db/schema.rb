@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20140824022013) do
     t.string   "last_name"
     t.string   "email"
     t.text     "bio"
-    t.string   "can_teach",                 default: [], array: true
-    t.string   "can_learn",                 default: [], array: true
+    t.string   "can_teach",                 array: true
+    t.string   "can_learn",                 array: true
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
