@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'uglifier'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'paperclip'
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
 gem 'rails_12factor', group: :production
