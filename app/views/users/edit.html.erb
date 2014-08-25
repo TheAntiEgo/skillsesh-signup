@@ -1,51 +1,37 @@
-        <div class="container">
+<div class="container">
 
-            <div class="user-onboard">
-                <div class="user-photo">
-                    <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3">
-                          <%= image_tag @user.photo.url, class: 'img-responsive img-circle' %>
-                        </div>
-                    </div>
-                </div> <!-- /user-photo -->
-
-                <div class="user-prompt">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <p class="lead">
-                            Hi <%= @user.first_name %>! Thanks for joining Skillsesh. Why don't you tell us a little bit about yourself.
-                            </p>
-                        </div>
-                    </div>
-                </div> <!-- /user-prompt -->
-
-                <div class="user-form">
-                    <%= form_for @user, html: {role: 'form'} do |f| %>
-                        <%= f.text_area :bio, class: 'form-control', placeholder: "500 word max, please, it's just three tweets!" %>
-                        <div class="user-prompt">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <p class="lead">
-                                    And what do you think you can teach?
-                                    </p>
-                                </div>
-                            </div>
-                        </div> <!-- /user-prompt -->
-                        <%= f.text_field :can_teach, class: 'form-control', placeholder: 'Like piano, sewing, music, etc'%>
-                        <div class="user-prompt">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <p class="lead">
-                                    And what would you like to learn?
-                                    </p>
-                                </div>
-                            </div>
-                        </div> <!-- /user-prompt -->
-                        <%= f.text_field :can_learn, class: 'form-control',  placeholder: 'Like piano, sewing, music, etc' %>
-                        <%= f.submit class: 'btn-primary btn-default btn-lg' %>
-                    <% end %>
+    <div class="user-onboard">
+        <div class="user-photo">
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                  <%= image_tag @user.photo.url, class: 'img-responsive img-circle' %>
                 </div>
+            </div>
+        </div> <!-- /user-photo -->
 
-            </div> <!-- /user-onboard -->
+        <div class="user-prompt">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="lead">
+                    Hi <%= @user.first_name %>! Thanks for joining Skillsesh. Why don't you tell us a little bit about yourself.
+                    </p>
+                </div>
+            </div>
+        </div> <!-- /user-prompt -->
 
-        </div> <!-- /container -->
+        <div class="user-form text-center">
+            <%= form_for @user, html: {role: 'form'} do |f| %>
+            <div class="form-group">
+                <%= f.text_area :bio, class: 'form-control', placeholder: "500 word max, please, it's just three tweets!" %>
+            </div>
+                <%= label_tag :teachables, "And what do you think you can teach?" %>
+                <%= f.text_field :teachables, class: 'form-control', placeholder: 'Like piano, sewing, music, etc'%>
+                <%= label_tag :learnables, "And what would you like to learn?" %>
+                <%= f.text_field :learnables, class: 'form-control',  placeholder: 'Like piano, sewing, music, etc' %>
+                <%= f.submit class: 'btn-primary btn-default btn-lg' %>
+            <% end %>
+        </div>
+
+    </div> <!-- /user-onboard -->
+
+</div> <!-- /container -->

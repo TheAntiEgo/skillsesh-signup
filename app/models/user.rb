@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   has_attached_file :photo
   validates_attachment_content_type :photo, content_type: /\Aimage\/jp[e]?g\Z/
 
+  ##
+  # Class methods
+  ##
+  
+  # TODO Refactor: Method shouldn't query and assign. Sequester control of 
+  # operations to controller
   def self.from_omniauth(auth)
     where(['provider = ? and provider_uid = ?', auth.slice(:provider), auth.slice(:uid)]).first_or_create do |user|
       user.provider = auth.provider
@@ -15,4 +21,10 @@ class User < ActiveRecord::Base
       user.photo = URI.parse(auth.info.image.gsub('http', 'https')) if auth.info.image?
     end
   end
+
+  ##
+  # Instance methods
+  ##
+  
+  # TODO Write teachable/learnable accessors
 end
