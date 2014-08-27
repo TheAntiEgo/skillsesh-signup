@@ -9,26 +9,33 @@
             </div>
         </div> <!-- /user-photo -->
 
-        <div class="user-prompt">
+        <div class="user-prompt text-center">
             <div class="row">
                 <div class="col-xs-12">
                     <p class="lead">
-                    Hi <%= @user.first_name %>! Thanks for joining Skillsesh. Why don't you tell us a little bit about yourself.
+                    Hi <%= @user.first_name %>! Thanks for joining Skillsesh. 
                     </p>
                 </div>
             </div>
         </div> <!-- /user-prompt -->
 
-        <div class="user-form text-center">
+        <div class="user-form">
             <%= form_for @user, html: {role: 'form'} do |f| %>
             <div class="form-group">
+                <%= label_tag :bio, "Why don't you tell us a little bit about yourself?" %>
                 <%= f.text_area :bio, class: 'form-control', placeholder: "500 word max, please, it's just three tweets!" %>
             </div>
-                <%= label_tag :teachables, "And what do you think you can teach?" %>
+            <div class="form-group">
+                <%= label_tag :teachables, "What do you think you can teach?" %>
                 <%= f.text_field :teachables, class: 'form-control', placeholder: 'Like piano, sewing, music, etc'%>
+            </div>
+            <div class="form-group">
                 <%= label_tag :learnables, "And what would you like to learn?" %>
                 <%= f.text_field :learnables, class: 'form-control',  placeholder: 'Like piano, sewing, music, etc' %>
-                <%= f.submit class: 'btn-primary btn-default btn-lg' %>
+            </div>
+            <div class="text-center">
+                <%= f.submit class: 'btn-primary btn-default btn-lg text-center', value: "Submit" %>
+            </div>
             <% end %>
         </div>
 

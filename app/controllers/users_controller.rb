@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   def new
-    @users = User.all
+    @users = User.all.limit(15)
   end
 
   def create
-    user = User.from_omniauth(request.env['omniauth.auth'])
+    pp request.env['omniauth.auth']
+    @user  = User.from_omniauth(request.env['omniauth.auth'])
 
-    if user.persisted?
-      redirect_to edit_user_path(user)
+    if @user.persisted?
+      redirect_to edit_user_path(@user)
     else
       redirect_to action: :new, alert: "Something went wrong! Try again or give us a hollar for help"
     end
