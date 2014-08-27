@@ -3,6 +3,8 @@ ruby '2.1.2'
 
 gem 'rails', '~>4.1.4'
 gem 'pg'
+gem 'haml'
+gem 'haml-rails'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'

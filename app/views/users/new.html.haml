@@ -1,0 +1,89 @@
+.jumbotron
+  .container-fluid
+    %h1.hero-call 
+      Teach skills, learn skills, get paid
+    %h3.hero-action
+      Join Portland's local learning community
+    %button.btn.btn-block
+      Teach a skill
+    %button.btn.btn-block
+      Learn a skill
+.container
+  %section.tutors
+    .intro
+      .row
+        .col-xs-12
+          %h2
+            Meet your tutors!
+    .tutors-listing
+      .row
+        - @users.each do |tutor|
+          .col-xs-12
+            .row
+              .col-xs-offset-2.col-xs-8
+                = image_tag tutor.photo.url, :class => 'img-responsive img-circle tutor-photo'
+              .col-xs-12.text-center
+                %h4.tutor-name
+                  = tutor.first_name
+              .col-xs-12.text-center
+                %p.small
+                  teaches
+              .col-xs-12.text-center
+                %p.tutor-skills
+                  = tutor.teachables
+
+  %section.mission
+    .intro
+      .row
+        .col-xs-12
+          %h2
+            Our mission
+    .mission-content
+      .row
+        .col-xs-12
+          %p
+            Our mission is to harness the untapped talents of your local community, making it possible to learn anything from anyone at anytime.
+          %p
+            Other teaching sites are ivory towers with high barriers to entry. Students have to commit to expensive, time-consuming courses, and only the select, credentialed few are allowed to teach. SkillSesh democratizes the learning process, allowing you to acquire new skills from the members of your own community.
+  %section.team
+    .intro
+      .row
+        .col-xs-12
+          %h2
+            Your team
+    .row.text-center
+      .col-xs-12
+        .row
+          .col-xs-offset-2.col-xs-8
+            = image_tag 'http://api.randomuser.me/portraits/men/1.jpg', :class => "img-responsive img-circle"
+          .col-xs-12
+            %h3
+              John
+            %p.lead
+              Markets
+      .col-xs-12
+        .row
+          .col-xs-offset-2.col-xs-8
+            = image_tag 'http://api.randomuser.me/portraits/men/2.jpg', :class => "img-responsive img-circle"
+          .col-xs-12
+            %h3.text-center
+              Benoit
+            %p.lead.text-center
+              Tech
+      .col-xs-12
+        .row
+          .col-xs-offset-2.col-xs-8
+            = image_tag 'http://api.randomuser.me/portraits/men/3.jpg', :class => "img-responsive img-circle"
+          .col-xs-12
+            %h3
+              Brandon
+            %p.lead
+              Narrative
+  %section.share
+    %h3
+      Follow our journey
+    .journey-buttons
+      
+    %h3
+      Share with your friends
+%footer

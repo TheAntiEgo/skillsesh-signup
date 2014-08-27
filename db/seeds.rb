@@ -16,9 +16,9 @@
               :first_name => Faker::Name.first_name,
               :last_name => Faker::Name.last_name,
               :email => Faker::Internet.email,
-              :bio => Faker::Lorem.sentences(3).join,
+              :bio => Faker::Lorem.sentences(3).join(" "),
               :photo => URI.parse( "http://api.randomuser.me/portraits/" + %w{ men women}.shuffle.first + '/' + (0...95).last(94).shuffle.first.to_s + '.jpg'),
-              :learnables => Faker::Lorem.words(3).join,
-              :teachables => Faker::Lorem.words(3).join
+              :learnables => Faker::Lorem.words((2...5).last(3).shuffle.first).join(" "),
+              :teachables => Faker::Lorem.words((2...5).last(3).shuffle.first).join(" ")
               )
 }
