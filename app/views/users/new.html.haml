@@ -4,10 +4,32 @@
       Teach skills, learn skills, get paid
     %h3.hero-action
       Join Portland's local learning community
-    %button.btn.btn-block
-      Teach a skill
-    %button.btn.btn-block
-      Learn a skill
+    .dropdown
+      %button.btn.btn-block{:data => { :toggle => "dropdown" } }
+        Teach a skill
+      %ul.dropdown-menu.text-center{ :role => "menu" }
+        %h5 Sign up with:
+        %li
+          %a{ :href => "/auth/facebook" }
+            %button.btn.btn-block
+              Facebook
+        %li
+          %a{ :href => "/auth/linkedin" }
+            %button.btn.btn-block
+              LinkedIn
+        %li
+          %a{ :href => "/auth/google" }
+            %button.btn.btn-block
+              Google
+    .dropdown
+      %button.btn.btn-block{:data => { :toggle => "dropdown" } }
+        Learn a skill
+      %ul.dropdown-menu.text-center{ :role => "menu" }
+        %h5 Be the first to know when we launch
+        %li
+          = form_tag '/emails/create', remote: true do
+            .form-group
+              = email_field_tag :placeholder => "joe@example.com", :class => "form-control"
 .container
   %section.tutors
     .intro
@@ -23,7 +45,7 @@
               .col-xs-offset-2.col-xs-8
                 = image_tag tutor.photo.url, :class => 'img-responsive img-circle tutor-photo'
               .col-xs-12.text-center
-                %h4.tutor-name
+                %h3.tutor-name
                   = tutor.first_name
               .col-xs-12.text-center
                 %p.small

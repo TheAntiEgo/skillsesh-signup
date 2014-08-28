@@ -1,0 +1,21 @@
+.container
+  .user-onboard
+    .user-photo
+      .row
+        .col-xs-6.col-xs-offset-3
+          = image_tag @user.photo.url, class: 'img-responsive img-circle'
+    .user-prompt.text-center
+      .row
+        .col-xs-12
+          %p.lead
+            Hi #{@user.first_name}! Thanks for joining Skillsesh.
+    .user-form
+      = form_for @user, html: {role: 'form'} do |f|
+        .form-group
+          = label_tag :bio, "Why don't you tell us a little bit about yourself?"
+          = f.text_area :bio, class: 'form-control', placeholder: "500 word max, please, it's just three tweets!"
+        .form-group
+          = label_tag :teachables, "What do you think you can teach?"
+          = f.text_field :teachables, class: 'form-control', placeholder: 'Like piano, sewing, music, etc'
+        .text-center
+          = f.submit class: 'btn-primary btn-default btn-lg text-center', value: "Submit"
