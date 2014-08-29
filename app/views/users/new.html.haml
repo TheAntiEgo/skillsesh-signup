@@ -40,7 +40,7 @@
       .row
         .col-xs-12
           %h2
-            Meet your tutors!
+            Meet your tutors
     .tutors-listing
       .row
         - @users.each do |tutor|
@@ -52,10 +52,10 @@
                 %h4.tutor-name
                   = tutor.first_name
               .col-xs-12.text-center
-                %p.small
+                %p
                   teaches
               .col-xs-12.text-center
-                %p.tutor-skills
+                %strong.tutor-skills
                   = tutor.teachables
 
   %section.mission
