@@ -1,7 +1,12 @@
 .jumbotron
   .container-fluid
-    %h1.hero-call 
-      Teach skills, learn skills, get paid
+    %header
+      %h1
+        Teach.
+      %h1
+        Learn.
+      %h1
+        Get paid.
     %h3.hero-action
       Join Portland's local learning community
     .dropdown
@@ -26,10 +31,9 @@
         Learn a skill
       %ul.dropdown-menu.text-center{ :role => "menu" }
         %h5 Be the first to know when we launch
-        %li
-          = form_tag '/emails/create', remote: true do
-            .form-group
-              = email_field_tag :placeholder => "joe@example.com", :class => "form-control"
+        = form_tag '/emails/create', remote: true do
+          .form-group
+            = email_field_tag :placeholder => "joe@example.com", :class => "form-control"
 .container
   %section.tutors
     .intro
@@ -45,7 +49,7 @@
               .col-xs-offset-2.col-xs-8
                 = image_tag tutor.photo.url, :class => 'img-responsive img-circle tutor-photo'
               .col-xs-12.text-center
-                %h3.tutor-name
+                %h4.tutor-name
                   = tutor.first_name
               .col-xs-12.text-center
                 %p.small
