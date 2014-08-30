@@ -3,16 +3,11 @@ default: &default
     encoding: unicode
     pool: 5
 
-codio : &codio
-    host: localhost
-
 development:
-    <<: *codio
     <<: *default
     database: skillsesh_signup_development
 
 test:
-    <<: *codio
     <<: *default
     database: skillsesh_signup_test
 
