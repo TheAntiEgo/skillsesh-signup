@@ -17,7 +17,7 @@ gem 'paperclip'
 gem 'gibbon'
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
-gem 'faker', group: :development
+gem 'faker'
 gem 'rails_12factor', group: :production
 gem 'unicorn', group: :production
 gem 'foreman', group: :production
