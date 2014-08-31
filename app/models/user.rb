@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   # TODO Refactor: Method shouldn't query and assign. Sequester control of 
   # operations to controller
   def self.from_omniauth(auth)
-    where(['provider = ? and provider_uid = ?', auth.slice(:provider), auth.slice(:uid)]).first_or_create do |user|
+    where(['provider = ? and provider_uid = ?', auth.slice(:provider), auth.slice(:uid)]).first_or_create! do |user|
       user.provider = auth.provider
       user.provider_uid = auth.uid
       user.provider_token = auth.credentials.token
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       user.last_name = auth.info.last_name
       user.email = auth.info.email
 
-      if auth.info.image && auth.provider == 'facebook'
+      if auth.info.image && auth.provider == 'facebook' || 'google'
         user.photo = URI.parse(auth.info.image.gsub('http', 'https'))
       else
         user.photo = URI.parse(auth.info.image)
