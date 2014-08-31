@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       p auth.info.image
       if auth.info.image && auth.provider == 'facebook'
-        user.photo = URI.parse(auth.info.image.gsub('http', 'https'))
+        user.photo = URI.parse(auth.info.image.gsub('http', 'https')).read
       else
-        user.photo = URI.parse(auth.info.image)
+        user.photo = URI.parse(auth.info.image).read
       end
     end
   end
