@@ -1,43 +1,37 @@
-.jumbotron
+.jumbotron.text-center
   .container-fluid
+    
     %header
+      
       .row
-        .col-xs-12.col-sm-4.col-md-offset-1.col-md-3
+        .col-xs-12.col-sm-4.col-md-4
           %h1
             Teach.
-        .col-xs-12.col-sm-4.col-md-3
+        .col-xs-12.col-sm-4.col-md-4
           %h1
             Learn.
         .col-xs-12.col-sm-4.col-md-4
           %h1
-            Earn.
+            Earn. <br><br/>
+        .row
+        =image_tag '/images/skillogobetaplain.png', size: '300x149'    
 
     .row
       .col-xs-12
-        %h3.hero-action
-          Join Portland's local learning community
+        %h3.hero-action.text-center
+          Join Portland's Learning Community
     .row
-      .col-xs-12
-        .dropdown
-          %button.btn.btn-lg{:data => { :toggle => "dropdown" } }
+      .col-xs-12.col-md-6
+        .dropdown.text-right
+          %button.btn.btn-lg.btn-primary{:data => { :toggle => "dropdown" } }
             Teach a skill
           %ul.dropdown-menu.text-center{ :role => "menu" }
-            %h5 Sign up with:
-            %li
-              %a{ :href => "/auth/facebook" }
-                %button.btn.btn-block
-                  Facebook
-            %li
-              %a{ :href => "/auth/linkedin" }
-                %button.btn.btn-block
-                  LinkedIn
-            %li
-              %a{ :href => "/auth/google" }
-                %button.btn.btn-block
-                  Google
-      .col-xs-12
-        .dropdown
-          %button.btn.btn-lg{:data => { :toggle => "dropdown" } }
+            %h3 Sign Up With <br><br/>
+            = render '/partials/loginbutt.html'
+             
+      .col-xs-12.col-md-6
+        .dropdown.text-left
+          %button.btn.btn-lg.btn-info{:data => { :toggle => "dropdown" } }
             Learn a skill
           %ul.dropdown-menu.text-center{ :role => "menu" }
             %h5 Join us when we launch
@@ -49,16 +43,16 @@
     .intro
       .row
         .col-xs-12
-          %h2
-            Meet your tutors
+          %h2.text-center
+            Meet Your Tutors
     .tutors-listing
       .row
         - @users.each do |tutor|
-          .col-xs-12
+          .col-xs-12.col-md-4
             .row.tutor
-              .col-xs-offset-1.col-xs-4
+              .col-xs-offset-1.col-xs-4.col-md-12
                 = image_tag tutor.photo.url, :class => 'img-responsive img-circle tutor-photo'
-              .col-xs-4.text-center
+              .col-xs-4.text-center.col-sm-12
                 %h4.tutor-name
                   = tutor.first_name
               
@@ -70,54 +64,69 @@
   %section.mission
     .intro
       .row
-        .col-xs-12
+        .col-xs-12.text-center
           %h2
-            Our mission
+            The Mission
     .mission-content
       .row
-        .col-xs-12.col-sm-8
-          %p
+        .col-xs-12.col-sm-8.col-md-12
+          %h4
             Our mission is to harness the untapped talents of your local community, making it possible to learn anything from anyone at anytime.
-          %p
+          %h4
             Other teaching sites are ivory towers with high barriers to entry. Students have to commit to expensive, time-consuming courses, and only the select, credentialed few are allowed to teach. SkillSesh democratizes the learning process, allowing you to acquire new skills from the members of your own community.
   %section.team
     .row
-      .col-xs-12
+      .col-xs-12.text-center
         %h2
           Your team
-    .row.text-center
-      .col-xs-12.team-member
+    
+      .col-xs-4.team-member
         .row
-          .col-xs-offset-1.col-xs-4
-            = image_tag 'http://api.randomuser.me/portraits/men/1.jpg', :class => "img-responsive img-circle"
-          .col-xs-4
-            %h3
+          .col-xs-12
+            = link_to (image_tag '/images/jhead.png', size: '220x220', :class => "img-responsive img-circle"),  "https://www.linkedin.com/pub/john-connor/36/358/8b4/", :target => "_blank"
+            %h3.text-center
               John
-            %p.lead
+            %p.lead.text-center
               Markets
-      .col-xs-12.team-member
+      .col-xs-4.team-member
         .row
-          .col-xs-push-4.col-xs-offset-1.col-xs-4
-            = image_tag 'http://api.randomuser.me/portraits/men/2.jpg', :class => "img-responsive img-circle"
-          .col-xs-pull-4.col-xs-4
+          .col-xs-12
+            = link_to (image_tag '/images/bhead.png', size: '220x220', :class => "img-responsive img-circle"),  "https://www.linkedin.com/pub/beno%C3%AEt-barberousse/8a/aab/616", :target => "_blank"
             %h3.text-center
               Benoit
             %p.lead.text-center
               Tech
-      .col-xs-12.team-member
+      .col-xs-4.team-member
         .row
-          .col-xs-offset-1.col-xs-4
-            = image_tag 'http://api.randomuser.me/portraits/men/3.jpg', :class => "img-responsive img-circle"
-          .col-xs-4
-            %h3
+          .col-xs-12
+            = link_to (image_tag '/images/Brandonpic.png', size: '220x220', :class => "img-responsive img-circle"),  "https://www.linkedin.com/pub/brandon-gordon/99/64a/497", :target => "_blank"
+            %h3.text-center
               Brandon
-            %p.lead
+            %p.lead.text-center
               Narrative
   %section.share
-    %h3
-      Follow our journey
-    .journey-buttons
-      
-    %h3
-      Share with your friends
+    .row
+      .col-xs-12.text-center
+        .col-xs-12.col-md-6
+          %h3
+            Follow Our Journey <br><br/>
+          .col-xs-offset-1.col-xs-3
+            = link_to (image_tag '/images/Gplus.png', size: '70x70'), "https://plus.google.com/108372836959462323148/posts", :target => "_blank"
+          .col-xs-3
+            = link_to (image_tag '/images/Facebook.png', size: '70x70'), "https://www.facebook.com/SkillSesh", :target => "_blank"
+          .col-xs-3
+            = link_to (image_tag '/images/Twitter.png', size: '70x70'),  "https://twitter.com/SkillSesh", :target => "_blank"
+            <br><br/>
+          .journey-buttons
+        .col-xs-12.col-md-6  
+          %h3
+            Share With Friends <br><br/>
+          .col-xs-3
+            = image_tag '/images/linkdicon.png', size: '64x64'
+          .col-xs-3
+            = image_tag '/images/fbsquare.png', size: '64x64'
+          .col-xs-3
+            = image_tag '/images/gplussquare.png', size: '64x64'
+          .col-xs-3
+            = image_tag '/images/twittersquare.png', size: '64x64'  
 %footer

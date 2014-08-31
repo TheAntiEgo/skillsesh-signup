@@ -1,52 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require font-awesome
- *= require_tree .
- *= require_self
- */
+@import "variables"
 
-//== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
-
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif 
-$font-family-serif:       Georgia, "Times New Roman", Times, serif 
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace 
-$font-family-base:        $font-family-sans-serif 
-
-$font-size-base:          14px 
-$font-size-large:         ceil(($font-size-base * 1.33))
-$font-size-small:         ceil(($font-size-base * 0.75))
-
-$font-size-h1:            floor(($font-size-base * 3.157))
-$font-size-h2:            floor(($font-size-base * 2.369))
-$font-size-h3:            ceil(($font-size-base * 1.777))
-$font-size-h4:            ceil(($font-size-base * 1.25))
-$font-size-h5:            $font-size-base 
-$font-size-h6:            ceil(($font-size-base * 0.85))
-
-//** Unit-less `line-height` for use in components like buttons.
-$line-height-base:        1.333
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    floor(($font-size-base * $line-height-base))
-
-$headings-line-height:    1
-
-$navbar-height: 58.921px
-
-@import "bootstrap-sprockets"
 @import "bootstrap"
+
+@import "bootswatch"
+
+@import "SocialLogin"
 
 body
   padding-top: 58.921px
@@ -89,3 +47,16 @@ body
 .team-member
   margin:
     bottom: 42.635px
+
+@media (min-width: $screen-md-min)
+  .tutor
+    padding: 40px
+    
+@media (min-width: $screen-md-min)
+  .team-member
+    padding: 70px
+    
+@media (min-width: $screen-md-min)
+   
+    
+

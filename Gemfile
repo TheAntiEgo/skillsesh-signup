@@ -14,10 +14,12 @@ gem 'omniauth-linkedin-oauth2'
 gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
 gem 'paperclip'
+gem 'aws-sdk'
+gem 'bootswatch-rails'
 gem 'gibbon'
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
-gem 'faker', group: :development
+gem 'faker'
 gem 'rails_12factor', group: :production
 gem 'unicorn', group: :production
 gem 'foreman', group: :production
