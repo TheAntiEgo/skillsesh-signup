@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
       if auth.info.image && auth.provider == 'facebook'
         user.photo = URI.parse(auth.info.image.gsub('http', 'https')).read
       else
-        unless URI.parse(auth.info.image.gsub('http', 'https')).open.content_type == "image/png"
+        unless URI.parse(auth.info.image.gsub('http', 'https')).content_type == "image/png"
           user.photo = URI.parse(auth.info.image).read
         else
           next
