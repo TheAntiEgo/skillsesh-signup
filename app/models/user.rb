@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
           user.photo = URI.parse(auth.info.image).open
         else
           next
+        end
       end
     end
   end
