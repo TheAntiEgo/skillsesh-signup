@@ -15,6 +15,7 @@ gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'bootswatch-rails'
 gem 'gibbon'
 gem 'spring', group: :development
 gem 'pry-rails', group: :development
