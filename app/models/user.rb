@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
 
-  has_attached_file :photo
-  validates_attachment_content_type :photo, content_type: /\Aimage\/jp[e]?g\Z/
-
   ##
   # Class methods
   ##
@@ -19,16 +16,7 @@ class User < ActiveRecord::Base
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
       user.email = auth.info.email
-      
-      if auth.info.image && auth.provider == 'facebook'
-        user.photo = URI.parse(auth.info.image.gsub('http', 'https')).read
-      else
-        unless URI.parse(auth.info.image.gsub('http', 'https')).content_type == "image/png"
-          user.photo = URI.parse(auth.info.image).read
-        else
-          next
-        end
-      end
+      user.photo = auth.extra.raw_info.pictureUrls[:values].first || auth.info.image
     end
   end
 
