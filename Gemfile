@@ -13,8 +13,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
 gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
-gem 'paperclip'
-gem 'aws-sdk'
 gem 'bootswatch-rails'
 gem 'gibbon'
 gem 'spring', group: :development

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826052938) do
+ActiveRecord::Schema.define(version: 20140901001502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,11 @@ ActiveRecord::Schema.define(version: 20140826052938) do
     t.string   "last_name"
     t.string   "email"
     t.text     "bio"
-    t.string   "learnables"
     t.string   "teachables"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.uuid     "remember_token",            null: false
+    t.string   "photo"
+    t.string   "remember_token"
   end
 
   add_index "users", ["provider", "provider_uid"], name: "index_users_on_provider_and_provider_uid", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
 
 end
