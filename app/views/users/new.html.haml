@@ -2,7 +2,10 @@
   .container-fluid
     
     %header
-      
+      .row
+        =image_tag '/images/skillogobetaplain.png', size: '250x125'   
+      .row      
+        <p class="half-line">&nbsp;</p> 
       .row
         .col-xs-12.col-sm-4.col-md-4
           %h1
@@ -12,13 +15,12 @@
             Learn.
         .col-xs-12.col-sm-4.col-md-4
           %h1
-            Earn. <br><br/>
-        .row
-        =image_tag '/images/skillogobetaplain.png', size: '300x149'    
-
+            Earn.    
+        .row      
+          <p class="half-line">&nbsp;</p>    
     .row
       .col-xs-12
-        %h3.hero-action.text-center
+        %h2.hero-action.text-center
           Join Portland's Learning Community
     .row
       .col-xs-12.col-md-6
@@ -48,11 +50,17 @@
     .tutors-listing
       .row
         - @users.each do |tutor|
-          .col-xs-12.col-md-4
+          .col-xs-12.col-md-3
             .row.tutor
+<<<<<<< Updated upstream
               .col-xs-offset-1.col-xs-4.col-md-12
                 = image_tag tutor.photo, :class => 'img-responsive img-circle tutor-photo'
               .col-xs-4.text-center.col-sm-12
+=======
+              .col-xs-offset-1.col-xs-6.col-md-12
+                = image_tag tutor.photo.url, :class => 'img-responsive img-circle tutor-photo'
+              .col-xs-5.text-center.col-sm-12
+>>>>>>> Stashed changes
                 %h4.tutor-name
                   = tutor.first_name
               
