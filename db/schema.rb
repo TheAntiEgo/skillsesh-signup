@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902011532) do
+ActiveRecord::Schema.define(version: 20140902054929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140902011532) do
     t.datetime "updated_at"
   end
 
+  add_index "courses", ["instructor_id"], name: "index_courses_on_instructor_id", using: :btree
+
   create_table "courses_skills", id: false, force: true do |t|
     t.uuid "course_id"
     t.uuid "skill_id"
@@ -58,17 +60,7 @@ ActiveRecord::Schema.define(version: 20140902011532) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.text     "goal"
-    t.text     "how"
-    t.text     "requirements"
-    t.decimal  "duration"
-    t.decimal  "price"
-    t.integer  "location"
-    t.uuid     "instructor_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "skills", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name"
@@ -77,7 +69,10 @@ ActiveRecord::Schema.define(version: 20140902011532) do
   end
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string "email", null: false
+    t.string "email",          null: false
+    t.uuid   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
 
 end
