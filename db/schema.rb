@@ -11,25 +11,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901001502) do
+ActiveRecord::Schema.define(version: 20140902011532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "users", force: true do |t|
+  create_table "authentications", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "provider"
-    t.string   "provider_uid"
+    t.string   "provider_id"
     t.string   "provider_token"
     t.datetime "provider_token_expires_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.text     "bio"
-    t.string   "teachables"
-    t.string   "photo"
-    t.string   "remember_token"
+    t.uuid     "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["provider", "provider_uid"], name: "index_users_on_provider_and_provider_uid", unique: true, using: :btree
+  add_index "authentications", ["provider", "provider_id"], name: "index_authentications_on_provider_and_provider_id", unique: true, using: :btree
+
+  create_table "courses", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.text     "goal"
+    t.text     "how"
+    t.text     "requirements"
+    t.decimal  "duration"
+    t.decimal  "price"
+    t.integer  "location"
+    t.uuid     "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses_skills", id: false, force: true do |t|
+    t.uuid "course_id"
+    t.uuid "skill_id"
+  end
+
+  add_index "courses_skills", ["course_id"], name: "index_courses_skills_on_course_id", using: :btree
+  add_index "courses_skills", ["skill_id"], name: "index_courses_skills_on_skill_id", using: :btree
+
+  create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "bio"
+    t.uuid     "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.text     "goal"
+    t.text     "how"
+    t.text     "requirements"
+    t.decimal  "duration"
+    t.decimal  "price"
+    t.integer  "location"
+    t.uuid     "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string "email", null: false
+  end
 
 end
