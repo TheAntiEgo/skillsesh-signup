@@ -13,9 +13,18 @@ gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'gibbon'
-gem 'spring', group: :development
-gem 'pry-rails', group: :development
-gem 'faker'
-gem 'rails_12factor', group: :production
-gem 'unicorn', group: :production
-gem 'foreman', group: :production
+
+group :development, :test do
+  gem 'spring'
+  gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'shoulda'
+  gem 'pry-rails'
+  gem 'faker'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'foreman'
+end
