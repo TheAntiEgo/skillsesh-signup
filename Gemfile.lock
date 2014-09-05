@@ -144,12 +144,6 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
-    shoulda (3.5.0)
-      shoulda-context (~> 1.0, >= 1.0.1)
-      shoulda-matchers (>= 1.4.1, < 3.0)
-    shoulda-context (1.2.1)
-    shoulda-matchers (2.7.0)
-      activesupport (>= 3.0.0)
     slop (3.6.0)
     spring (1.1.3)
     sprockets (2.11.0)
@@ -198,7 +192,6 @@ DEPENDENCIES
   rails (~> 4.1.5)
   rails_12factor
   sass-rails
-  shoulda
   spring
   uglifier
   unicorn

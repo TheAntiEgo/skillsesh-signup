@@ -18,7 +18,6 @@ group :development, :test do
   gem 'spring'
   gem 'byebug'
   gem 'factory_girl_rails'
-  gem 'shoulda'
   gem 'pry-rails'
   gem 'faker'
 end
