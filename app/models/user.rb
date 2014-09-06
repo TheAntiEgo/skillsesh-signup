@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   # Class methods
   ##
   
-  # TODO Refactor: Method shouldn't query and assign. Sequester control of 
-  # operations to controller
   def self.from_omniauth(auth)
     where(['provider = ? and provider_uid = ?', auth.slice(:provider), auth.slice(:uid)]).first_or_create! do |user|
       user.provider = auth.provider
