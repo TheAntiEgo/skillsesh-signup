@@ -11,4 +11,16 @@ class Authentication < ActiveRecord::Base
   ##
 
   belongs_to :user
+  
+  ##
+  # Class methods
+  ##
+  def self.from_omniauth(auth)
+    new do |a|
+      a.provider = auth.provider
+      a.provider_id = auth.uid
+      a.provider_token = auth.credentials.token
+      a.provider_token_expires_at = auth.credentials.expires_at
+    end
+  end
 end

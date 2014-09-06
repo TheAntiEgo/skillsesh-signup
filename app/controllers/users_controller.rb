@@ -1,30 +1,26 @@
 class UsersController < ApplicationController
-  def new
-    @users = User.all.limit(15)
-  end
-
+  rescue_from ActiveRecord::ActiveRecordError, :with => catch_activerecord_error
+  
   def create
-    @user  = User.from_omniauth(request.env['omniauth.auth'])
-
-    if @user.persisted?
-      redirect_to edit_user_path(@user)
-    else
-      redirect_to action: :new, alert: "Something went wrong! Try again or give us a hollar for help"
-    end
+    redirect_to root_path, notice: "You're already down with the crew, why don't you share us with your friends?" if Authentication.where(['provider = ? and provider_uid = ?', get_auth.slice(:provider), get_auth.slice(:uid)])
+    
+    @user = User.new(:email => get_auth[:email], :remember_token => SecureRandom.uuid)
+    @user.authentications << Authentication.from_omniauth(get_auth)
+    @user.profile = Profile.from_omniauth(get_auth)
+    @user.save!
+    
+    session[:remember_token] = @user.remember_token
+    redirect_to onboard_path
   end
-
-  def update
-    User.find(params[:id]).update(get_params)
-    redirect_to action: :new, notice: "Welcome to Skillsesh!"
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
+  
   private
 
-  def get_params
-    params.require(:user).permit(:id, :bio, :teachables, :learnables)
+  def get_auth
+    params = ActionController.params.new(request.env['omniauth.auth'])
+    params.permit([:provider, :uid, :info => [:first_name, :last_name, :email, :image], :credentials => [:token, :expires_at], :extra => {:raw_info => :pictureUrls}])
+  end
+  
+  def catch_activerecord_error(exception)
+    redirect_to root_path, :alert => "Try logging in again"
   end
 end
