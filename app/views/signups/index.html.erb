@@ -99,20 +99,22 @@
     </div>
     <div class="tutors-listing">
       <div class="row text-center">
-        <% @users.each do |tutor| %>
+        <% @profiles.each do |profile| %>
         <div class="col-xs-12 col-sm-3">
-          <div class="row tutor">
+          <div class="row tutor-unit">
             <div class="col-xs-6 col-sm-12 highlightit">
-              <%= image_tag tutor.photo, :class => 'img-responsive img-circle tutor-photo' %>
+              <%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo' %>
               <div class="col-xs-4">
                 <h4 class="tutor-name">
-                  <%= tutor.first_name %>
+                  <%= profile.first_name %>
                 </h4>
                 <p>
                   Teaches
                 </p>
                 <strong class="tutor-skills tutort">
-                <%= tutor.teachables %>
+                <% profile.skills.each do |skill| %>
+                  <%= skill.name %>
+                <% end %>
                 </strong>
               </div>
             </div>

@@ -3,7 +3,7 @@ class SignupsController < ApplicationController
   
   def index
     reset_session
-    @users = User.all.limit(15)
+    @profiles = Profile.all.limit(15)
   end
   
   def onboard
@@ -19,4 +19,5 @@ class SignupsController < ApplicationController
   
   def get_params
     params.require(:user).permit(:profile => [:bio, :skills, {:course => [:goal, :how, :requirements, :duration, :price, :location, :skills]}])
-  end    
+  end
+end

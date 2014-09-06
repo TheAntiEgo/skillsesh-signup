@@ -4,9 +4,9 @@ FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     remember_token { SecureRandom.uuid }
-
+    
     after :build do |user|
-      user.profile = build :profile
+      user.authentications << build(:authentication)
     end
   end
 end
