@@ -15,24 +15,29 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-(function ($) {
-  $(document).ready(function(){
-
-    // hide .navbar first
-    $(".navbar").hide();
-
-    // fade in .navbar
-    $(function () {
-        $(window).scroll(function () {
-
-                 // set distance user needs to scroll before we start fadeIn
-            if ($(this).scrollTop() > 100) {
-                $('.navbar').fadeIn();
-            } else {
-                $('.navbar').fadeOut();
-            }
-        });
-    });
-
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('input[title]').tooltip({placement:'top'});
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
 });
-  }(jQuery));
+
+$('#basicModal1').modal(options);
+$('#basicModal2').modal(options);
+
+
+// Word Count
+$('#field').keyup(function () {
+  var max = 500;
+  var len = $(this).val().length;
+  if (len >= max) {
+    $('#charNum').text(' you have reached the limit');
+  } else {
+    var char = max - len;
+    $('#charNum').text(char + ' characters left');
+  }
+});
+
+
+
