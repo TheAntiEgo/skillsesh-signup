@@ -11,25 +11,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901001502) do
+ActiveRecord::Schema.define(version: 20140906221407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: true do |t|
+  create_table "authentications", force: true do |t|
     t.string   "provider"
-    t.string   "provider_uid"
+    t.string   "provider_id"
     t.string   "provider_token"
     t.datetime "provider_token_expires_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.text     "bio"
-    t.string   "teachables"
-    t.string   "photo"
-    t.string   "remember_token"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["provider", "provider_uid"], name: "index_users_on_provider_and_provider_uid", unique: true, using: :btree
+  add_index "authentications", ["provider", "provider_id"], name: "index_authentications_on_provider_and_provider_id", unique: true, using: :btree
+
+  create_table "courses", force: true do |t|
+    t.text     "goal"
+    t.text     "how"
+    t.text     "requirements"
+    t.decimal  "duration"
+    t.decimal  "price"
+    t.integer  "location"
+    t.integer  "instructor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "courses", ["instructor_id"], name: "index_courses_on_instructor_id", using: :btree
+
+  create_table "courses_skills", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "skill_id"
+  end
+
+  add_index "courses_skills", ["course_id"], name: "index_courses_skills_on_course_id", using: :btree
+  add_index "courses_skills", ["skill_id"], name: "index_courses_skills_on_skill_id", using: :btree
+
+  create_table "profiles", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "bio"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "profiles_skills", id: false, force: true do |t|
+    t.integer "profile_id"
+    t.integer "skill_id"
+  end
+
+  add_index "profiles_skills", ["profile_id"], name: "index_profiles_skills_on_profile_id", using: :btree
+  add_index "profiles_skills", ["skill_id"], name: "index_profiles_skills_on_skill_id", using: :btree
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "email",          null: false
+    t.uuid   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
 
 end
