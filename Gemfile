@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-gem 'rails', '~>4.1.4'
+gem 'rails', '~> 4.1.5'
 gem 'pg'
-gem 'haml'
-gem 'haml-rails'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
@@ -15,9 +13,17 @@ gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'gibbon'
-gem 'spring', group: :development
-gem 'pry-rails', group: :development
-gem 'faker'
-gem 'rails_12factor', group: :production
-gem 'unicorn', group: :production
-gem 'foreman', group: :production
+
+group :development, :test do
+  gem 'spring'
+  gem 'byebug'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'faker'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'unicorn'
+  gem 'foreman'
+end
