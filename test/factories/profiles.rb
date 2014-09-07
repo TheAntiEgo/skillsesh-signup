@@ -10,6 +10,7 @@ FactoryGirl.define do
     
     after(:build) do |prof|
       prof.skills << build_list(:skill, Random.new.rand(1..5))
+      prof.courses << build(:course)
     end      
   end
 end
