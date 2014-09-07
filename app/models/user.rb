@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Associations
   ##
   has_many :authentications, dependent: :destroy
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :courses, foreign_key: 'instructor_id'
   
   ##
