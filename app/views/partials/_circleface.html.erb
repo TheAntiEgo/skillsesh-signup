@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag @profile.photo, :class => "img-responsive img-circle" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <% @profile.courses.each do |course|%>
+        <%= link_to course.name, course_path(course)  %>
+      <% end %>
+    </div>
+  </div>
+</div>
