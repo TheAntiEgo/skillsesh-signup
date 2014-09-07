@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906221407) do
+ActiveRecord::Schema.define(version: 20140907022435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140906221407) do
     t.string   "provider"
     t.string   "provider_id"
     t.string   "provider_token"
-    t.datetime "provider_token_expires_at"
+    t.string   "provider_token_expires_at"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,18 +29,19 @@ ActiveRecord::Schema.define(version: 20140906221407) do
   add_index "authentications", ["provider", "provider_id"], name: "index_authentications_on_provider_and_provider_id", unique: true, using: :btree
 
   create_table "courses", force: true do |t|
+    t.string   "name"
     t.text     "goal"
     t.text     "how"
     t.text     "requirements"
     t.decimal  "duration"
     t.decimal  "price"
     t.integer  "location"
-    t.integer  "instructor_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "courses", ["instructor_id"], name: "index_courses_on_instructor_id", using: :btree
+  add_index "courses", ["profile_id"], name: "index_courses_on_profile_id", using: :btree
 
   create_table "courses_skills", id: false, force: true do |t|
     t.integer "course_id"

@@ -5,6 +5,6 @@ FactoryGirl.define do
     provider { ["facebook", "google", "linkedin"].shuffle.first }
     provider_id { SecureRandom.hex(6) }
     provider_token { SecureRandom.hex(6) }
-    provider_token_expires_at { 45.days.from_now }
+    provider_token_expires_at { 45.days.from_now.to_s }
   end
 end

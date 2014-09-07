@@ -10,6 +10,7 @@ class Profile < ActiveRecord::Base
   # Associations
   ##
   belongs_to :user
+  has_many :courses
   has_and_belongs_to_many :skills
   
   ##
@@ -17,9 +18,13 @@ class Profile < ActiveRecord::Base
   ##
   def self.from_omniauth(auth)
     new do |profile|
-      profile.first_name = auth.info.first_name
-      profile.last_name = auth.info.last_name
-      profile.photo = auth.extra.raw_info.pictureUrls[:values].first || auth.info.image
+      profile.first_name = auth[:info][:first_name]
+      profile.last_name = auth[:info][:last_name]
+      if auth[:provider] == 'linkedin'
+        profile.photo = auth[:extra][:raw_info][:pictureUrls][:values].first
+      else
+        profile.photo = auth[:info][:image]
+      end
     end
   end
 end
