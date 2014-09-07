@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?
-    redirect_to(root_path, :alert => "You're not down with the crew! Join up!") unless session[:remember_token]
+    session[:remember_token] != nil
   end
+  
+  helper_method :current_user, :logged_in?
 end
