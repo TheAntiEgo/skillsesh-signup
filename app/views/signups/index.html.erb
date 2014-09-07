@@ -103,7 +103,9 @@
         <div class="col-xs-12 col-sm-3">
           <div class="row tutor-unit">
             <div class="col-xs-6 col-sm-12 highlightit">
-              <%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo' %>
+              <%= link_to user_path(profile.user) do %>
+                <%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo' %>
+              <% end %>
               <div class="col-xs-4">
                 <h4 class="tutor-name">
                   <%= profile.first_name %>
