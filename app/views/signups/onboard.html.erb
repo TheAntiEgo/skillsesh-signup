@@ -1,17 +1,13 @@
-  <head>
- 
-    <script>
-      function countChar(val) {
-        var len = val.value.length;
-        if (len >= 500) {
-          val.value = val.value.substring(0, 500);
-        } else {
-          $('#charNum').text(500 - len);
-        }
-      };
-    </script>
-  </head>
-
+<script>
+  function countChar(val) {
+    var len = val.value.length;
+    if (len >= 500) {
+      val.value = val.value.substring(0, 500);
+    } else {
+      $('#charNum').text(500 - len);
+    }
+  };
+</script>
 <div class="container">
   <div class="user-onboard">
     <div class="user-photo">
@@ -19,7 +15,7 @@
          <p></p>
         <div class="col-xs-8 col-xs-offset-2"> 
         <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 highlightit barrier">
-          <%= image_tag @user.photo, class: 'img-responsive img-circle' %>
+          <%= image_tag @profile.photo, class: 'img-responsive img-circle' %>
         </div>
       </div>
      </div>
@@ -28,13 +24,13 @@
       <div class="row">
         <div class="col-xs-12">
           <p class="lead">
-            Hi <%= @user.first_name %>! Thanks for joining Skillsesh.
+            Hi <%= @profile.first_name %>! Thanks for joining Skillsesh.
           </p>
         </div>
       </div>
     </div>
     <div class="user-form col-xs-8 col-xs-offset-2">
-      <%= form_for @user, html: {role: 'form'} do |f| %>
+      <%= form_for @profile, url: update_path, html: {role: 'form'} do |f| %>
         <div class="form-group" rel="tooltip" title="Search All Items">
           <%= label_tag :bio, "Why don't you tell us a little bit about yourself?" %>
           <div id="charNum"></div>  
@@ -42,8 +38,8 @@
            data: {toggle: "popover", html: "true", placement: "top", content: "#charNum" }, title: "Popover to give hot tips!" %>
         </div>
         <div class="form-group">
-          <%= label_tag :teachables, "What do you think you can teach?" %>
-          <%= f.text_field :teachables, class: 'form-control', placeholder: 'Like piano, sewing, music, etc', data: {toggle: "tooltip", placement: "top" }, title: "tooltip on second input! more words to text fit" %>
+          <%= label_tag :skills, "What do you think you can teach?" %>
+          <%= f.text_field :skills, class: 'form-control', placeholder: 'Like piano, sewing, music, etc', data: {toggle: "tooltip", placement: "top" }, title: "tooltip on second input! more words to text fit", value: "" %>
         </div>
         <div class="text-center">
           <%= f.submit class: 'btn btn-info btn-default btn-lg text-center', value: "Submit" %>

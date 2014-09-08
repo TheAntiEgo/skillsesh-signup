@@ -1,4 +1,7 @@
 class Course < ActiveRecord::Base
+
+  enum :location => [:your_place, :my_place, :other, :any]
+  
   ##
   # Validations
   ##
