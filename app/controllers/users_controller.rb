@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    byebug
-    redirect_to root_path, notice: "You're already down with the crew, why don't you share us with your friends?" if Authentication.where(['provider = ? and provider_uid = ?', get_auth.slice(:provider), get_auth.slice(:uid)])
+    redirect_to root_path, notice: "You're already down with the crew, why don't you share us with your friends?" if Authentication.where(['provider = ? and provider_id = ?', get_auth.slice(:provider), get_auth.slice(:uid)])
     
     @user = User.new(:email => get_auth[:info][:email], :remember_token => SecureRandom.uuid)
     @user.authentications << Authentication.from_omniauth(get_auth)
@@ -16,7 +15,8 @@ class UsersController < ApplicationController
     
     redirect_to(root_url, :alert => "Something went wrong!") if @error
     session[:remember_token] = @user.remember_token
-    redirect_to(onboard_path)
+    byebug
+    redirect_to :controller => 'signups', :action => 'onboard'
   end
   
   def show

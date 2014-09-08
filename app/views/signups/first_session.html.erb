@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= image_tag @profile.photo, :class => "img-responsive img-circle" %>
+    </div>
+  </div> <!-- END of row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>
+        Let's create your first skillsesh, <%= @profile.first_name %>!
+      </h1>
+    </div>
+  </div> <!-- END of row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row">      
+        <%= form_for @course, url: update_path do |f| %>
+          <div class="col-xs-12">
+            <%= f.text_field :name, placeholder: "What's the name of your session?" %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.text_area :goal, placeholder: "What will your student accomplish by the end of the session?" %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.text_area :how, placeholder: "What're are you going to do?" %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.text_field :price, placeholder: "So, how much?" %>
+          </div>
+          <div class="col-xs-12">
+            How long is the session? <%= f.time_field :duration %>
+          </div>
+          <div class="col-xs-12">
+            Your place <%= f.radio_button :location, "Your place" %>
+            Their place <%= f.radio_button :location, "Their place" %>
+            Anywhere <%= f.radio_button :location, "Anywhere" %>
+            Other <%= f.radio_button :location, "Other" %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div> <!-- END of row -->
+</div>

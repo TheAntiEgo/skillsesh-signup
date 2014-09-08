@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   
   def update
     @current_user.profile.update(get_params)
-    redirect_to :show, :notice => "Profile updated!"
+    redirect_to :action => :show, :notice => "Profile updated!"
   end
   
   private

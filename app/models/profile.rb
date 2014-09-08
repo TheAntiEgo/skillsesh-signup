@@ -2,15 +2,12 @@ class Profile < ActiveRecord::Base
   ##
   # Validations
   ##
-  validates_presence_of :user, :first_name, :last_name
-  validates_length_of :bio, minimum: 150, maximum: 500
-  validates_associated :user
 
   ##
   # Associations
   ##
   belongs_to :user
-  has_many :courses
+  has_many :courses, :dependent => :destroy
   has_and_belongs_to_many :skills
   
   ##
@@ -26,5 +23,15 @@ class Profile < ActiveRecord::Base
         profile.photo = auth[:info][:image]
       end
     end
+  end
+  
+  ##
+  # Instance methods
+  ##
+  def skills=(str_or_array) #expects a string
+    list = str_or_array.split(/\,/).map {|s| s.downcase.strip} if str_or_array.kind_of? String
+    list.each do |s|
+      self.skills << Skill.new(:name => s)
+    end      
   end
 end
