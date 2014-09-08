@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Omniauth
   ##
   constraints :provider => /facebook|google|linkedin/ do
-    match 'auth/:provider/callback' => 'users#create', :via => [:get, :post]
+    match 'auth/:provider/callback' => 'signups#create', :via => [:get, :post]
   end
   
   ##
@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   ##
   get '/onboard' => 'signups#onboard', :as => 'onboard'
   get '/new_session' => 'signups#first_session', :as => 'first_session'
-  post '/update' => 'signups#update'
+  match '/update' => 'signups#update', :via => [:patch, :put, :post]
+  
+  ##
+  # Email signups
+  ##
+  post '/email_subscribe' => 'emails#create', :as => 'subscribe'
   
   ##
   # Login/Logout
