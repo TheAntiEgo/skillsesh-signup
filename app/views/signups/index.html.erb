@@ -1,69 +1,69 @@
+ <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal1" aria-hidden="true" data-width="760">
+   <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel">
+          <h1 class="text-center">Sign Up With</h1>
+        </h4>
+      </div>
+      <div class="modal-body text-center">
+        <%= render '/partials/loginbutt.html' %>
+      </div>
+  </div>
+</div>
+
 <div class="jumbotron text-center">
   <div class="container-fluid">
     <header>
-      <div class="row">
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-      </div>
       <div class="row heavy">
-        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          
+        
+        <div class="col-xs-12 col-sm-4 ">
           <h1>
-            Teach.
+            Teach
           </h1>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <h1>
-            Learn.
+            Learn
           </h1>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <h1>
-            Earn.    
+            Earn    
           </h1>
         </div>
+      </div>
         <div class="row">
-          <p >&nbsp;</p>
-          <br><br/> <br><br/>    
+          <br><br/>     
         </div>
       </div>
     </header>
     <div class="row">
       <div class="col-xs-12">
         <h2 class="hero-action text-center">
-          Join Portland's Learning Community
+          Join Portland's Learning Community!
+          <br><br/>
         </h2>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <div class="dropdown text-right">
+        <div class="text-right btnmain">
           <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#basicModal1">
           Teach a skill
           </button>
-          <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal1" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                  <h4 class="modal-title" id="myModalLabel">
-                    <h1 class="text-center">Sign Up With</h1>
-                  </h4>
-                </div>
-                <div class="modal-body text-center">
-                  <%= render '/partials/loginbutt.html' %>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
       <div class="col-xs-12 col-md-6">
-        <div class="dropdown text-left">
+        <div class="dropdown text-left btnmain">
           <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal2">
           Learn a skill
           </button>
-          <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true">
-            <div class="modal-dialog">
+          <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true" data-focus-on="input:first">
+            
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -74,10 +74,33 @@
                 <div class="modal-body text-center">
                   <%= form_tag '/emails/create', remote: true do %>
                   <div class="form-group">
+                    <div>
                     <%= email_field_tag :placeholder => "joe@example.com", :class => "form-control" %>
+                    </div>
+                    <br>
+                     <div>
+                       <%= submit_tag "Submit", class: "btn btn-large btn-primary", data: {toggle: "modal", target: "#myModal"} %>
+                       <!-- Modal -->
+                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace ="true">
+                       
+                          <div class="modal-content">
+                            
+                            <div class="modal-body text-center">
+                              <h2 class="modal-title" id="myModalLabel">Get your friends involved too!</h2>
+                                <br>
+                              <%= render '/partials/sharebutt.html' %>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                            
+                          </div>
+                       
+                      </div>
+                    </div>
                   </div>
                   <% end %>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -92,7 +115,8 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="text-center">
-            Meet Your Tutors
+                                  <img class="img-responsive center-block" src="/images/SkillSesh_BrandInitial2.png" style="height: 80px; width: 768px;"/>
+
           </h2>
         </div>
       </div>
@@ -105,8 +129,8 @@
             <div class="col-xs-6 col-sm-12 highlightit">
               <%= link_to user_path(profile.user) do %>
                 <%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo' %>
-              <% end %>
-              <div class="col-xs-4">
+              <% end %> </div>
+              <div class="col-xs-6 col-sm-12">
                 <h4 class="tutor-name">
                   <%= profile.first_name %>
                 </h4>
@@ -120,7 +144,6 @@
                 </strong>
               </div>
             </div>
-          </div>
         </div>
         <% end %>
       </div>
@@ -130,21 +153,26 @@
     <div class="intro">
       <div class="row">
         <div class="col-xs-12 text-center">
-          <h2>
+          <h1>
             The Mission
-          </h2>
+          </h1>
+                      <img class="img-responsive center-block" src="/images/Skillsesh_Five.png" style="height: 150px; width: auto;"/>
+
         </div>
       </div>
     </div>
     <div class="mission-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-12">
-          <h4>
+        <div class="col-xs-12 col-md-12">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            
+          <h3>
             Our mission is to harness the untapped talents of your local community, making it possible to learn anything from anyone at anytime.
-          </h4>
+            </h3>
           <h4>
             Other teaching sites are ivory towers with high barriers to entry. Students have to commit to expensive, time-consuming courses, and only the select, credentialed few are allowed to teach. SkillSesh democratizes the learning process, allowing you to acquire new skills from the members of your own community.
           </h4>
+          </div> 
         </div>
       </div>
     </div>
@@ -159,7 +187,9 @@
       <div class="col-xs-4 highlightit team-member">
         <div class="row">
           <div class="col-xs-12">
-            <%= link_to image_tag '/images/jhead.png', size: '220x220', :class => "img-responsive img-circle",  :href => "https://www.linkedin.com/pub/john-connor/36/358/8b4/", :target => "_blank" %>
+            <%= link_to "https://www.linkedin.com/pub/john-connor/36/358/8b4/", :target => "_blank" do %>
+              <%= image_tag '/images/jhead.png', size: '220x220', :class => "img-responsive img-circle" %>
+            <% end %>
             <h3 class="text-center">
               John
             </h3>
@@ -172,7 +202,9 @@
       <div class="col-xs-4 highlightit team-member">
         <div class="row">
           <div class="col-xs-12">
-            <%= image_tag '/images/bhead.png', size: '220x220', :class => "img-responsive img-circle", :href => "https://www.linkedin.com/pub/beno%C3%AEt-barberousse/8a/aab/616", :target => "_blank" %>
+             <%= link_to "https://www.linkedin.com/pub/beno%C3%AEt-barberousse/8a/aab/616", :target => "_blank" do %>
+              <%= image_tag '/images/bhead.png', size: '220x220', :class => "img-responsive img-circle" %>
+            <% end %>
             <h3 class="text-center">
               Benoit
             </h3>
@@ -184,8 +216,11 @@
       </div>
       <div class="col-xs-4 highlightit team-member">
         <div class="row">
-          <div class="col-xs-12">
-            <%= link_to image_tag '/images/Brandonpic.png', size: '220x220', :class => "img-responsive img-circle",  :href => "https://www.linkedin.com/pub/brandon-gordon/99/64a/497", :target => "_blank" %>
+         
+            <div class="col-xs-12">
+             <%= link_to "https://www.linkedin.com/pub/brandon-gordon/99/64a/497", :target => "_blank" do %>
+              <%= image_tag '/images/Brandonpic.png', size: '220x220', :class => "img-responsive img-circle" %>
+            <% end %>
             <h3 class="text-center">
               Brandon
             </h3>
@@ -220,18 +255,27 @@
           <h3>
             Share With Friends <br><br/>
           </h3>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/linkdicon.png', size: '64x64' %>
-          </div>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/fbsquare.png', size: '64x64' %>
-          </div>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/gplussquare.png', size: '64x64' %>
-          </div>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/twittersquare.png', size: '64x64'   %>
-          </div>
+      
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=http://www.skillsesh.com/&title=Get+Skilled", :target => "_blank" do %> 
+              <%= image_tag '/images/linkdicon.png', size: '64x64' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://www.facebook.com/sharer/sharer.php?u=http://www.skillsesh.com/", :target => "_blank" do %> 
+              <%= image_tag '/images/fbsquare.png', size: '64x64' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "https://plus.google.com/share?url=http://www.skillsesh.com/", :target => "_blank" do %> 
+              <%= image_tag '/images/gplussquare.png', size: '64x64' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://twitter.com/share?url=http://www.skillsesh.com/&text=Get+Skilled", :target => "_blank" do %> 
+              <%= image_tag '/images/twittersquare.png', size: '64x64' %>
+              <% end %>
+            </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,12 @@
 
 @import "SocialLogin"
 
+@import "bootstrap-modal-bs3patch"
+
+@import "bootstrap-modal"
+
+@import "bootstrap-tagsinput"
+
 .jumbotron header
   margin:
     bottom: 33.16px
@@ -54,11 +60,17 @@
     padding: 70px
     
 @media (max-width: $screen-sm-max)
-  .dropdown
+  .btnmain
     text-align: center
+ 
+@media (max-width: $screen-xs-max)
+  body
+    padding-top: 90px !important   
+
+      
     
 body
-  padding-top: 0px !important   
+  padding-top: 50px   
 
 header
   margin-bottom: 0px !important  
@@ -88,5 +100,8 @@ h1
   background-color: #4579b3 !important
   
 .btn-info  
-  background-color: #027f45 !important  
+  background-color: #00A550 !important  
+  
+
+  
   
