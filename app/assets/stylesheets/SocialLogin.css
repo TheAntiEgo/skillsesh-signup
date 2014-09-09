@@ -25,46 +25,48 @@
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
-          border: 2px solid white !important;
+          border: 3px solid white !important;
 }
 
-.dropdown-menu {
-background-color: rgba(0, 0, 0, 0.4) !important;
+.modal {
+background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-.modal-content {
-background-color: rgba(0, 0, 0, 0.4) !important;
+.btn:hover {
+border: 4px solid #00A550!important;    
+
 }
+
 
 .highlightit img{
 filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
 -moz-opacity: 0.7;
 opacity: 0.7; 
-border: 3px solid #f3c120;    
+border: 4px solid #00A550;    
 }
 
 .highlightit:hover img{
 filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 -moz-opacity: 1;
 opacity: 1;
-border: 5px solid #027f45; 
+border: 6px solid #f3c120; 
 }  
 	
 .highlightit2 img{
 filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
--moz-opacity: 0.4;
-opacity: 0.4; 
+-moz-opacity: 1;
+opacity: 1; 
 }
 
 .highlightit2:hover img{
 filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
--moz-opacity: 1;
-opacity: 1;
-border: 4px solid #f3c120;   
+-moz-opacity: 0.4;
+opacity: 0.4;
+border: 3px solid #f3c120;   
 }
 
 .barrier {
-  margin-top: 120px
+  margin-top: 60px
 }
 
 .tutors-listing > .row > .col-md-3:nth-child(4n+1) {
@@ -74,7 +76,18 @@ border: 4px solid #f3c120;
     clear: both;
 }
 
-.modal-dialog {
-  padding-top: 10%;
-}
+h1 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
+h2 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+
+h3 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+
+h4 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+
+h5 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+
+body { font-family: 'Lara', 'Droid Sans', serif!important;}
+
+.brandup {
+padding-top: 10px!important;
+}

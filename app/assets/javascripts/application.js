@@ -13,7 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-tagsinput
 //= require_tree .
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
+//= require twitter/typeahead
+
 
 $(document).ready(function() {
   $('.has-tooltip').tooltip();
@@ -23,8 +28,6 @@ $(document).ready(function() {
   });
 });
 
-$('#basicModal1').modal(options);
-$('#basicModal2').modal(options);
 
 
 // Word Count
@@ -38,6 +41,9 @@ $('#field').keyup(function () {
     $('#charNum').text(char + ' characters left');
   }
 });
+
+
+
 
 
 
