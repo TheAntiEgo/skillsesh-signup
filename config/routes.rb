@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root :to => 'signups#index'
   
   ##
-  # Omniauth
+  # mniauth
   ##
   constraints :provider => /facebook|google|linkedin/ do
-    match 'auth/:provider/callback' => 'signups#create', :via => [:get, :post]
+    match 'auth/:provider/callback' => 'signups#create', :via => [:get, :post], :as => 'register'
   end
   
   ##
@@ -14,6 +14,15 @@ Rails.application.routes.draw do
   get '/onboard' => 'signups#onboard', :as => 'onboard'
   get '/new_session' => 'signups#first_session', :as => 'first_session'
   match '/update' => 'signups#update', :via => [:patch, :put, :post]
+    
+  ##
+  # Static pages
+  ##
+  scope :path => '/static_pages' do
+    get 'faq' => 'static_pages#faq'
+    get 'about' => 'static_pages#about'
+    get 'resources' => 'static_pages#resources'
+  end
   
   ##
   # Email signups
@@ -23,7 +32,7 @@ Rails.application.routes.draw do
   ##
   # Login/Logout
   ##
-  delete '/signout' => 'sessions#destroy', :as => 'signout'
+  get '/signout' => 'sessions#destroy', :as => 'signout'
   
   ##
   # Current User:

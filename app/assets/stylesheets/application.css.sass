@@ -12,6 +12,10 @@
 
 @import "bootstrap-tagsinput"
 
+@import "rails_bootstrap_forms"
+
+@import "typeahead"
+
 .jumbotron header
   margin:
     bottom: 33.16px
@@ -61,12 +65,7 @@
     
 @media (max-width: $screen-sm-max)
   .btnmain
-    text-align: center
- 
-@media (max-width: $screen-xs-max)
-  body
-    padding-top: 90px !important   
-
+    text-align: center 
       
     
 body
@@ -102,6 +101,8 @@ h1
 .btn-info  
   background-color: #00A550 !important  
   
-
+@media (max-width: $screen-xs-max)
+  .navbar-brand
+    width: 75%
   
   

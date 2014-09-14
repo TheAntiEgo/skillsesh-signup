@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
-  before_action :logged_in?, :current_user
+  before_action :current_user?
   
   def show
+    redirect_to root_path if !logged_in?
+    @profile = @user.profile
+    render 'users/show'
   end
   
   def update

@@ -12,7 +12,12 @@ gem 'omniauth-linkedin-oauth2'
 gem "omniauth-google-oauth2"
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'bootstrap-modal-rails'
 gem 'gibbon'
+gem 'webfontloader', '~> 1.5.6'
+gem 'bootstrap-tagsinput-rails'
+gem 'twitter-typeahead-rails'
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'spring'
