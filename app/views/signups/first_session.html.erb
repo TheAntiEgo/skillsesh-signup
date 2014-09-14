@@ -1,47 +1,114 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4 highlightit barrier text-center">
-      <%= image_tag @profile.photo, :class => "img-responsive img-circle" %>
-    </div>
-  </div> <!-- END of row -->
-  <div class="row">
     <div class="col-xs-12 text-center">
       <h1>
-        Let's create your first skill session, <%= @profile.first_name %>!
+         <br>
+ Great profile, <%= @profile.first_name %>.
+        <img class="img-responsive center-block" src="/images/Skillsesh_Five.png" style="height: 150px; width: auto;"/>
+ Let's take a second to create your first skill session!
+        <br>
       </h1>
     </div>
   </div> <!-- END of row -->
   <div class="row">
-    <div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
+<br>
+    <div class="col-xs-12 col-md-4 col-md-offset-2 text-center">
       <div class="row">      
-        <%= form_for @course, url: update_path do |f| %>
-          <div class="col-xs-12">
+        <%= bootstrap_form_for @course, url: update_path do |f| %>
+          <div class="col-xs-12">   
             <%= f.text_field :name, placeholder: "What's the name of your session?" %>
+            <br>
           </div>
           <div class="col-xs-12">
             <%= f.text_area :goal, placeholder: "What will your student accomplish by the end of the session?" %>
+            <br>
           </div>
           <div class="col-xs-12">
             <%= f.text_area :how, placeholder: "What're are you going to do?" %>
+            <br>
           </div>
           <div class="col-xs-12">
-            <%= f.text_field :price, placeholder: "So, how much?" %>
+            <%= f.number_field :price, :minimum => "10", placeholder: "So, how much?" %>
+            <br>
           </div>
           <div class="col-xs-12">
-            How long is the session? <%= f.time_field :duration %>
+            <%= f.number_field :duration, :minimum => "0.5", :step => "0.5", :value => "1.00" %>
+            <br>
           </div>
           <div class="col-xs-12">
-            Your place <%= f.radio_button :location, "My place" %>
-            Their place <%= f.radio_button :location, "Your place" %>
-            Anywhere <%= f.radio_button :location, "Anywhere" %>
-            Other <%= f.radio_button :location, "Other" %>
+          <h2>Where can it take place?</h2>
+          <br> <row>
+            <div class="col-xs-3"> Your place <%= f.radio_button :location, "My place" %></div>
+            <div class="col-xs-3"> Their place <%= f.radio_button :location, "Your place" %></div>
+            <div class="col-xs-3"> Anywhere <%= f.radio_button :location, "Anywhere" %></div>
+            <div class="col-xs-3"> Other <%= f.radio_button :location, "Other" %></div>
+            <br></row>
           </div>
           <div class="col-xs-12">
             <%= f.submit class: "btn btn-large btn-info" %>
             <br>
+            <br> 
           </div>
         <% end %>
       </div>
+    </div>
+    <div class="col-xs-12 col-md-4 col-md-offset-1 text-center">
+      <div class="row">      
+       
+          <div class="col-xs-12">   
+            <div class=" control-label">
+              A few examples:
+            </div>
+<div class="text-left" style="font-size: 150%">
+1. Introduction to Wordpress <br>       
+2. Guitar Chords for Beginners<br> 
+ 
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-12">
+            <div class="text-left" style="font-size: 150%">
+<div class="text-center">Goal:</div>
+1. You will be able to build a custom blog/website. <br>       
+2. You will understand how guitar chords affect sound. <br>
+             
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-12">
+            <div class="text-left" style="font-size: 150%">
+<div class="text-center">How:</div>             
+1. We will cover why wordpress is the most popular way to make powerful sites and every step involved in setting up the basics. <br>       
+2. Words are combined with other words to create sentences, and likewise, chords are combined with other chords to make progressions. We will go over why that is.
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-12">
+            <div class="text-left" style="font-size: 150%">
+              <div class="text-center">Price:</div>
+1. Introduction to Wordpress <br>       
+2. Guitar for Beginners
+            </div>
+            <br>
+          </div>
+          <div class="col-xs-12">
+            
+            <br>
+          </div>
+          <div class="col-xs-12">
+          
+          <br> 
+           
+            <br>
+          </div>
+          <div class="col-xs-12">
+            
+            <br>
+            <br> 
+          </div>
+       
+      </div>
+    </div>
     </div>
   </div> <!-- END of row -->
 </div>

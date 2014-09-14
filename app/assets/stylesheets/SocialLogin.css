@@ -91,3 +91,45 @@ body { font-family: 'Lara', 'Droid Sans', serif!important;}
 .brandup {
 padding-top: 10px!important;
 }
+
+.control-label {
+font-size: 250%;
+}
+
+
+#myCarousel {
+    width: 100%;
+  z-index: -99;
+}
+
+.carousel {
+  z-index: -99; }
+
+.carousel-control {
+    margin-top: 20px;
+}
+.carousel-inner .item {
+    width: 100%;
+    height: 600px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.ad1 {
+    background: url(../images/Skillsesh_IllustrationToons_Bikes.png) no-repeat center center fixed; 
+}
+.ad2 {
+    background: url(../images/Skillsesh_IllustrationToons_Cook.png) no-repeat center center fixed; 
+}
+.ad3 {
+    background: url(../images/Skillsesh_IllustrationToons_Guitar.png) no-repeat center center fixed; 
+}
+.ad4 {
+    background: url(../images/Skillsesh_IllustrationToons_Paint.png) no-repeat center center fixed; 
+}
+.ad5 {
+    background: url(../images/Skillsesh_IllustrationToons_Wood.png) no-repeat center center fixed; 
+}

@@ -1,1 +1,26 @@
-<%= render :partial => "partials/circleface" %>
+<br>
+<br>
+<div class="row center-block text-center">
+  
+<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 highlightit ">
+  
+<%= image_tag @profile.photo, :class => "img-responsive img-circle tutor-unit" %>
+<h1><%= @profile.first_name %></h1>
+<h2>
+<% @profile.skills.each do |skill|%>
+<%= link_to skill.name, '#'  %>
+<% end %>
+</h2>
+</div>
+<div class="col-xs-12 col-sm-6 col-sm-offset-1 text-left" style="word-wrap: break-word">
+<h1>Bio</h1>
+ 
+  <%= @profile.bio %>
+<br>
+<h3><% @profile.courses.each do |course|%>
+        <%= link_to course.name, course_path(course)  %>
+       <br><br> 
+      <% end %>
+</h3>
+  </div>
+</div>

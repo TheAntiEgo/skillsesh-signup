@@ -30,8 +30,13 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (3.0.1.20140826)
       execjs
+    bootstrap-modal-rails (2.2.5)
+      railties (>= 3.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-tagsinput-rails (0.3.2.0)
+      railties (>= 3.1)
+    bootstrap_form (2.1.1)
     bootswatch-rails (3.2.3)
       railties (>= 3.1)
     builder (3.2.2)
@@ -161,6 +166,10 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-typeahead-rails (0.10.5)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -170,13 +179,17 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    webfontloader (1.5.6)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   autoprefixer-rails
+  bootstrap-modal-rails
   bootstrap-sass
+  bootstrap-tagsinput-rails
+  bootstrap_form
   bootswatch-rails
   byebug
   factory_girl_rails
@@ -193,5 +206,7 @@ DEPENDENCIES
   rails_12factor
   sass-rails
   spring
+  twitter-typeahead-rails
   uglifier
   unicorn
+  webfontloader (~> 1.5.6)

@@ -1,17 +1,3 @@
- <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal1" aria-hidden="true" data-width="760">
-   <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h4 class="modal-title" id="myModalLabel">
-          <h1 class="text-center">Sign Up With</h1>
-        </h4>
-      </div>
-      <div class="modal-body text-center">
-        <%= render '/partials/loginbutt.html' %>
-      </div>
-  </div>
-</div>
-
 <div class="jumbotron text-center">
   <div class="container-fluid">
     <header>
@@ -62,62 +48,21 @@
           <button class="btn btn-lg btn-info" data-toggle="modal" data-target="#basicModal2">
           Learn a skill
           </button>
-          <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true" data-focus-on="input:first">
-            
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                  <h4 class="modal-title" id="myModalLabel">
-                    <h1 class="text-center">Join us when we launch!</h1>
-                  </h4>
-                </div>
-                <div class="modal-body text-center">
-                  <%= form_tag '/emails/create', remote: true do %>
-                  <div class="form-group">
-                    <div>
-                    <%= email_field_tag :placeholder => "joe@example.com", :class => "form-control" %>
-                    </div>
-                    <br>
-                     <div>
-                       <%= submit_tag "Submit", class: "btn btn-large btn-primary", data: {toggle: "modal", target: "#myModal"} %>
-                       <!-- Modal -->
-                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace ="true">
-                       
-                          <div class="modal-content">
-                            
-                            <div class="modal-body text-center">
-                              <h2 class="modal-title" id="myModalLabel">Get your friends involved too!</h2>
-                                <br>
-                              <%= render '/partials/sharebutt.html' %>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                            
-                          </div>
-                       
-                      </div>
-                    </div>
-                  </div>
-                  <% end %>
-                
-              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 <div class="container">
   <section class="tutors">
     <div class="intro">
       <div class="row">
         <div class="col-xs-12">
-          <h2 class="text-center">
-                                  <img class="img-responsive center-block" src="/images/SkillSesh_BrandInitial2.png" style="height: 80px; width: 768px;"/>
+          <div class="text-center">
+            <img class="img-responsive center-block" src="/images/SkillSesh_BrandInitial2.png" style="height: 80px"/>
 
-          </h2>
+          </div>
         </div>
       </div>
     </div>
@@ -281,3 +226,58 @@
     </div>
   </section>
 </div>
+
+<div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true" data-focus-on="input:first">
+    <div class="modal-content">
+      <%= form_tag subscribe_path, :remote => true, :class => "subscribe_form" do %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+          <h4 class="modal-title" id="myModalLabel">
+            <h1 class="text-center">Join us when we launch!</h1>
+          </h4>
+        </div>
+        <div class="modal-body text-center">
+
+            <div class="form-group">
+              <%= label_tag 'email', "Enter your email address", :class => "sr-only" %>
+              <%= email_field_tag 'email', nil, :placeholder => "joe@example.com", :class => "form-control" %>
+            </div>
+            <br/>
+            <%= submit_tag "Submit", :data => {:toggle => "modal", :target => "#myModal"}, class: "btn btn-large btn-primary" %>
+       
+      </div>
+      <% end %>
+    </div>
+</div>
+    
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-replace ="true">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <h2 class="modal-title" id="myModalLabel">Get your friends involved too!</h2>
+          <br>
+        <%= render '/partials/sharebutt.html' %>
+          <br>
+          <br>
+          <br>
+      </div>
+    </div>
+</div>
+            
+ <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal1" aria-hidden="true" data-width="760">
+   <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h4 class="modal-title" id="myModalLabel">
+          <h1 class="text-center">Sign Up With</h1>
+        </h4>
+      </div>
+      <div class="modal-body text-center">
+        <%= render '/partials/loginbutt.html' %>
+        <br>
+      We use these services to help verify who you are. Learn more.
+      </div>
+  </div>
+</div>
+
+<%= debug session[:remember_token] if Rails.env == "development" %>
