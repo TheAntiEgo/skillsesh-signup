@@ -28,8 +28,7 @@
         </div>
         <div class="form-group text-center">
           <%= label_tag :skills, "What skills can you teach?", class: 'h4' %><br>
-          <%= f.text_field :skills, class: 'form-control has-popover typeahead',
-             data: {role:'tagsinput', toggle: "popover", html: "true", placement: "top", content: "#charNum" }, title: "Popover to give hot tips!", value: "" %>
+          <%= f.text_field :skills, class: 'form-control', data: {role:'tagsinput'}, value: "" %>
         </div>
         <div class="text-center">
           <%= f.submit class: 'btn btn-info btn-default btn-lg text-center', value: "Submit" %>
