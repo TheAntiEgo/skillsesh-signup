@@ -35,11 +35,15 @@
     display: block;
     padding: 3px 20px;
 }
-.tt-suggestion.tt-is-under-cursor {
-    color: #fff;
-    background-color: #dfdfdf;
+
+.tt-highlight {
+  color: #333;
 }
-.tt-suggestion.tt-is-under-cursor a {
+.tt-cursor {
+    color: #fff;
+    background-color: #4579b3;
+}
+.tt-cursor a {
     color: #fff;
 }
 .tt-suggestion p {

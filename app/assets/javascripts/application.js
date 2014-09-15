@@ -31,7 +31,8 @@ $(document).ready(function(){
     skills.initialize();
  
     $('.bootstrap-tagsinput input').typeahead({
-      highlight: true
+      highlight: true,
+      trimValue: true
     },{
         // dataset options
         name: "skills",
