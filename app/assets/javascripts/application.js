@@ -17,6 +17,8 @@
 //= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
 //= require twitter/typeahead
+//= require editable/bootstrap-editable
+//= require editable/rails
 //= require_tree .
 
 $(document).ready(function(){
