@@ -32,7 +32,7 @@ $(document).ready(function(){
     skills.clearPrefetchCache();
     skills.initialize();
  
-    $('.bootstrap-tagsinput input').typeahead({
+    $('.bootstrap-tagsinput input:first-child').typeahead({
       highlight: true,
       trimValue: true
     },{
@@ -41,6 +41,9 @@ $(document).ready(function(){
         displayKey: "name",
         source: skills.ttAdapter() 
       });
+    
+    //Increase the size of tag input
+    $('.bootstrap-tagsinput > > input').attr({"size": 5}); // The average length of a word in the English language
     
     // Prepare tag/typeahead input for tooltips and popovers
     $('.tt-input').addClass('has-tooltip');
@@ -67,5 +70,7 @@ $(document).ready(function(){
             $('#charNum').text(500 - len);
         }
     };
+    
+    
     
 });
