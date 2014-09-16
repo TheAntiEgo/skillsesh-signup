@@ -16,32 +16,32 @@
       <div class="row">      
         <%= bootstrap_form_for @course, url: update_path do |f| %>
           <div class="col-xs-12">   
-            <%= f.text_field :name, wrapper: {placeholder: "What's the name of your session?", :maxlength => "150"} %>
+            <%= f.text_field :name, inputmode: "latin-prose", placeholder: "What's the name of your session?", :maxlength => "150" %>
             <br>
           </div>
           <div class="col-xs-12">
-            <%= f.text_area :goal, wrapper: {placeholder: "What will your student accomplish by the end of the session?"} %>
+            <%= f.text_area :goal, inputmode: "latin-prose", placeholder: "What will your student accomplish by the end of the session?" %>
             <br>
           </div>
           <div class="col-xs-12">
-            <%= f.text_area :how, wrapper: {placeholder: "What're are you going to do?"} %>
+            <%= f.text_area :how, inputmode: "latin-prose", placeholder: "What're are you going to do?" %>
             <br>
           </div>
           <div class="col-xs-12">
-            <%= f.number_field :price, wrapper: {prepend: "$", placeholder: "So, how much?", :min => "10", :value => 10} %>
+            <%= f.number_field :price, prepend: "$", placeholder: "So, how much?", :min => "10", :value => 10 %>
             <br>
           </div>
           <div class="col-xs-12">
-            <%= f.number_field :duration, wrapper: {:minimum => "0.5", :step => "0.5", :value => "1.00"} %>
+            <%= f.number_field :duration, :minimum => "0.5", :step => "0.5", :value => "1.00" %>
             <br>
           </div>
           <div class="col-xs-12">
           <h2>Where can it take place?</h2>
           <br> <row>
-            <div class="col-xs-3"> Your place <%= f.radio_button :location, "My place" %></div>
-            <div class="col-xs-3"> Their place <%= f.radio_button :location, "Your place" %></div>
-            <div class="col-xs-3"> Anywhere <%= f.radio_button :location, "Anywhere" %></div>
-            <div class="col-xs-3"> Other <%= f.radio_button :location, "Other" %></div>
+            <div class="col-xs-3 text-right"> <%= f.radio_button :location, "My place" %> Your place </div>
+            <div class="col-xs-3 text-right"> <%= f.radio_button :location, "Your place" %> Their place </div>
+            <div class="col-xs-3 text-right"> <%= f.radio_button :location, "Anywhere" %> Anywhere </div>
+            <div class="col-xs-3 text-right"> <%= f.radio_button :location, "Other" %> Other </div>
             <br></row>
           </div>
           <div class="col-xs-12">
