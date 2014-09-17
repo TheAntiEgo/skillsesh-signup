@@ -28,11 +28,8 @@ class ApplicationController < ActionController::Base
   end
   
   def catch_activerecorderror(e)
-    logger.error "It looks like had a problem with #{e.cause}"
-    logger.error e.message
-    logger.error e.full_trace
     redirect_to root_url, :alert => "Something went wrong! Try again or contact us for help"
   end
   
-  helper_method :current_user?, :logged_in?
+  helper_method :current_user?, :logged_in?, :authenticated?
 end
