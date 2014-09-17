@@ -17,25 +17,11 @@
 //= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
 //= require twitter/typeahead
+//= require editable/bootstrap-editable
+//= require editable/rails
 //= require_tree .
 
 $(document).ready(function(){
-    //Enable tooltips
-    $('.has-tooltip').tooltip();
-    $('input[title]').tooltip({ placement:'top' });
-    $('.has-popover').popover({ trigger: 'hover' });
-    
-    //Enable word count
-    function countChar(val) {
-        var len = val.value.length;
-      
-        if (len >= 500) {
-            val.value = val.value.substring(0, 500);
-        }else {
-            $('#charNum').text(500 - len);
-        }
-    }
-    
     //Initialize typeahead
     var skills = new Bloodhound({
         prefetch: { url: "http://lesson-single.codio.io:3000/skills" },
@@ -46,14 +32,45 @@ $(document).ready(function(){
     skills.clearPrefetchCache();
     skills.initialize();
  
-    $('.bootstrap-tagsinput input').typeahead({
-      highlight: true
+    $('.bootstrap-tagsinput input:first-child').typeahead({
+      highlight: true,
+      trimValue: true
     },{
         // dataset options
         name: "skills",
         displayKey: "name",
         source: skills.ttAdapter() 
       });
+    
+    //Increase the size of tag input
+    $('.bootstrap-tagsinput > > input').attr({"size": 5}); // The average length of a word in the English language
+    
+    // Prepare tag/typeahead input for tooltips and popovers
+    $('.tt-input').addClass('has-tooltip');
+    $('.tt-input').attr({
+      title: "Popover to give hot tips!",
+      "data-toggle": "popover",
+      "data-html": "true",
+      "data-placement": "top",
+      "data-content": "#charnum"
+    });
+    
+    //Enable tooltips
+    $('.has-tooltip').tooltip();
+    $('input[title]').tooltip({ placement:'top' });
+    $('.has-popover').popover({ trigger: 'hover' });
+    
+    //Enable word count
+    var countChar = function countChar(val) {
+        var len = val.value.length;
       
+        if (len >= 500) {
+            val.value = val.value.substring(0, 500);
+        }else {
+            $('#charNum').text(500 - len);
+        }
+    };
+    
+    
     
 });

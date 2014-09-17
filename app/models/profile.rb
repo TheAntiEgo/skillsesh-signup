@@ -28,10 +28,16 @@ class Profile < ActiveRecord::Base
   ##
   # Instance methods
   ##
-  def skills=(str_or_array) #expects a string
-    list = str_or_array.split(/\,/).map {|s| s.downcase.strip} if str_or_array.kind_of? String
+
+  def add_skills_from_str(p)
+    str = p[:skills]
+    list = str.split(/\,/).map {|s| s.downcase.strip}
     list.each do |s|
-      self.skills << Skill.new(:name => s)
+      unless Skill.exists?(:name => s)
+        self.skills << Skill.new(:name => s)
+      else
+        self.skills << Skill.find_by(:name => s)
+      end
     end      
   end
 end

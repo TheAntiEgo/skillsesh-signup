@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => 'signups#index'
   
   ##
-  # mniauth
+  # Omniauth
   ##
   constraints :provider => /facebook|google|linkedin/ do
     match 'auth/:provider/callback' => 'signups#create', :via => [:get, :post], :as => 'register'
@@ -40,10 +40,7 @@ Rails.application.routes.draw do
   # + Courses
   # + Messages
   ##
-  resource :profile, :only => [:show, :update] do
-    resources :courses, :controller => 'courses'
-    resources :messages, :controller => 'messages'
-  end
+  resource :profile, :only => [:show, :update]
   
   ##
   # Users

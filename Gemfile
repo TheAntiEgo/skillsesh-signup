@@ -7,6 +7,7 @@ gem 'sass-rails'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'uglifier'
+gem 'coffee-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin-oauth2'
 gem "omniauth-google-oauth2"
@@ -18,6 +19,7 @@ gem 'webfontloader', '~> 1.5.6'
 gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
+gem 'x-editable-rails'
 
 group :development, :test do
   gem 'spring'

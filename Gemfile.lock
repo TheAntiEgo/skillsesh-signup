@@ -45,6 +45,13 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     coderay (1.1.0)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.8.0)
     columnize (0.8.9)
     debugger-linecache (1.2.0)
     dotenv (0.11.1)
@@ -180,6 +187,8 @@ GEM
       rack
       raindrops (~> 0.7)
     webfontloader (1.5.6)
+    x-editable-rails (1.5.3)
+      railties
 
 PLATFORMS
   ruby
@@ -192,6 +201,7 @@ DEPENDENCIES
   bootstrap_form
   bootswatch-rails
   byebug
+  coffee-rails
   factory_girl_rails
   faker
   foreman
@@ -210,3 +220,4 @@ DEPENDENCIES
   uglifier
   unicorn
   webfontloader (~> 1.5.6)
+  x-editable-rails
