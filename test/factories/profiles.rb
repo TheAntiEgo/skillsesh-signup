@@ -5,7 +5,7 @@ FactoryGirl.define do
     user
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
-    bio { Faker::Lorem.characters(150..500) }
+    bio { Faker::Lorem.paragraph(Random.new.rand(3..4)) }
     photo { "http://api.randomuser.me/portraits/" + %w{ men women}.shuffle.first + '/' + (0...95).last(94).shuffle.first.to_s + '.jpg' }
     
     after(:build) do |prof|
