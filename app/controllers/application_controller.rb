@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   rescue_from ActiveRecord::ActiveRecordError, :with => :catch_activerecorderror
   
-  
-  
   protected
   
   def current_user?
@@ -23,13 +21,26 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def set_remember_token(user)
+    session[:remember_token] = user.remember_token
+  end
+  
   def redirect_back_or_to_root
     redirect_to(request.env['HTTP_REFERER'] || root_path, :notice => "Why don't you share us with your friends too!")
   end
   
   def catch_activerecorderror(e)
+    logger.error e.message
     redirect_to root_url, :alert => "Something went wrong! Try again or contact us for help"
   end
   
-  helper_method :current_user?, :logged_in?, :authenticated?
+  def stringify(collection)
+    value = []
+    collection.each do |item|
+      value.push(item.name)
+    end
+    value.join(", ")
+  end    
+  
+  helper_method :current_user?, :logged_in?, :stringify
 end

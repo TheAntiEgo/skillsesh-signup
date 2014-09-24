@@ -23,4 +23,12 @@ class Authentication < ActiveRecord::Base
       a.provider_token_expires_at = auth[:credentials][:expires_at]
     end
   end
+  
+  def self.with_omniauth(auth)
+    find_by :provider => auth[:provider], :provider_id => auth[:uid]
+  end
+  
+  def self.has_omniauth?(auth)
+    exists? :provider => auth[:provider], :provider_id => auth[:uid]
+  end
 end

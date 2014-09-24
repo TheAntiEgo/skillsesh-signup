@@ -40,7 +40,10 @@ Rails.application.routes.draw do
   # + Courses
   # + Messages
   ##
-  resource :profile, :only => [:show, :update]
+  resource :profile, :only => [:show, :update] do
+    resources :courses, :controller => 'courses'
+    resources :messages, :controller => 'messages'
+  end
   
   ##
   # Users
