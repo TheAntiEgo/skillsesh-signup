@@ -36,7 +36,7 @@ class Profile < ActiveRecord::Base
       unless Skill.exists?(:name => s)
         self.skills << Skill.new(:name => s)
       else
-        self.skills << Skill.find_by(:name => s)
+        self.skills << Skill.find_by(:name => s) unless self.skills.include?(Skill.find_by(:name => s))
       end
     end      
   end

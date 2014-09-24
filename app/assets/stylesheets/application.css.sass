@@ -1,5 +1,7 @@
 @import "variables"
 
+@import "bootstrap-sprockets"
+
 @import "bootstrap"
 
 @import "bootswatch"
@@ -71,7 +73,7 @@
       
     
 body
-  padding-top: 50px   
+  padding-top: 60px   
 
 header
   margin-bottom: 0px !important  
@@ -104,15 +106,37 @@ h1
   background-color: #00A550 !important  
 
 .bootstrap-tagsinput
-  width: 50%
+  min-width: 50%
   text-align: left
 
 .label-info
   background:
     color: #f3c120  !important
 
+.panel-title
+  margin:
+    bottom: 28px
+
+.profile-name
+  margin:
+    bottom: 36px
+
+.profile-photo
+  margin:
+    bottom: 28px
+
+.panel-group .panel
+  margin:
+    bottom: 36px
+
 @media (max-width: $screen-xs-max)
   .navbar-brand
     width: 75%
+
+@media (min-width: $screen-sm-min)
+  .profile-photo
+    padding-top: 18px
   
+  .profile-name
+    padding-top: 18px
   

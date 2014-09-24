@@ -3,27 +3,30 @@ class SignupsController < ApplicationController
   before_action :current_user?
   
   def index
-    @profiles = Profile.all.limit(15)
+    @profiles = Profile.limit(15).order("RANDOM()")
   end
   
   def create
-    if @user && @user.authentications.find_by(:provider => oauth[:provider], :provider_id => oauth[:uid])
-      redirect_back_or_to_root 
-    elsif @user
-      @user.authentications.create(oauth)
+    if @user && @user.authentications.exists?(:provider => oauth[:provider], :provider_id => oauth[:uid])
+      redirect_back_or_to_root
+    elsif @user && !Authentication.has_omniauth?(oauth)
+      @user.authentications.create(:provider => oauth[:provider], :provider_id => oauth[:uid])
+      redirect_back_or_to_root
+    elsif !@user && Authentication.has_omniauth?(oauth)
+      @user = Authentication.with_omniauth(oauth).user
+      set_remember_token @user
       redirect_back_or_to_root
     else
       @user = User.new( :email => oauth[:info][:email], :remember_token => SecureRandom.uuid )
       @user.authentications << Authentication.from_omniauth(oauth)
       @user.profile = Profile.from_omniauth(oauth)
       @user.save!
-      session[:remember_token] = @user.remember_token
+      set_remember_token @user
       redirect_to onboard_path
     end
   end
   
   def onboard
-    byebug
     @profile = @user.profile
   end
   
