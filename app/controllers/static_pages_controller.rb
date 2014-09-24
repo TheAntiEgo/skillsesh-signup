@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def faq
   end
 
-  def about
+  def contact
   end
 
   def resources

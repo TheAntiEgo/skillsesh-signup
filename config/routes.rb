@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/contact'
+
   root :to => 'signups#index'
   
   ##
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   ##
   scope :path => '/static_pages' do
     get 'faq' => 'static_pages#faq'
-    get 'about' => 'static_pages#about'
+    get 'contact' => 'static_pages#contact'
     get 'resources' => 'static_pages#resources'
   end
   

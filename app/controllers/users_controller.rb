@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     
     redirect_to(root_url, :alert => "Something went wrong!") if @error
     session[:remember_token] = @user.remember_token
-    byebug
     redirect_to :controller => 'signups', :action => 'onboard'
   end
   

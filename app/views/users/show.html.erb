@@ -2,9 +2,11 @@
 <br>
 <div class="row center-block text-center">
   
-<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 highlightit ">
-  
-<%= image_tag @profile.photo, :class => "img-responsive img-circle tutor-unit" %>
+<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 ">
+ <div class="highlightit"> 
+<%= image_tag @profile.photo, :class => "img-responsive img-circle" %>
+  </div>
+<br>
 <h1><%= @profile.first_name %></h1>
 <h2>
 <% @profile.skills.each do |skill|%>

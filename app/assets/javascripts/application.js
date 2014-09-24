@@ -25,6 +25,9 @@
 //= require_tree .
 
 $(document).ready(function(){
+    // JOHN THIS IS WHAT YOU WERE LAST FOOLING AROUND WITH
+    $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+    
     // Fix email form
     $('.subscribeForm').on('ajax:before', function(){
         $('#myModal').modal();
@@ -55,7 +58,7 @@ $(document).ready(function(){
     // Prepare tag/typeahead input for tooltips and popovers
     $('.tt-input').addClass('has-tooltip');
     $('.tt-input').attr({
-      title: "Popover to give hot tips!",
+      title: "Press enter after each skill.",
       "data-toggle": "popover",
       "data-html": "true",
       "data-placement": "top",
@@ -92,7 +95,8 @@ $(document).ready(function(){
         return;
     }
   });
-    
+  
+    // New course
     $('.editable-new-name').editable({
       mode: 'inline',
       emptytext: "Add a new session starting with its name",
