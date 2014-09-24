@@ -1,0 +1,49 @@
+<div id="accordion" class="panel-group">
+  <h2>
+    Sessions
+  </h2>
+  <div class="panel panel-initial panel-default">
+    <div class="panel-heading panel-initial-heading">
+      <h3 class="panel-title">
+       <span class="editable-new editable-new-name h3"></span>
+      </h3>
+    </div>
+  </div>
+  <% @profile.courses.each do |course| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= editable course, :name, {:url => "/profile/courses/#{course.id}", :title => "Edit the name of your course", :data => {:pk => course.id}, :class => "h3 editable-default"} %>
+        </h3>
+        <h4>
+          Goal
+        </h4>
+        <%= editable course, :goal, {:url => "/profile/courses/#{course.id}", :tag => 'p', :class => "course-goal", :data => {:pk => course.id}, :title => "Edit the how", :type => "textarea", :class => "editable-default"} %>
+      </div>
+      <div id="course-panel-<%= course.id %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <h4>
+            How
+          </h4>
+          <%= editable course, :goal, {:url => "/profile/courses/#{course.id}", :tag => 'p', :title => "Edit the how", :data => {:pk => course.id}, :type => "textarea", :class => "editable-default"} %>
+          <h4>
+            Requirements
+          </h4>
+          <%= editable course, :how, {:url => "/profile/courses/#{course.id}", :tag => 'p', :title => "Edit the requirements", :data => {:pk => course.id}, :type => "textarea", :class => "editable-default"} %>
+          <h4>
+            Duration
+          </h4>
+          <%= editable course, :duration, {:url => "/profile/courses/#{course.id}", :title => "Tell em how long", :data => {:pk => course.id}, :type => "number", :class => "editable-default"} %>
+          <h4>
+            Price
+          </h4>
+          <%= editable course, :price, {:url => "/profile/courses/#{course.id}", :title => "Tell em how much", :data => {:pk => course.id}, :type => "number", :class => "editable-default"} %>
+        </div>        
+      </div>
+      <div class="panel-footer">
+        <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion" href="#course-panel-<%= course.id %>">Read more</button>
+        <button type="button" class="btn-sm btn-danger" href="#" disabled>Book it!</button>
+      </div>
+    </div>
+  <% end %>
+</div>
