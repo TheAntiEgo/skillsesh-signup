@@ -1,8 +1,9 @@
 class CoursesController < ApplicationController
-  respond_to :json, :only => [:create, :update]
+  respond_to :json, :only => :update
+  before_action :current_user?
   
   def index
-   @courses = Course.where(:profile => current_user?.profile)
+   @courses = Course.where(:profile => @user.profile)
   end
   
   def show
@@ -10,14 +11,15 @@ class CoursesController < ApplicationController
   end
   
   def create
-    @course = Course.create!(get_params[:course])
-    render :json => @course
+    @profile = @user.profile
+    @course = @profile.courses.create!(get_params[:course])
+    redirect_back_or_to_root
   end
   
   def update
     @course = Course.find(get_params[:id])
     @course.update!(get_params[:course])
-    render :json => @course
+    render_with @course
   end
   
   private
