@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require handlebars.runtime
 //= require bootstrap-sprockets
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
@@ -21,7 +20,6 @@
 //= require editable/bootstrap-editable
 //= require editable/inputs-ext/typeahead-editable.js
 //= require editable/rails
-//= require_tree ./templates
 //= require_tree .
 
 var updateOptions;
