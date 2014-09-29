@@ -22,7 +22,8 @@
 //= require editable/rails
 //= require_tree .
 
-var updateOptions;
+var updateOptions, textValidator, numberValidator, textAreaValidator, showButton, showForm, putSuccess, putError, initRecord, swapEm, searchEngine,
+    $subscribeForm, $tagInput, $editableRecord, $newRecord, $addButton, $cancelButton;
 
 // Default options for pre-rendered editables
 updateOptions = {
@@ -47,8 +48,8 @@ textAreaValidator = {
 };
 
 // editable success callback
-defaultSuccess = {
-    success: function defaultSuccess(response, newValue){ return; }
+putSuccess = {
+    success: function putSuccess(response, newValue){ return; }
 };
 
 // editable error callback
@@ -81,26 +82,44 @@ initRecord = function($collection, options){
     });
 };
 
+// Swap 'add course' button with form and vice
+showForm = function(event){
+    $addButton.hide(300);
+    $newRecord.show(300);
+};
+
+showButton = function(event){
+    $newRecord.hide(300);
+    $addButton.show(300);
+};
+
 // Construct a Blooudhound object
 searchEngine = new Bloodhound({
-    prefetch: { url: "http://lotus-laptop.codio.io:3000/skills" },
+    prefetch: { url: "http://localhost:3000/skills" },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });
-
-// Fetch or locally load JSON of skills
-searchEngine.initialize();
-
 
 // Only execute what *needs* to be initialized at ready
 $(document).ready(function(){
     // Cache selectors
     $subscribeForm = $('.subscribeForm');
-    $tagInput = $('.bootstrap-tagsinput > > input:first-of-type');
+    $tagInput = $('.bootstrap-tagsinput > input');
+    $newRecord = $('#course-new');
+    $addButton = $('.add-btn');
+    $cancelButton = $('.cancel-btn');
     $editableRecord = $('.editable-record');
-    
-    // Share modal launches before we submit the new email
-    $('.subscribeForm').on('ajax:before', function(){ $('#myModal').modal(); });
+
+    //Hide new course form
+    $newRecord.hide();
+
+    // Event handlers
+    $subscribeForm.on('ajax:before', function(){ $('#myModal').modal(); });
+    $addButton.on('click', showForm);
+    $cancelButton.on('click', showButton);
+
+    // Fetch or locally load JSON of skills
+    searchEngine.initialize();
 
     // Add typeahead to the tag input
     $tagInput.typeahead({
@@ -116,6 +135,6 @@ $(document).ready(function(){
     $tagInput.attr({"size": 5});
       
     // Initialize pre-rendered editables with defaults
-    initRecord($editableRecord, $.extend(updateOptions, defaultSuccess, putError));
+    initRecord($editableRecord, $.extend(updateOptions, putSuccess, putError));
 });
 

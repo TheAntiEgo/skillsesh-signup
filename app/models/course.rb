@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
   ##
   # Validations
   ##
-  validates_presence_of :name, :goal, :how, :location
+  validates_presence_of :name, :goal, :how
 
   ##
   # Associations

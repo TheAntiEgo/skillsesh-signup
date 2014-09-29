@@ -11,9 +11,10 @@ class CoursesController < ApplicationController
   end
   
   def create
+    byebug
     @profile = @user.profile
     @course = @profile.courses.create!(get_params[:course])
-    redirect_back_or_to_root
+    redirect_to profile_path
   end
   
   def update
