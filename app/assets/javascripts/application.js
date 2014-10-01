@@ -18,11 +18,10 @@
 //= require bootstrap-tagsinput
 //= require twitter/typeahead
 //= require editable/bootstrap-editable
-//= require editable/inputs-ext/typeahead-editable.js
 //= require editable/rails
 //= require_tree .
 
-var updateOptions, textValidator, numberValidator, textAreaValidator, showButton, showForm, putSuccess, putError, initRecord, swapEm, searchEngine,
+var updateOptions, textValidator, numberValidator, textAreaValidator, showButton, showForm, putSuccess, putError, initRecord, searchEngine,
     $subscribeForm, $tagInput, $editableRecord, $newRecord, $addButton, $cancelButton;
 
 // Default options for pre-rendered editables
@@ -82,12 +81,13 @@ initRecord = function($collection, options){
     });
 };
 
-// Swap 'add course' button with form and vice
+// Swap 'add course' button with form
 showForm = function(event){
     $addButton.hide(300);
     $newRecord.show(300);
 };
 
+// Swap form with button
 showButton = function(event){
     $newRecord.hide(300);
     $addButton.show(300);
@@ -95,7 +95,7 @@ showButton = function(event){
 
 // Construct a Blooudhound object
 searchEngine = new Bloodhound({
-    prefetch: { url: "http://localhost:3000/skills" },
+    prefetch: { url: "http://lotus-laptop.codio.io:3000/skills" },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });
