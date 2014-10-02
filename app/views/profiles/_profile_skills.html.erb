@@ -2,5 +2,8 @@
   <h2>
     Skills
   </h2>
-<!--   <%= editable @profile, :skills, {:type => "typeaheadjs", :title => "Edit your skills", :data => {:pk => @profile.id}} %> -->
+  <%= form_for @profile, :remote => true do |f| %>
+      <%= f.text_field :skills, :class => "form_control",  :data => {:role => "tagsinput"}, :inputmode => "latin", :value => stringify(@profile.skills) %>
+      <%= f.submit "Update skills", :class => "btn btn-success"%>
+  <% end %>
 </div>

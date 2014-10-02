@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
   
   def redirect_back_or_to_root
-    redirect_to(request.env['HTTP_REFERER'] || root_path, :notice => "Why don't you share us with your friends too!")
+    redirect_to request.env['HTTP_REFERER'] || root_path
   end
   
   def catch_activerecorderror(e)

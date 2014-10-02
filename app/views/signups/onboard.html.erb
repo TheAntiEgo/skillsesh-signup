@@ -22,9 +22,7 @@
       <%= form_for @profile, url: update_path, html: {role: 'form'} do |f| %>
         <div class="form-group text-center" rel="tooltip" title="Search All Items">
           <%= label_tag :bio, "Why don't you tell us a little bit about yourself?", class: 'h4' %>
-          <div id="charNum"></div>  
-          <%= f.text_area :bio, class: 'form-control has-popover', maxlength: "500", onkeyup: "countChar(this)", placeholder: "500 word max, please, it's just three tweets!", 
-           data: {toggle: "popover", html: "true", placement: "top", content: "#charNum" }, title: "Popover to give hot tips!", inputmode: "latin-prose" %>
+          <%= f.text_area :bio, class: 'form-control', maxlength: "500", placeholder: "500 word max, please, it's just three tweets!", inputmode: "latin-prose" %>
         </div>
         <div class="form-group text-center">
           <%= label_tag :skills, "What skills can you teach?", class: 'h4' %><br>
