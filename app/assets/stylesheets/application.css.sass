@@ -71,7 +71,6 @@
   .btnmain
     text-align: center 
       
-    
 body
   padding-top: 60px   
 
@@ -107,7 +106,9 @@ h1
 
 .bootstrap-tagsinput
   min-width: 50%
-  text-align: left
+  text-align: left  
+  .tag
+    display: inline-block
 
 .label-info
   background:
@@ -129,9 +130,17 @@ h1
   margin:
     bottom: 36px
 
+.editable-unsaved
+  font:
+    style: italic
+    weight: normal
+
 @media (max-width: $screen-xs-max)
   .navbar-brand
     width: 75%
+    
+  input
+    font-size: 16px
 
 @media (min-width: $screen-sm-min)
   .profile-photo

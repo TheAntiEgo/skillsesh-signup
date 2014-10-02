@@ -43,7 +43,6 @@ Rails.application.routes.draw do
   # + Messages
   ##
   resource :profile, :only => [:show, :update] do
-    resources :courses, :controller => 'courses'
     resources :messages, :controller => 'messages'
   end
   
@@ -55,7 +54,7 @@ Rails.application.routes.draw do
   ##
   # Courses
   ##
-  resources :courses, :only => [:index, :show] do
+  resources :courses, :except => [:new, :edit] do
     resource :purchase, :only => [:new, :create, :destroy]
   end
   

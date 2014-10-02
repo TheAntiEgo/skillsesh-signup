@@ -27,16 +27,16 @@ class Profile < ActiveRecord::Base
   
   ##
   # Instance methods
-  ##
-
+  ##  
   def add_skills_from_str(p)
     str = p[:skills]
     list = str.split(/\,/).map {|s| s.downcase.strip}
+    byebug
     list.each do |s|
       unless Skill.exists?(:name => s)
-        self.skills << Skill.new(:name => s)
+        self.skills.create!(:name => s)
       else
-        self.skills << Skill.find_by(:name => s) unless self.skills.include?(Skill.find_by(:name => s))
+        self.skills << Skill.find_by!(:name => s) unless self.skills.include?(Skill.find_by(:name => s))
       end
     end      
   end
