@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   
   def show
     @profile = User.find(params[:id]).profile
+    render :file => 'profiles/show'
   end
     
   
