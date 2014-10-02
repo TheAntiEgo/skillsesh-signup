@@ -44,6 +44,7 @@ class ApplicationController < ActionController::Base
     value.join(", ")
   end
   
+  #TODO Remove once condtional templating for profile is done
   def xeditable? object = nil
     true # Or something like current_user.xeditable?
   end
