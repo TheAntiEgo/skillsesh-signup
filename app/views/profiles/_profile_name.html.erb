@@ -1,4 +1,9 @@
-    <h1 class="profile-name">
-  <%= editable @profile, :first_name, {:title => "Edit your first name", :data => {:pk => @profile.id}, :class => "editable-record"} %>
-  <%= editable @profile, :last_name, {:title => "Edit your last name", :data => {:pk => @profile.id}, :class=>"editable-record"} %>
+<h1 class="profile-name">
+  <% if @profile.id === @user.id %>
+    <%= editable @profile, :first_name, {:title => "Edit your first name", :data => {:pk => @profile.id}, :class => "editable-record"} %>
+    <%= editable @profile, :last_name, {:title => "Edit your last name", :data => {:pk => @profile.id}, :class=>"editable-record"} %>
+  <% else %>
+    <%= @profile.first_name %>
+    <%= @profile.last_name %>
+  <% end %>
 </h1>
