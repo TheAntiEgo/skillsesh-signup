@@ -40,7 +40,12 @@ class ApplicationController < ActionController::Base
       value.push(item.name)
     end
     value.join(", ")
-  end    
+  end
+  
+  def xeditable? object = nil
+    true
+  end
   
   helper_method :current_user?, :logged_in?, :stringify
 end
+

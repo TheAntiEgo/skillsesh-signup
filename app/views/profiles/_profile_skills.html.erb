@@ -2,8 +2,16 @@
   <h2>
     Skills
   </h2>
-  <%= form_for @profile, :remote => true do |f| %>
+  <% if @profile.id === @user.id %>
+    <%= form_for @profile, :remote => true do |f| %>
       <%= f.text_field :skills, :class => "form_control",  :data => {:role => "tagsinput"}, :inputmode => "latin", :value => stringify(@profile.skills) %>
       <%= f.submit "Update skills", :class => "btn btn-success"%>
+    <% end %>
+  <% else %>
+      <% @profile.skills.each do |s| %>
+          <span class="label label-info label-inert">
+              <%= s.name %>
+          </span>
+      <% end %>
   <% end %>
 </div>
