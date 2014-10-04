@@ -3,11 +3,16 @@
     <div class="col-xs-12">
       <h2>
         Bio
-      </h1>
+      </h2>
     </div>
     <div class="col-xs-12">
-      <%= editable @profile, :bio, {:tag => 'p', :title => "Edit your bio", :type => "textarea", :class=>"editable-record"} %>
+      <p>
+      <% if @profile.id === @user.id %>
+        <%= editable @profile, :bio, {:title => "Edit your bio", :type => "textarea", :class=>"editable-record"} %>
+      <% else %>
+        <%= @profile.bio %>
+      <% end %>
+      </p>
     </div>
-  </div>
-  
+  </div>  
 </div>

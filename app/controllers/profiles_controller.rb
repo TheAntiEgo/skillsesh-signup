@@ -17,12 +17,6 @@ class ProfilesController < ApplicationController
     render :json => @user.profile
   end
   
-  protected 
-  
-  def xeditable? object = nil
-    true # Or something like current_user.xeditable?
-  end
-  
   private
   
   def get_params

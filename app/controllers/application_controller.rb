@@ -42,7 +42,12 @@ class ApplicationController < ActionController::Base
       value.push(item.name)
     end
     value.join(", ")
-  end    
+  end
   
-  helper_method :current_user?, :logged_in?, :stringify
+  #TODO Remove once condtional templating for profile is done
+  def xeditable? object = nil
+    true # Or something like current_user.xeditable?
+  end
+  
+  helper_method :current_user?, :logged_in?, :stringify, :xeditable?
 end
