@@ -16,6 +16,7 @@
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
+//= require bootstrap-datetimepicker
 //= require twitter/typeahead
 //= require editable/bootstrap-editable
 //= require editable/rails
