@@ -82,9 +82,8 @@
       </div>
       <div class="panel-footer">
         <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= course.id %>">See more</button>
-        <% if @user && @profile.id != @user.id %>
-          <button type="button" class="btn-sm btn-danger" href="#" disabled>Book it!</button>
-        <% end %>
+        <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#modal-ask-question" href="#">Question?</button>
+        <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#modal-set-appointment" href="#">Book it!</button>
       </div>
     </div>
   <% end %>
