@@ -28,7 +28,13 @@ class ApplicationController < ActionController::Base
   end
   
   def redirect_back_or_to_root
-    redirect_to request.env['HTTP_REFERER'] || root_path
+    redirect_to request.path || root_path
+    return
+  end
+  
+  def redirect_back_or_to(url)
+    redirect_to request.path || url
+    return
   end
   
   def catch_activerecorderror(e)
