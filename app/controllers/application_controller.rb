@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   rescue_from ActiveRecord::ActiveRecordError, :with => :catch_activerecorderror
   
-  
-  
   protected
   
   def current_user?
