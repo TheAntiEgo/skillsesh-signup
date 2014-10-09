@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :conversation do
     subject {Faker::Lorem.sentence}
-    messages {build_list :message, 1}
+    body [Faker::Lorem.paragraph]
     customer
     merchant
     customer_read_at {DateTime.now}
