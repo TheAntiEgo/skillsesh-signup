@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :conversation do
-    subject "MyString"
-    customer nil
-    merchant nil
-    body "MyText"
-    customer_read_at "2014-10-08 04:21:33"
-    merchant_read_at "2014-10-08 04:21:33"
+    subject {Faker::Lorem.sentence}
+    messages {build_list :message, 1}
+    customer
+    merchant
+    customer_read_at {DateTime.now}
+    merchant_read_at nil
   end
 end

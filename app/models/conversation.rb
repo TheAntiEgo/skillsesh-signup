@@ -1,6 +1,13 @@
 class Conversation < ActiveRecord::Base
   belongs_to :customer, class_name: "User"
   belongs_to :merchant, class_name: "User"
+  has_many :messages
+  
+  ##
+  # Validations
+  ##
+  validates_length_of :messages, minimum: 1
+  validates_presence_of :customer, :merchant, :subject
   
   ##
   # Instance methods
