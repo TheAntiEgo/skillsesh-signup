@@ -96,7 +96,7 @@ showButton = function(event){
 
 // Construct a Blooudhound object
 searchEngine = new Bloodhound({
-    prefetch: { url: "http://lotus-laptop.codio.io:3000/skills" },
+    prefetch: { url: "http://tape-hilton.codio.io:3000/skills" },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });
