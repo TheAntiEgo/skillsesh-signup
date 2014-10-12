@@ -40,9 +40,7 @@ Rails.application.routes.draw do
   # + Courses
   # + Messages
   ##
-  resource :profile, :only => [:show, :update] do
-    resources :messages, :controller => 'messages'
-  end
+  resource :profile, :only => [:show, :update]
   
   ##
   # Users
@@ -55,6 +53,11 @@ Rails.application.routes.draw do
   resources :courses, :except => [:new, :edit] do
     resource :purchase, :only => [:new, :create, :destroy]
   end
+  
+  ##
+  # Conversations
+  ##
+  resources :conversations, :only => [:create, :update]
   
   ##
   # Skills
