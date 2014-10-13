@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
 ruby '2.1.2'
+source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 gem 'pg'
@@ -21,6 +21,8 @@ gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
 gem 'x-editable-rails'
+gem 'resque', '~> 1.25.2'
+
 
 group :development, :test do
   gem 'spring'
