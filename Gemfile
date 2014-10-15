@@ -32,6 +32,11 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test do
+  gem 'shoulda'
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
