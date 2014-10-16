@@ -19,10 +19,11 @@
           <%= render :partial => 'profiles/profile_bio' %>
         </div>
         <div class="col-xs-12">
+          <% if @user && @user.id == @profile.user.id %>
           <ul class="nav nav-tabs" role="tablist">
             <li class="active">
               <a href="#courses" role="tab" data-toggle="tab">
-                Courses
+                Sessions
               </a>
             </li>
             <li>
@@ -36,9 +37,15 @@
               <%= render :partial => 'profiles/profile_courses' %>
             </div>
             <div class="tab-pane fade" id="messages">
-                <%= render :partial => 'profiles/profile_messages' %>
+              <%= render :partial => 'profiles/profile_messages' %>
             </div>
-        </div>
+          </div>
+        <% else %>
+          <h3>
+            Sessions
+          </h3>
+          <%= render :partial => 'profiles/profile_courses' %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -23,5 +23,8 @@ class User < ActiveRecord::Base
   def messages
     # Need a sane source of truth for all conversations a user is uniquely
     # participating in.
+    return self.questions.order(:customer_read_at => :desc) if self.answers == []
+    return self.answers.order(:merchant_read_at => :desc) if self.questions == []
+    return self.answers.merge(self.questions).order(:merchant_read_at => :desc)
   end
 end

@@ -83,6 +83,6 @@
         <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#modal-set-appointment-<%= course.id %>" href="#">Book it!</button>
       </div>
     </div>
-    <%= render :partial => 'profiles/profile_question', :locals => {course: course} if @profile.user != @user %>
+    <%= render :partial => 'profiles/profile_question', :locals => {course: course} if @profile.user != @user && @user %>
   <% end %>
 </div>

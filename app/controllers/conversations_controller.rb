@@ -3,7 +3,6 @@ class ConversationsController < ApplicationController
   respond_to :json
   
   def create
-    byebug
     convo_data = get_params[:conversation]
     @convo = Conversation.new do |c|
       c.subject = convo_data[:subject]
