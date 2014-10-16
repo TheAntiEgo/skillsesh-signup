@@ -1,0 +1,20 @@
+<div class="modal fade" id="modal-ask-question-<%= course.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>
+          Ask <%= @profile.first_name %> a question about <em><%= course.name %></em>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for Conversation.new, url: conversations_path, remote: true do |f| %>
+          <%= f.hidden_field :subject, :value => course.name %>
+          <%= f.hidden_field :customer, :value => @user.id %>
+          <%= f.hidden_field :merchant, :value => course.profile.user.id %>
+          <%= f.text_area :body, :hide_label => true, :placeholder => "Don't be shy!", :style => "resize: vertical" %>
+          <%= f.submit "Send!" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

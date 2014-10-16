@@ -19,8 +19,33 @@
           <%= render :partial => 'profiles/profile_bio' %>
         </div>
         <div class="col-xs-12">
+          <% if @user && @user.id == @profile.user.id %>
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="active">
+              <a href="#courses" role="tab" data-toggle="tab">
+                Sessions
+              </a>
+            </li>
+            <li>
+              <a href="#messages" role="tab" data-toggle="tab">
+                Messages
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="courses">
+              <%= render :partial => 'profiles/profile_courses' %>
+            </div>
+            <div class="tab-pane fade" id="messages">
+              <%= render :partial => 'profiles/profile_messages' %>
+            </div>
+          </div>
+        <% else %>
+          <h3>
+            Sessions
+          </h3>
           <%= render :partial => 'profiles/profile_courses' %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

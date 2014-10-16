@@ -1,5 +1,5 @@
 <h1 class="profile-name">
-  <% if @user && @profile.id == @user.id %>
+  <% if @user && @profile.id === @user.id %>
     <%= editable @profile, :first_name, {:title => "Edit your first name", :data => {:pk => @profile.id}, :class => "editable-record"} %>
     <%= editable @profile, :last_name, {:title => "Edit your last name", :data => {:pk => @profile.id}, :class=>"editable-record"} %>
   <% else %>

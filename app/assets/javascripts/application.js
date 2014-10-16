@@ -16,6 +16,7 @@
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
+//= require bootstrap-datetimepicker
 //= require twitter/typeahead
 //= require editable/bootstrap-editable
 //= require editable/rails
@@ -95,7 +96,7 @@ showButton = function(event){
 
 // Construct a Blooudhound object
 searchEngine = new Bloodhound({
-    prefetch: { url: "http://lotus-laptop.codio.io:3000/skills" },
+    prefetch: { url: "http://wolf-anita.codio.io:3000/skills" },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });

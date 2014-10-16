@@ -1,0 +1,80 @@
+<div id="accordion-msgs" class="panel-group">
+    <% @user.messages.each do |convo| %>
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-3">
+              <% if convo.is_unread_by == @user %>
+                <%= link_to user_path(convo.merchant) do %>
+                  <%= image_tag convo.merchant.profile.photo, :class => "img-responsive img-circle" %>      
+                <% end %>
+              <% else %>
+                <%= link_to profile_path do %>
+                  <%= image_tag @user.profile.photo, :class => "img-responsive img-circle" %>      
+                <% end %>
+              <% end %>
+              </div>                
+              <div class="col-md-8">
+                  <p class="panel-message">
+                      <%= convo.body[-1] %>        
+                  </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-offset-3 col-md-7">
+                <% if convo.merchant_read_at.nil? %>
+                  <small> <%= convo.merchant.profile.first_name %> hasn't replied yet</small>
+                <% elsif convo.is_unread_by == @user %>
+                  <small> <%= convo.merchant.profile.first_name %> replied <%= convo.merchant_read_at.to_formatted_s :long_ordinal %></small>
+                <% else %>
+                  <small> You replied to <%= convo.merchant.profile.first_name %> <%= convo.customer_read_at.to_formatted_s :long_ordinal %></small>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div id="collapse-<%= convo.id %>" class="panel-collapse collapse">
+            <div class="panel-body">
+               <% convo.body.reverse[1..-1].each_index do |index| %>
+                  <div class="row">
+                    <div class="col-md-3">
+                  <% if convo.is_unread_by == @user && index.odd? %>
+                    <%= link_to user_path(convo.merchant) do %>
+                      <%= image_tag convo.merchant.profile.photo, :class => "img-responsive img-circle" %>      
+                    <% end %>
+                  <% elsif convo.is_unread_by == @user && index.even? %>
+                    <%= link_to profile_path do %>
+                      <%= image_tag @user.profile.photo, :class => "img-responsive img-circle" %>      
+                    <% end %>                  
+                  <% elsif convo.is_unread_by == convo.merchant && index.odd? %>
+                    <%= link_to profile_path do %>
+                      <%= image_tag @user.profile.photo, :class => "img-responsive img-circle" %>      
+                    <% end %>
+                  <% else %>
+                    <%= link_to user_path(convo.merchant) do %>
+                      <%= image_tag convo.merchant.profile.photo, :class => "img-responsive img-circle" %>      
+                    <% end %>
+                  <% end %>
+                    </div>                
+                    <div class="col-md-8">
+                      <p class="panel-message">
+                        <%= convo.body.reverse[1..-1][index] %>        
+                      </p>
+                    </div>
+                  </div>
+               <% end %>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion-msgs" href="#collapse-<%= convo.id %>">
+              See more
+            </button>
+            <button type="button" class="btn-sm btn-info">
+              Mark as read
+            </button>
+            <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#modal-provide-answer-<%= convo.id %>">
+              Reply
+            </button>
+          </div>
+      </div>
+    <% end %>
+</div>

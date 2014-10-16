@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_many :courses, foreign_key: 'instructor_id'
+  has_many :questions, class_name: 'Conversation', foreign_key: 'customer_id'
+  has_many :answers, class_name: 'Conversation', foreign_key: 'merchant_id'
   
   ##
   # Class methods
@@ -18,5 +20,11 @@ class User < ActiveRecord::Base
   ##
   # Instance methods
   ##
-  
+  def messages
+    # Need a sane source of truth for all conversations a user is uniquely
+    # participating in.
+    return self.questions.order(:customer_read_at => :desc) if self.answers == []
+    return self.answers.order(:merchant_read_at => :desc) if self.questions == []
+    return self.answers.merge(self.questions).order(:merchant_read_at => :desc)
+  end
 end

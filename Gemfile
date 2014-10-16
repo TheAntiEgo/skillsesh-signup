@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
 ruby '2.1.2'
+source 'https://rubygems.org'
 
 gem 'rails', '4.1.4'
 gem 'pg'
@@ -15,12 +15,14 @@ gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'bootstrap-modal-rails'
 gem 'gibbon'
+gem 'geocoder'
 gem 'webfontloader', '~> 1.5.6'
 gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
 gem 'x-editable-rails'
 gem 'mail_form'
+gem 'resque', '~> 1.25.2'
 
 group :development, :test do
   gem 'spring'
@@ -28,6 +30,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'faker'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'database_cleaner'
 end
 
 group :production do
