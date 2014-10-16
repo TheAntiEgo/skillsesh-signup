@@ -5,9 +5,9 @@
         Bio
       </h2>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 breakit">
       <p>
-      <% if @profile.id === @user.id %>
+      <% if @user && @profile.id === @user.id %>
         <%= editable @profile, :bio, {:title => "Edit your bio", :type => "textarea", :class=>"editable-record"} %>
       <% else %>
         <%= @profile.bio %>

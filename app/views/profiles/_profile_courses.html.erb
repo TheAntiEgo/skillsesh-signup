@@ -2,7 +2,7 @@
   <h2>
     Sessions
   </h2>
-  <% if @profile.id == @user.id %>
+  <% if @user && @profile.id == @user.id %>
     <button class="btn btn-success btn-md add-btn" type="button">
       <span class="glyphicon glyphicon-plus"></span> Add a new session
     </button>
@@ -29,7 +29,7 @@
     <div class="panel panel-default" id="course-<%= course.id %>">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <% if @profile.id == @user.id %>
+          <% if @user && @profile.id == @user.id %>
             <%= editable course, :name, {:url => "/courses/#{course.id}", :title => "Edit the name of your course", :data => {:pk => course.id}, :class => "h3 editable-record"} %>
           <% else %>
             <%= course.name %>
@@ -38,7 +38,7 @@
         <h4>
           Goal
         </h4>
-        <% if @profile.id == @user.id %>
+        <% if @user && @profile.id == @user.id %>
           <%= editable course, :goal, {:url => "/courses/#{course.id}", :tag => 'p', :class => "course-goal", :data => {:pk => course.id}, :title => "Edit the how", :type => "textarea", :class => "editable-record"} %>
         <% else %>
           <%= course.goal %>
@@ -49,7 +49,7 @@
           <h4>
             How
           </h4>
-          <% if @profile.id == @user.id %>
+          <% if @user && @profile.id == @user.id %>
             <%= editable course, :how, {:url => "/courses/#{course.id}", :tag => 'p', :title => "Edit the how", :data => {:pk => course.id}, :type => "textarea", :class => "editable-record"} %>
           <% else %>
             <%= course.how %>
@@ -57,7 +57,7 @@
           <h4>
             Requirements
           </h4>
-          <% if @profile.id == @user.id %>
+          <% if @user && @profile.id == @user.id %>
             <%= editable course, :requirements, {:url => "/courses/#{course.id}", :tag => 'p', :title => "Edit the requirements", :data => {:pk => course.id}, :type => "textarea", :class => "editable-record"} %>
           <% else %>
             <%= course.requirements %>
@@ -65,7 +65,7 @@
           <h4>
             Duration
           </h4>
-          <% if @profile.id == @user.id %>
+          <% if @user && @profile.id == @user.id %>
             <%= editable course, :duration, {:url => "/courses/#{course.id}", :title => "Tell em how long", :data => {:pk => course.id}, :type => "number", :class => "editable-record"} %>
           <% else %>
             <%= course.duration %> 
@@ -73,7 +73,7 @@
           <h4>
             Price
           </h4>
-          <% if @profile.id == @user.id %>
+          <% if @user && @profile.id == @user.id %>
             <%= editable course, :price, {:url => "/courses/#{course.id}", :title => "Tell em how much", :data => {:pk => course.id}, :type => "number", :class => "editable-record"} %>
           <% else %>
             <%= course.price %>
@@ -82,8 +82,8 @@
       </div>
       <div class="panel-footer">
         <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= course.id %>">See more</button>
-        <% if @profile.id != @user.id %>
-          <button type="button" class="btn-sm btn-danger" href="#" disabled>Book it!</button>
+        <% if @user && @profile.id != @user.id %>
+          <button type="button" class="btn-sm btn-info" href="#" disabled>Book it!</button>
         <% end %>
       </div>
     </div>

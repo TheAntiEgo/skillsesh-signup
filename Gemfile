@@ -20,6 +20,7 @@ gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
 gem 'x-editable-rails'
+gem 'mail_form'
 
 group :development, :test do
   gem 'spring'

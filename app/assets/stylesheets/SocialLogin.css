@@ -76,20 +76,20 @@ border: 3px solid #f3c120;
     clear: both;
 }
 
-h1 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+h1 { font-family: 'Montserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
-h2 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+h2 { font-family: 'Montserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
 h3 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
-h4 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+h4 { font-family: 'Montserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
-h5 { font-family: 'Monserrat', 'Inconsolata', 'Droid Sans', serif!important;}
+h5 { font-family: 'Montserrat', 'Inconsolata', 'Droid Sans', serif!important;}
 
-body { font-family: 'Lara', 'Droid Sans', serif!important;}
+body { font-family: 'Montserrat', 'Lara', 'Droid Sans', serif!important;}
 
 .brandup {
-padding-top: 10px!important;
+padding-top: 0px!important;
 }
 
 .control-label {
@@ -132,4 +132,12 @@ font-size: 250%;
 }
 .ad5 {
     background: url(../images/Skillsesh_IllustrationToons_Wood.png) no-repeat center center fixed; 
+}
+
+.breakit {
+    word-break: break-all;
+}
+
+.jumbotron {
+padding-top: 0px!important;
 }

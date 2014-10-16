@@ -2,40 +2,18 @@
 <div class="jumbotron text-center">
   <div class="container-fluid">
     <header>
-      <div class="row heavy">
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-          
-        
-        <div class="col-xs-12 col-sm-4 ">
-          <h1>
-            Teach
-          </h1>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <h1>
-            Learn
-          </h1>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <h1>
-            Earn    
-          </h1>
-        </div>
-      </div>
-        <div class="row">
-          <br><br/>     
-        </div>
-      </div>
-    </header>
+      
+    
     <div class="row">
       <div class="col-xs-12">
         <h2 class="hero-action text-center">
-          Join Portland's Learning Community!
-          
+          Learn Skills From the People in Your Community!
+
         </h2>
         <br><br/>
       </div>
     </div>
+</header>
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="text-right btnmain">
@@ -52,42 +30,44 @@
           </button>
 
             </div>
+           <br>
           </div>
+
+        <div class="col-xs-12 col-md-4  col-md-offset-4">
+          <div class="form-group">
+    
+    <input type="search" class="form-control" id="exampleInputEmail1" placeholder="Type a Skill">
+  </div>
+  </div>
         </div>
       </div>
     </div>
 <div class="container">
   <section class="tutors">
     <div class="intro">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="text-center">
-            <img class="img-responsive center-block" src="/images/SkillSesh_BrandInitial2.png" style="height: 80px"/>
-
-          </div>
-        </div>
-      </div>
+      
     </div>
     <div class="tutors-listing">
-      <div class="row text-center">
+      <div class="row">
         <% @profiles.each do |profile| %>
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-xs-12 col-sm-2">
           <div class="row tutor-unit">
-            <div class="col-xs-6 col-sm-12 highlightit">
+            <div class="col-xs-12 highlightit">
               <%= link_to user_path(profile.user) do %>
                 <%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo' %>
               <% end %> </div>
-              <div class="col-xs-6 col-sm-12">
-                <h4 class="tutor-name">
+              <div class="col-xs-12">
+                <h4 class="tutor-name text-center">
                   <%= profile.first_name %>
                 </h4>
-                <p>
-                  Teaches
-                </p>
+               
                 <strong class="tutor-skills tutort">
                 <% profile.skills.each do |skill| %>
+                  <span class="label label-info label-inert">
                   <%= skill.name %>
+                  </span> 
                 <% end %>
+                
                 </strong>
               </div>
             </div>
@@ -179,54 +159,7 @@
       </div>
     </div>
   </section>
-  <section class="share">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <div class="col-xs-12 col-md-6">
-          <h3>
-            Follow Our Journey <br><br/>
-          </h3>
-          <div class="col-xs-offset-1 col-xs-3 highlightit2">
-            <%= image_tag '/images/Gplus.png', size: '70x70', :href => "https://plus.google.com/108372836959462323148/posts", :target => "_blank" %>
-          </div>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/Facebook.png', size: '70x70', :href => "https://www.facebook.com/SkillSesh", :target => "_blank" %>
-          </div>
-          <div class="col-xs-3 highlightit2">
-            <%= image_tag '/images/Twitter.png', size: '70x70',  :href => "https://twitter.com/SkillSesh", :target => "_blank" %>
-            <br><br/>
-          </div>
-          <div class="journey-buttons"></div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <h3>
-            Share With Friends <br><br/>
-          </h3>
-      
-            <div class="col-xs-3 highlightit2">
-              <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=http://www.skillsesh.com/&title=Get+Skilled", :target => "_blank" do %> 
-              <%= image_tag '/images/linkdicon.png', size: '64x64' %>
-              <% end %>
-            </div>
-            <div class="col-xs-3 highlightit2">
-              <%= link_to "http://www.facebook.com/sharer/sharer.php?u=http://www.skillsesh.com/", :target => "_blank" do %> 
-              <%= image_tag '/images/fbsquare.png', size: '64x64' %>
-              <% end %>
-            </div>
-            <div class="col-xs-3 highlightit2">
-              <%= link_to "https://plus.google.com/share?url=http://www.skillsesh.com/", :target => "_blank" do %> 
-              <%= image_tag '/images/gplussquare.png', size: '64x64' %>
-              <% end %>
-            </div>
-            <div class="col-xs-3 highlightit2">
-              <%= link_to "http://twitter.com/share?url=http://www.skillsesh.com/&text=Get+Skilled", :target => "_blank" do %> 
-              <%= image_tag '/images/twittersquare.png', size: '64x64' %>
-              <% end %>
-            </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 </div>
 
 <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal2" aria-hidden="true" data-focus-on="input:first">
