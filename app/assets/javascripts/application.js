@@ -23,7 +23,7 @@
 //= require_tree .
 
 var updateOptions, textValidator, numberValidator, textAreaValidator, showButton, showForm, putSuccess, putError, initRecord, searchEngine,
-    $subscribeForm, $tagInput, $editableRecord, $newRecord, $addButton, $cancelButton;
+    $subscribeForm, $tagInput, $editableRecord, $newRecord, $addButton, $cancelButton, $readButton;
 
 // Default options for pre-rendered editables
 updateOptions = {
@@ -101,6 +101,13 @@ searchEngine = new Bloodhound({
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });
 
+// One-way toggle unread => read
+toggleReadStatus = function(event){
+    $('.unread').removeClass('unread').addClass('read');
+    
+    $readButton.addClass('disabled');
+};
+
 // Only execute what *needs* to be initialized at ready
 $(document).ready(function(){
     // Cache selectors
@@ -110,6 +117,7 @@ $(document).ready(function(){
     $addButton = $('.add-btn');
     $cancelButton = $('.cancel-btn');
     $editableRecord = $('.editable-record');
+    $readButton = $('.btn-mark-read');
 
     //Hide new course form
     $newRecord.hide();
@@ -118,6 +126,7 @@ $(document).ready(function(){
     $subscribeForm.on('ajax:before', function(){ $('#myModal').modal(); });
     $addButton.on('click', showForm);
     $cancelButton.on('click', showButton);
+    $readButton.on('click', toggleReadStatus);
 
     // Fetch or locally load JSON of skills
     searchEngine.initialize();
@@ -138,4 +147,3 @@ $(document).ready(function(){
     // Initialize pre-rendered editables with defaults
     initRecord($editableRecord, $.extend(updateOptions, putSuccess, putError));
 });
-
