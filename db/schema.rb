@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012043524) do
+ActiveRecord::Schema.define(version: 20141009035548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,6 @@ ActiveRecord::Schema.define(version: 20141012043524) do
   end
 
   add_index "authentications", ["provider", "provider_id"], name: "index_authentications_on_provider_and_provider_id", unique: true, using: :btree
-
-  create_table "conversations", force: true do |t|
-    t.string   "subject",          null: false
-    t.integer  "customer_id"
-    t.integer  "merchant_id"
-    t.datetime "merchant_read_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "body",                          array: true
-    t.datetime "customer_read_at"
-  end
-
-  add_index "conversations", ["customer_id"], name: "index_conversations_on_customer_id", using: :btree
-  add_index "conversations", ["merchant_id"], name: "index_conversations_on_merchant_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "name"
