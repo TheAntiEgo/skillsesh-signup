@@ -1,8 +1,8 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.uuid :sender_id, index: true
-      t.uuid :receiver_id, index: true
+      t.references :sender, index: true
+      t.references :receiver, index: true
       t.text :content
       t.datetime :read_at
 
