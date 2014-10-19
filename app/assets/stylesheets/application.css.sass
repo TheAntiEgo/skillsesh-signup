@@ -1,4 +1,4 @@
-@import "variables"
+
 
 @import "bootstrap-sprockets"
 
@@ -46,8 +46,37 @@
 
 .tutor-unit
   margin:
-    bottom: 10px
+    bottom: 50px
+    top: 20px
+    right: 10px
 
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550
+  position: relative !important
+  top: 30px !important
+  text-align: center 
+  padding-bottom: 0px !important
+  background-color: rgba(69, 193, 130, 0.06)
+
+.tutor-name
+  position: relative !important
+  top: -50px !important
+  color: #00a550
+  font-weight: bold
+  font-size: 170%
+  
+.tutor-skills
+  position: relative !important
+  top: -50px !important
+  bottom: -50px !important
+  
+.tutor-profile1
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550
+  text-align: center
+  
 .mission p
   margin:
     bottom: 18px
@@ -73,7 +102,7 @@
     text-align: center 
       
 body
-  padding-top: 60px   
+  padding-top: 50px   
 
 header
   margin-bottom: 0px !important  
@@ -81,8 +110,16 @@ header
 .jumbotron 
   padding-bottom: 0px !important
   margin-bottom: 0px !important
-  background-color: #f3c120 !important
-  color: white !important  
+  background-color: rgba(69, 193, 130, 0.06)!important
+  color: #4579b3 !important 
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550 
+  margin-top: 30px
+  
+@media (max-width: 767px) 
+  .jumbotron
+    margin-top: 60px!important
   
 .half-line 
   line-height: 0.5em
@@ -96,24 +133,49 @@ h1
 .navbar
   background-color: #4579b3 !important
   
+  
 .navbar-collapse
-  font-size: 150% !important
+  font-size: 100% !important
+
   
 .btn-primary  
-  background-color: #4579b3 !important
+  background-color: #ffffff !important
+  color: #4579b3
+  border-style: solid
+  border-width: 1px
+  border-color: #4579b3
+  
   
 .btn-info  
-  background-color: #00A550 !important  
+  background-color: #ffffff !important  
+  color: #00a550
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550
 
+
+.login-btn
+  padding-top: 13px
+  
 .bootstrap-tagsinput
   min-width: 50%
   text-align: left  
   .tag
     display: inline-block
+      
+.label-info:hover 
+  background:
+    color: #f2bf20  !important
 
 .label-info
   background:
-    color: #f3c120  !important
+    color: #4579b3  !important
+  border-radius: 10px  
+  margin: 
+    bottom: 8px
+  font-weight: normal
+  font-size: 100%
+  line-height: 2
 
 .label-inert
   margin:
@@ -157,11 +219,32 @@ h1
 
 @media (min-width: $screen-sm-min)
   .profile-photo
-    padding-top: 18px
-  
+    padding: 15px !important 
+
+   
   .profile-name
     padding-top: 18px
    
   .modal-dialog
     margin: 0 0 0 0
-  
+
+.tutor-photo
+  position: relative !important
+  top: -50px !important
+  bottom: 50px !important
+
+.try-up
+  position: relative !important
+  top: 15px !important
+
+.panel-heading
+  background-color: rgba(69, 193, 130, 0.06)!important
+
+.panel-footer
+  background-color: rgba(69, 193, 130, 0.06)!important   
+
+.panel-default 
+  border-color: #FFFFFF
+
+.tutor-profile2
+  background-color: rgba(69, 193, 130, 0.06)!important  
