@@ -20,5 +20,4 @@ class Conversation < ActiveRecord::Base
   def newest_first
     self.messages.to_ary.reverse
   end
-  end
 end
