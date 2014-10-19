@@ -1,22 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-offset-1 col-sm-5 text-center tutor-profile2">
-      <div class="row">
-      <div class="col-xs-12">
-          <%= render :partial => 'profiles/profile_name' %>
-      </div>
-        <div class="col-xs-8 col-xs-offset-2">
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-5 text-center">
+      <div class="row profile-up">
+      <div class="col-xs-8 col-xs-offset-2 profile-photo">
           <%= render :partial => 'profiles/profile_photo' %>
         </div>
-        
+<div class="col-xs-12 tutor-profile2 profpad">
+      <div class="col-xs-12">
+          <br><br><br><br><br><br><br><br><br><br>
+          <%= render :partial => 'profiles/profile_name' %>
+      </div>               
         <div class="col-xs-12">
           <%= render :partial => 'profiles/profile_skills' %>
         </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
+    <div class="col-xs-12 col-sm-offset-1 col-sm-6">
       <div class="row">
-        <div class="col-xs-12 tutor-profile2">
+        <div class="col-xs-11 tutor-profile2 biopad">
           <%= render :partial => 'profiles/profile_bio' %>
         </div>
         <div class="col-xs-12">
@@ -48,6 +50,9 @@
           <%= render :partial => 'profiles/profile_courses' %>
         <% end %>
       </div>
+    </div>
+  </div>
+</div> </div>
     </div>
   </div>
 </div>

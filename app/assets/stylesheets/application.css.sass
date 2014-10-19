@@ -49,10 +49,12 @@
     bottom: 50px
     top: 20px
     right: 10px
-
+    left: 10px
+  
   border-style: solid
   border-width: 1px
   border-color: #00a550
+  border-radius: 10px
   position: relative !important
   top: 30px !important
   text-align: center 
@@ -115,6 +117,7 @@ header
   border-style: solid
   border-width: 1px
   border-color: #00a550 
+  border-radius: 10px
   margin-top: 30px
   
 @media (max-width: 767px) 
@@ -131,7 +134,7 @@ h1
   margin-top: 0px !important
   
 .navbar
-  background-color: #4579b3 !important
+  background-color: #00a550 !important
   
   
 .navbar-collapse
@@ -145,6 +148,12 @@ h1
   border-width: 1px
   border-color: #4579b3
   
+.btn-primary:hover 
+  border: 1px solid #4579b3!important 
+  color: white
+  background-color: #4579b3!important
+
+  
   
 .btn-info  
   background-color: #ffffff !important  
@@ -152,10 +161,23 @@ h1
   border-style: solid
   border-width: 1px
   border-color: #00a550
+  
+.btn-info:hover 
+  border: 1px solid #00a550!important 
+  color: #ffffff
+  background-color: #00a550!important
 
 
 .login-btn
-  padding-top: 13px
+  padding-top: 14px
+  color: #ffffff
+  border: 1px solid #ffffff!important   
+  background-color: #00a550!important  
+  
+.login-btn:hover 
+  border: 1px solid #00a550!important 
+  color: #00a550
+  background-color: #ffffff!important
   
 .bootstrap-tagsinput
   min-width: 50%
@@ -164,16 +186,19 @@ h1
     display: inline-block
       
 .label-info:hover 
-  background:
-    color: #f2bf20  !important
+  border: 1px solid #ffffff!important 
+  color: #ffffff !important
+  background-color: #4579b3!important
 
 .label-info
+  border: 1px solid #4579b3!important 
   background:
-    color: #4579b3  !important
+    color: #ffffff  !important
+  color: #4579b3  !important
   border-radius: 10px  
   margin: 
     bottom: 8px
-  font-weight: normal
+  font-weight: bold
   font-size: 100%
   line-height: 2
 
@@ -191,11 +216,15 @@ h1
 
 .profile-name
   margin:
-    bottom: 36px
+    bottom: 0px
 
 .profile-photo
   margin:
-    bottom: 28px
+    bottom: 0px
+  position: absolute !important
+  z-index: 10
+  top: -0px !important
+
 
 .panel-group .panel
   margin:
@@ -244,7 +273,27 @@ h1
   background-color: rgba(69, 193, 130, 0.06)!important   
 
 .panel-default 
-  border-color: #FFFFFF
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550 
+  border-radius: 10px !important
 
 .tutor-profile2
   background-color: rgba(69, 193, 130, 0.06)!important  
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550 
+  border-radius: 10px
+  margin-top: 20px
+  
+.biopad
+  margin-left: 14px
+  margin-right: 14px
+
+.profpad
+  padding-bottom: 20px
+
+.profile-up
+  position: absolute !important
+  top: 80px !important
+  
