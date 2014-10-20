@@ -45,5 +45,6 @@ Rails.application.configure do
     generate.request_specs false
     generate.routing_specs false
     generate.view_specs false
+    generate.test_framework false
   end
 end

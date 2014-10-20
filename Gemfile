@@ -27,14 +27,8 @@ gem 'resque', '~> 1.25.2'
 group :development, :test do
   gem 'spring'
   gem 'byebug'
-  gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'faker'
-end
-
-group :test do
-  gem 'shoulda'
-  gem 'database_cleaner'
 end
 
 group :production do
