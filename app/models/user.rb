@@ -8,10 +8,12 @@ class User < ActiveRecord::Base
   # Associations
   ##
   has_many :authentications, dependent: :destroy
-  has_one :profile, dependent: :destroy
   has_many :courses, foreign_key: 'instructor_id'
   has_many :questions, class_name: 'Conversation', foreign_key: 'customer_id'
   has_many :answers, class_name: 'Conversation', foreign_key: 'merchant_id'
+  has_many :messages
+  has_one :schedule, :inverse_of => :user
+  has_and_belongs_to_many :skills
   
   ##
   # Class methods

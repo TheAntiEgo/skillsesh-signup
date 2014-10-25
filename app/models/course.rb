@@ -9,7 +9,7 @@ class Course < ActiveRecord::Base
   # Associations
   ##
   
-  belongs_to :profile
+  belongs_to :user
   has_and_belongs_to_many :skills
   
   ##
