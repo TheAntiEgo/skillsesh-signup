@@ -31,6 +31,8 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'shoulda', :group => :test
+
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
