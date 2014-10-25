@@ -29,6 +29,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'faker'
+  gem 'factory_girl_rails'
 end
 
 gem 'shoulda', :group => :test

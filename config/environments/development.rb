@@ -34,17 +34,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # Silence generator noise
-  config.generators do |generate|
-    generate.assets false
-    generate.javascripts false
-    generate.javascript_engine false
-    generate.stylesheets false
-    generate.helper false
-    generate.request_specs false
-    generate.routing_specs false
-    generate.view_specs false
-    generate.test_framework false
-  end
 end

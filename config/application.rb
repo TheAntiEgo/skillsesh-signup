@@ -26,5 +26,18 @@ module Signup
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    # Silence generator noise
+    config.generators do |generate|
+      generate.assets false
+      generate.javascripts false
+      generate.javascript_engine false
+      generate.stylesheets false
+      generate.helper false
+      generate.request_specs false
+      generate.routing_specs false
+      generate.view_specs false
+      generate.fixture_replacement :factory_girl, :dir => 'test/factories'
+    end
   end
 end
