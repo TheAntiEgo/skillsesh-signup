@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025180858) do
+ActiveRecord::Schema.define(version: 20141025193715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,9 @@ ActiveRecord::Schema.define(version: 20141025180858) do
     t.decimal  "duration"
     t.decimal  "price"
     t.string   "location"
-    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "courses", ["profile_id"], name: "index_courses_on_profile_id", using: :btree
 
   create_table "courses_skills", id: false, force: true do |t|
     t.integer "course_id"
@@ -80,26 +77,6 @@ ActiveRecord::Schema.define(version: 20141025180858) do
   add_index "messages", ["receiver_id"], name: "index_messages_on_receiver_id", using: :btree
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
 
-  create_table "profiles", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "bio"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo"
-  end
-
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-
-  create_table "profiles_skills", id: false, force: true do |t|
-    t.integer "profile_id"
-    t.integer "skill_id"
-  end
-
-  add_index "profiles_skills", ["profile_id"], name: "index_profiles_skills_on_profile_id", using: :btree
-  add_index "profiles_skills", ["skill_id"], name: "index_profiles_skills_on_skill_id", using: :btree
-
   create_table "schedules", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -118,9 +95,14 @@ ActiveRecord::Schema.define(version: 20141025180858) do
 
   create_table "users", force: true do |t|
     t.string "email",          null: false
-    t.uuid   "remember_token"
+    t.uuid   "remember_token", null: false
+    t.string "first_name",     null: false
+    t.string "last_name",      null: false
+    t.text   "bio",            null: false
+    t.string "photo",          null: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true, using: :btree
 
 end
