@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
   end
 
   def update
-    convo = Conversation.find get_params :id
+    convo = Conversation.find get_params
     convo.update! get_params
     render :nothing => true
   end
@@ -17,7 +17,7 @@ class ConversationsController < ApplicationController
   protected
 
   def get_params
-    params.require(:conversation).permit :customer, :merchant, :course, :message => [:sender, :receiver, :course, :content]
+    params.require(:conversation).permit :customer, :merchant, :course, :message => [:sender, :receiver, :course, :read, :content]
   end
 
 
