@@ -8,6 +8,6 @@ class Skill < ActiveRecord::Base
   ##
   # Associations
   ##
-  has_and_belongs_to_many :users
+  has_and_belongs_to_many :users, :join_table => 'users_skills'
   has_and_belongs_to_many :courses
 end
