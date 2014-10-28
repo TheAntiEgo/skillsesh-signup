@@ -27,17 +27,17 @@ module Signup
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     
-    # Silence generator noise
-    config.generators do |generate|
-      generate.assets false
-      generate.javascripts false
-      generate.javascript_engine false
-      generate.stylesheets false
-      generate.helper false
-      generate.request_specs false
-      generate.routing_specs false
-      generate.view_specs false
-      generate.fixture_replacement :factory_girl, :dir => 'test/factories'
-    end
+    # Mailer Settings
+    config.action_mailer.default_url_options = Rails.env == 'production' ? {:host => 'skillsesh.com'} : {:host => 'tape-hilton.codio.io:3000'}
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address => 'smtp-relay.gmail.com',
+      :port => 587,
+      :domain => 'skillsesh.com',
+      :user_name => 'notifications@skillsesh.com',
+      :password => Rails.application.secrets.gmail_password,
+      :authentication => 'plain',
+      :enable_starttls_auto => true
+    }
   end
 end
