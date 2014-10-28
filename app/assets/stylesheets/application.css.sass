@@ -117,12 +117,9 @@ header
   border-style: solid
   border-width: 1px
   border-color: #00a550 
-  border-radius: 10px
-  margin-top: 30px
+  border-radius: 0px
+ 
   
-@media (max-width: 767px) 
-  .jumbotron
-    margin-top: 60px!important
   
 .half-line 
   line-height: 0.5em
@@ -142,31 +139,31 @@ h1
 
   
 .btn-primary  
+  border: 1px solid #4579b3!important 
+  color: white
+  background-color: #4579b3!important
+  
+  
+.btn-primary:hover 
   background-color: #ffffff !important
   color: #4579b3
   border-style: solid
   border-width: 1px
   border-color: #4579b3
   
-.btn-primary:hover 
-  border: 1px solid #4579b3!important 
-  color: white
-  background-color: #4579b3!important
-
-  
   
 .btn-info  
+  border: 1px solid #00a550!important 
+  color: #ffffff
+  background-color: #00a550!important
+  
+  
+.btn-info:hover 
   background-color: #ffffff !important  
   color: #00a550
   border-style: solid
   border-width: 1px
   border-color: #00a550
-  
-.btn-info:hover 
-  border: 1px solid #00a550!important 
-  color: #ffffff
-  background-color: #00a550!important
-
 
 .login-btn
   padding-top: 14px
@@ -186,15 +183,14 @@ h1
     display: inline-block
       
 .label-info:hover 
+  border: 1px solid #4579b3!important 
+  background-color: #ffffff  !important
+  color: #4579b3  !important
+
+.label-info
   border: 1px solid #ffffff!important 
   color: #ffffff !important
   background-color: #4579b3!important
-
-.label-info
-  border: 1px solid #4579b3!important 
-  background:
-    color: #ffffff  !important
-  color: #4579b3  !important
   border-radius: 10px  
   margin: 
     bottom: 8px
@@ -221,9 +217,8 @@ h1
 .profile-photo
   margin:
     bottom: 0px
-  position: absolute !important
   z-index: 10
-  top: -0px !important
+  
 
 
 .panel-group .panel
@@ -292,8 +287,50 @@ h1
 
 .profpad
   padding-bottom: 20px
-
-.profile-up
-  position: absolute !important
-  top: 80px !important
   
+.divider 
+  border-style: solid
+  border-width: 1px
+  border-color: #00a550 
+  background-color: rgba(69, 193, 130, 0.06)!important    
+  
+.rad    
+  border-radius: 10px    
+
+.bluet
+  color: #4579b3
+
+.scroll-top-wrapper
+  position: fixed
+  opacity: 0
+  visibility: hidden
+  overflow: hidden
+  text-align: center
+  z-index: 99999999
+  background-color: #00a550
+  color: #ffffff
+  width: 50px
+  height: 48px
+  line-height: 48px
+  right: 30px
+  bottom: 30px
+  padding-top: 2px
+  border-top-left-radius: 10px
+  border-top-right-radius: 10px
+  border-bottom-right-radius: 10px
+  border-bottom-left-radius: 10px
+  -webkit-transition: all 0.5s ease-in-out
+  -moz-transition: all 0.5s ease-in-out
+  -ms-transition: all 0.5s ease-in-out
+  -o-transition: all 0.5s ease-in-out
+  transition: all 0.5s ease-in-out
+  &:hover
+    background-color: #4579b3
+  &.show
+    visibility: visible
+    cursor: pointer
+    opacity: 1.0
+  i.fa
+    line-height: inherit  
+      
+      

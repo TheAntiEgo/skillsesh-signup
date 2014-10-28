@@ -31,7 +31,6 @@ class Profile < ActiveRecord::Base
   def add_skills_from_str(p)
     str = p[:skills]
     list = str.split(/\,/).map {|s| s.downcase.strip}
-    byebug
     list.each do |s|
       unless Skill.exists?(:name => s)
         self.skills.create!(:name => s)
