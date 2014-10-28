@@ -22,5 +22,9 @@ FactoryGirl.define do
         convo.course = build(:course, :instructor => convo.merchant)
       end
     end
+    
+    factory :initial_conversation do
+      association :course, :factory => :course, :instructor => merchant
+    end
   end
 end

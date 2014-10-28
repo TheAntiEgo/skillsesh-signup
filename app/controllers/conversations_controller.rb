@@ -3,21 +3,22 @@ class ConversationsController < ApplicationController
   before_action :authenticated?
 
   def create
-    convo = Conversation.new get_params
-    convo.save! if convo.valid?
-    render :nothing => true
+    @conversation = Conversation.new(get_params)
+    @conversation.save! if @conversation.valid?
+    render :json => @conversation
   end
 
   def update
-    convo = Conversation.find get_params
-    convo.update! get_params
-    render :nothing => true
+   @conversation = Conversation.find(get_params[:id])
+   @conversation.update!(get_params)
+   render :json => @conversation
+   
   end
 
   protected
 
   def get_params
-    params.require(:conversation).permit :customer, :merchant, :course, :message => [:sender, :receiver, :course, :read, :content]
+    params.require(:conversation).permit(:id, :customer_id, :merchant_id, :course_id, :messages_attributes => [:id, :sender_id, :recepient_id, :course_id, :read, :content])
   end
 
 

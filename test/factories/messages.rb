@@ -3,5 +3,10 @@
 FactoryGirl.define do
   factory :message do
     content { Faker::Lorem.sentences.join(' ') }
+    
+    factory :unread_message do
+      sender
+      recepient
+    end
   end
 end
