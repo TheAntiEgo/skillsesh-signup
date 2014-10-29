@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/create'
-
-  get 'messages/update'
-
   root :to => 'signups#index'
   
   ##
