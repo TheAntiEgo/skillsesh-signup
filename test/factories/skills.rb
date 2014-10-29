@@ -1,9 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  sequence(:name) { |n| "#{Faker::Lorem.word}-#{n}" }
-  
   factory :skill do
-    name
+    sequence :name do |n|
+      Faker::Lorem.word + n.to_s    
+    end
   end
 end

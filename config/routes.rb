@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+
+  get 'messages/update'
+
   root :to => 'signups#index'
   
   ##
@@ -54,10 +58,8 @@ Rails.application.routes.draw do
     resource :purchase, :only => [:new, :create, :destroy]
   end
   
-  ##
-  # Conversations
-  ##
-  resources :conversations, :only => [:create, :update]
+  resource :conversations, :only => [:create, :update]
+  
   
   ##
   # Skills

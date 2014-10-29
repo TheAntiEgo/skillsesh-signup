@@ -8,10 +8,14 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for Conversation.new, url: conversations_path, remote: true do |f| %>
-          <%= f.hidden_field :subject, :value => course.name %>
-          <%= f.hidden_field :customer, :value => @user.id %>
-          <%= f.hidden_field :merchant, :value => course.profile.user.id %>
-          <%= f.text_area :body, :hide_label => true, :placeholder => "Don't be shy!", :style => "resize: vertical" %>
+          <%= f.hidden_field :customer, :value => @user %>
+          <%= f.hidden_field :merchant, :value => @profile %>
+          <%= f.hidden_field :course, :value => course %>
+          <%= f.fields_for :message, Message.new do |m| %>
+            <%= m.hidden_field :sender, :value => @user %>
+            <%= m.hidden_field :receiver, :value => @profile.user %> 
+            <%= m.text_area :content, :hide_label => true, :placeholder => "Don't be shy!", :style => "resize: vertical" %>
+          <% end %>
           <%= f.submit "Send!" %>
         <% end %>
       </div>

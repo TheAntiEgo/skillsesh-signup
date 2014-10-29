@@ -1,25 +1,25 @@
 class ConversationsController < ApplicationController
-  before_action :authenticated?
   respond_to :json
-  
+  before_action :authenticated?
+
   def create
-    convo_data = get_params[:conversation]
-    @convo = Conversation.new do |c|
-      c.subject = convo_data[:subject]
-      c.merchant = User.find(convo_data[:merchant])
-      c.customer = User.find(convo_data[:customer])
-      c.body = [convo_data[:body]]
-      c.customer_read_at = DateTime.now
-    end
-    @convo.save!
-    render :nothing => true
+    @conversation = Conversation.new(get_params)
+    @conversation.save! if @conversation.valid?
+    render :json => @conversation
   end
 
   def update
-    render :nothing => true
+   @conversation = Conversation.find(get_params[:id])
+   @conversation.update!(get_params)
+   render :json => @conversation
+   
   end
-  
+
+  protected
+
   def get_params
-    params.permit(:conversation => [:subject, :merchant, :customer, :body])
-  end    
+    params.require(:conversation).permit(:id, :customer_id, :merchant_id, :course_id, :messages_attributes => [:id, :sender_id, :recepient_id, :course_id, :read, :content])
+  end
+
+
 end

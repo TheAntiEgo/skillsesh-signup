@@ -26,5 +26,18 @@ module Signup
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    # Mailer Settings
+    config.action_mailer.default_url_options = Rails.env == 'production' ? {:host => 'skillsesh.com'} : {:host => 'tape-hilton.codio.io:3000'}
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address => 'smtp-relay.gmail.com',
+      :port => 587,
+      :domain => 'skillsesh.com',
+      :user_name => 'notifications@skillsesh.com',
+      :password => Rails.application.secrets.gmail_password,
+      :authentication => 'plain',
+      :enable_starttls_auto => true
+    }
   end
 end

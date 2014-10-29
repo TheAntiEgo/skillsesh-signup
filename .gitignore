@@ -27,3 +27,6 @@ config/application.yml
 .settings
 .forkignore
 startup.sh
+
+# HTTPie
+http

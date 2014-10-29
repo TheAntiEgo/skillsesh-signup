@@ -11,7 +11,6 @@ class CoursesController < ApplicationController
   end
   
   def create
-    byebug
     @profile = @user.profile
     @course = @profile.courses.create!(get_params[:course])
     redirect_to profile_path

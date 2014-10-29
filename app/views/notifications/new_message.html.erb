@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+  <body>
+    <p>
+      You have a new message from <a href="<%= user_url(@sender, :host => 'tape-hilton.codio.io:3000') %>"> <%=  @sender.first_name %> </a>
+    </p>
+    <p>
+      <%= @snippet %>
+    </p>
+    <p>
+      <%= link_to "Click here to reply!", profile_url(:host => 'tape-hilton.codio.io:3000') %>
+    </p>
+  </body>

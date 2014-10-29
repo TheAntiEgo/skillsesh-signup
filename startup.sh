@@ -1,1 +1,1 @@
-parts start postgresqlparts start postgresql redis
+parts start postgresql redis

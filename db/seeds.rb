@@ -6,5 +6,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-FactoryGirl.create_list(:profile, 15)
+12.times do
+  FactoryGirl.create :seed_user
+end

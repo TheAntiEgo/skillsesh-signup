@@ -3,7 +3,7 @@ class SignupsController < ApplicationController
   before_action :current_user?
   
   def index
-    @profiles = Profile.limit(15).order("RANDOM()")
+    @profiles = User.limit(15).order("RANDOM()")
   end
   
   def create
@@ -20,6 +20,7 @@ class SignupsController < ApplicationController
       @user = User.new( :email => oauth[:info][:email], :remember_token => SecureRandom.uuid )
       @user.authentications << Authentication.from_omniauth(oauth)
       @user.profile = Profile.from_omniauth(oauth)
+      @user.build_preference
       @user.save!
       set_remember_token @user
       redirect_to onboard_path
@@ -27,11 +28,11 @@ class SignupsController < ApplicationController
   end
   
   def onboard
-    @profile = @user.profile
+    @profile = @user
   end
   
   def first_session
-    @profile = @user.profile
+    @profile = @user
     @course = Course.new
   end
   
