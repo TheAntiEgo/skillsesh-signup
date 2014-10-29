@@ -51,9 +51,6 @@
     right: 10px
     left: 10px
   
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550
   border-radius: 10px
   position: relative !important
   top: 30px !important
@@ -74,9 +71,6 @@
   bottom: -50px !important
   
 .tutor-profile1
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550
   text-align: center
   
 .mission p
@@ -112,16 +106,15 @@ header
 .jumbotron 
   padding-bottom: 0px !important
   margin-bottom: 0px !important
-  background-image: url(/images/skillbanner.png)
+  background-image: url(/images/header_image2.jpg)
   background-size: cover 
   background-repeat: no-repeat
   background-color: rgba(69, 193, 130, 0.06)
   background-position: center  
-  color: #4579b3 !important 
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550 
-  border-radius: 0px
+  
+@media (max-width: $screen-sm-max)
+  .jumbotron
+    background-image: url(/images/Skillsesh_IllustrationToons_Wood2.png)
  
   
   
@@ -272,16 +265,11 @@ h1
   background-color: rgba(69, 193, 130, 0.06)!important   
 
 .panel-default 
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550 
   border-radius: 10px !important
+  border-style: none 
 
 .tutor-profile2
   background-color: rgba(69, 193, 130, 0.06)!important  
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550 
   border-radius: 10px
   margin-top: 20px
   
@@ -293,9 +281,6 @@ h1
   padding-bottom: 20px
   
 .divider 
-  border-style: solid
-  border-width: 1px
-  border-color: #00a550 
   background-color: rgba(69, 193, 130, 0.06)!important    
   
 .rad    
@@ -337,4 +322,6 @@ h1
   i.fa
     line-height: inherit  
       
+@grid-float-breakpoint   
+  @screen-md-min !default
       
