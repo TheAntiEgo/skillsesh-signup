@@ -215,8 +215,12 @@ h1
   margin:
     bottom: 0px
   z-index: 10
-  
+    
+.unread
+  border: 3px red solid
 
+.read
+  border: none
 
 .panel-group .panel
   margin:
@@ -319,6 +323,13 @@ h1
     visibility: visible
     cursor: pointer
     opacity: 1.0
+  i.fa
+    line-height: inherit  
+      
+@grid-float-breakpoint   
+  @screen-md-min !default
+      
+   opacity: 1.0
   i.fa
     line-height: inherit  
       
