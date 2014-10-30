@@ -7,10 +7,104 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Monserrat|Lara|Droid+Sans">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat|Lara|Droid+Sans">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+
+<script>
+ 
+$(function(){
+ 
+    $(document).on( 'scroll', function(){
+ 
+        if ($(window).scrollTop() > 100) {
+            $('.scroll-top-wrapper').addClass('show');
+        } else {
+            $('.scroll-top-wrapper').removeClass('show');
+        }
+    });
+
+ 
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+});
+ 
+function scrollToTop() {
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
+}
+
+$(window).on('load resize', function() {
+    $('body').css({"padding-top": $(".navbar").height() + "px"});
+});
+</script>
+
+
+
 </head>
 <body>
   <%= render :partial => "partials/navbar" %>
   <%= yield %>
+<div class="scroll-top-wrapper ">
+    <span class="scroll-top-inner">
+        <i class="fa fa-2x fa-arrow-circle-up"></i>
+    </span>
+</div>
 </body>
+<footer>
+      <div class="container">
+<section class="share">
+<br><br>
+  
+    <div class="row divider rad">
+      <div class="col-xs-12 text-center">
+        <div class="col-xs-12 col-md-6">
+          <h3>
+            Follow:<br><br/>
+          </h3>
+          <div class="col-xs-offset-1 col-xs-3 highlightit2">
+            <%= image_tag '/images/google.png', size: '50x50', :href => "https://plus.google.com/108372836959462323148/posts", :target => "_blank" %>
+          </div>
+          <div class="col-xs-3 highlightit2">
+            <%= image_tag '/images/facebook.png', size: '50x50', :href => "https://www.facebook.com/SkillSesh", :target => "_blank" %>
+          </div>
+          <div class="col-xs-3 highlightit2">
+            <%= image_tag '/images/twitter.png', size: '50x50',  :href => "https://twitter.com/SkillSesh", :target => "_blank" %>
+            <br><br/>
+          </div>
+          <div class="journey-buttons"></div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <h3>
+            Share:<br><br/>
+          </h3>
+      
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://www.linkedin.com/shareArticle?mini=true&url=http://www.skillsesh.com/&title=Get+Skilled", :target => "_blank" do %> 
+              <%= image_tag '/images/linkdicon.png', size: '54x54' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://www.facebook.com/sharer/sharer.php?u=http://www.skillsesh.com/", :target => "_blank" do %> 
+              <%= image_tag '/images/fbsquare.png', size: '54x54' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "https://plus.google.com/share?url=http://www.skillsesh.com/", :target => "_blank" do %> 
+              <%= image_tag '/images/gplussquare.png', size: '54x54' %>
+              <% end %>
+            </div>
+            <div class="col-xs-3 highlightit2">
+              <%= link_to "http://twitter.com/share?url=http://www.skillsesh.com/&text=Get+Skilled", :target => "_blank" do %> 
+              <%= image_tag '/images/twittersquare.png', size: '54x54' %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+      </div>
+    </footer>
 </html>

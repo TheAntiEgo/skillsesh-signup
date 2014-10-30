@@ -21,8 +21,8 @@ gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
 gem 'x-editable-rails'
+gem 'mail_form'
 gem 'resque', '~> 1.25.2'
-
 
 group :development, :test do
   gem 'spring'

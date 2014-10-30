@@ -1,5 +1,5 @@
 <div class="profile-skills">
-  <h2>
+  <h2 class="text-left">
     Skills
   </h2>
   <% if @user && @profile.id == @user.id %>
@@ -8,7 +8,7 @@
       <%= f.submit "Update skills", :class => "btn btn-success"%>
     <% end %>
   <% else %>
-      <% @profile.skills.each do |s| %>
+  <% @profile.skills.distinct.each do |s| %>
           <span class="label label-info label-inert">
               <%= s.name %>
           </span>
