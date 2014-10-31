@@ -1,12 +1,12 @@
 <script>$(document).ready(function () {
         $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
     });</script>
-<nav class="navbar navbar-default navbar-fixed-top navy" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top shadow1" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <div class="container-fluid">
         <a class="navbar-brand brandup" href="/">
-          <img class="img-responsive" src="/images/Skillsesh_FiveLongW.png" style="height: 60px;"/>
+          <img class="img-responsive" src="/images/Skillsesh_FiveLong.png" style="height: 60px;"/>
         </a>
         <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle" >
             <span class="sr-only">Toggle navigation</span>
@@ -20,9 +20,9 @@
         <form class="navbar-form" role="search">
         <div class="input-group">
           <div class="input-group-btn">
-                <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn btn-search" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
-            <input type="text" class="form-control text-center" placeholder="Find a Skill" name="q">
+            <input type="text" class="form-control text-center" placeholder="Find a Skill" name="q" autofocus>
         </div>
         </form>
     </div>
@@ -31,7 +31,6 @@
               <li><%= link_to "Home", root_path %></li>  
               <li><%= link_to "About",about_path %></li>
                 <li><%= link_to "FAQ",faq_path %></li>
-              <li><%= link_to "Contact",contact_path %></li>
                 <% if current_user? %>  
                 <li><%= link_to "Profile", profile_path %></li>
                 <li><%= link_to "Signout", signout_path %> </li>
