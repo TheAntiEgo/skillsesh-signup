@@ -13,7 +13,7 @@
           <%= f.hidden_field :course, :value => course %>
           <%= f.fields_for :message, Message.new do |m| %>
             <%= m.hidden_field :sender, :value => @user %>
-            <%= m.hidden_field :receiver, :value => @profile.user %> 
+            <%= m.hidden_field :receiver, :value => @profile %> 
             <%= m.text_area :content, :hide_label => true, :placeholder => "Don't be shy!", :style => "resize: vertical" %>
           <% end %>
           <%= f.submit "Send!" %>

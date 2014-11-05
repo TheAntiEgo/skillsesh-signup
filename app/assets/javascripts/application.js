@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require typeahead.bundle
 //= require bootstrap-sprockets
 //= require bootstrap-modal
 //= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
 //= require bootstrap-datetimepicker
-//= require twitter/typeahead
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require_tree .
@@ -96,7 +96,7 @@ showButton = function(event){
 
 // Construct a Blooudhound object
 searchEngine = new Bloodhound({
-  prefetch: { url: 'http://' + window.location.host + '/skills' },
+  prefetch: { url: 'http://lesson-single.codio.io:3000/skills' },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
     queryTokenizer: Bloodhound.tokenizers.whitespace
 });

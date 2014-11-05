@@ -16,20 +16,20 @@ class User < ActiveRecord::Base
   has_one :preference
   has_and_belongs_to_many :skills, :join_table => 'users_skills'
   
-  ##
-  # Class methods
-  ##
+
   ##
   # Class methods
   ##
   def self.from_omniauth(auth)
-    new do |profile|
-      profile.first_name = auth[:info][:first_name]
-      profile.last_name = auth[:info][:last_name]
+    new do |user|
+      user.first_name = auth[:info][:first_name]
+      user.last_name = auth[:info][:last_name]
+      user.email = auth[:info][:email]
+      user.remember_token = SecureRandom.uuid
       if auth[:provider] == 'linkedin'
-        profile.photo = auth[:extra][:raw_info][:pictureUrls][:values].first
+        user.photo = auth[:extra][:raw_info][:pictureUrls][:values].first
       else
-        profile.photo = auth[:info][:image]
+        user.photo = auth[:info][:image]
       end
     end
   end
@@ -48,10 +48,7 @@ class User < ActiveRecord::Base
       end
     end      
   end
-  
-  ##
-  # Instance methods
-  ##
+
   def messages
     # Need a sane source of truth for all conversations a user is uniquely
     # participating in.

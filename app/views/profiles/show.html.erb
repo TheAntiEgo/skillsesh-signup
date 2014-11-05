@@ -24,7 +24,7 @@
           <%= render :partial => 'profiles/profile_bio' %>
         </div>
         <div class="col-xs-12">
-          <% if @user && @user.id == @profile.user.id %>
+          <% if @user && @user.id == @profile.id %>
           <ul class="nav nav-tabs" role="tablist">
             <li class="active">
               <a href="#courses" role="tab" data-toggle="tab">
@@ -46,9 +46,9 @@
             </div>
           </div>
         <% else %>
-          <h3>
+          <h2>
             Sessions
-          </h3>
+          </h2>
           <%= render :partial => 'profiles/profile_courses' %>
         <% end %>
       </div>

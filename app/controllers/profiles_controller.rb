@@ -3,24 +3,24 @@ class ProfilesController < ApplicationController
   before_action :authenticated?, :current_user?
   
   def show
-    @profile = @user.profile
+    @profile = @user
     @skills = @profile.skills
   end
 
   def update
-    if get_params[:profile][:skills]
-      @user.profile.add_skills_from_str(get_params[:profile])
+    if get_params[:user][:skills]
+      @user.add_skills_from_str(get_params[:user])
       return
     else
-      @user.profile.update!(get_params[:profile])
+      @user.update!(get_params[:user])
     end
-    render :json => @user.profile
+    render :json => @user
   end
   
   private
   
   def get_params
-    params.permit(:profile => [:first_name, :last_name, :photo, :bio, :skills])
+    params.permit(:user => [:first_name, :last_name, :photo, :bio, :skills])
   end    
   
   helper_method :xeditable?

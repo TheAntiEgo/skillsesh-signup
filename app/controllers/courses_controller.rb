@@ -11,8 +11,8 @@ class CoursesController < ApplicationController
   end
   
   def create
-    @profile = @user.profile
-    @course = @profile.courses.create!(get_params[:course])
+    @profile = @user
+    @course = @user.courses.create!(get_params[:course])
     redirect_to profile_path
   end
   
@@ -25,6 +25,6 @@ class CoursesController < ApplicationController
   private
   
   def get_params
-    params.permit :id, :course => [:name, :goal, :how, :requirements, :duration, :price, :location, :skills]
+    params.permit :id, :course => [:name, :goal, :how, :requirements, :duration, :price, :skills]
   end
 end

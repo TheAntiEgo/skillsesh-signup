@@ -17,9 +17,8 @@ class SignupsController < ApplicationController
       set_remember_token @user
       redirect_back_or_to_root
     else
-      @user = User.new( :email => oauth[:info][:email], :remember_token => SecureRandom.uuid )
+      @user = User.from_omniauth(oauth)
       @user.authentications << Authentication.from_omniauth(oauth)
-      @user.profile = Profile.from_omniauth(oauth)
       @user.build_preference
       @user.save!
       set_remember_token @user
@@ -37,13 +36,13 @@ class SignupsController < ApplicationController
   end
   
   def update
-    if params[:profile]
-      @user.profile.update!(params.require(:profile).permit(:bio))
-      @user.profile.add_skills_from_str(params.require(:profile).permit(:skills))
+    if params[:user]
+      @user.update!(params.require(:user).permit(:bio))
+      @user.add_skills_from_str(params.require(:user).permit(:skills))
       @user.save!
       redirect_to first_session_path
     else
-      @user.profile.courses << Course.create!(params.require(:course).permit(:name, :goal, :how, :duration, :price, :location))
+      @user.courses << Course.create!(params.require(:course).permit(:name, :goal, :how, :duration, :price))
       redirect_to root_path, :notice => "That's it! All done!"
     end      
   end

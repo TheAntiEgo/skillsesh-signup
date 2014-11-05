@@ -199,10 +199,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-typeahead-rails (0.10.5)
-      actionpack (>= 3.1)
-      jquery-rails
-      railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -248,7 +244,6 @@ DEPENDENCIES
   sass-rails
   shoulda
   spring
-  twitter-typeahead-rails
   uglifier
   unicorn
   webfontloader (~> 1.5.6)

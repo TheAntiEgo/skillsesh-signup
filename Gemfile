@@ -18,11 +18,11 @@ gem 'gibbon'
 gem 'geocoder'
 gem 'webfontloader', '~> 1.5.6'
 gem 'bootstrap-tagsinput-rails'
-gem 'twitter-typeahead-rails'
 gem 'bootstrap_form'
 gem 'x-editable-rails'
 gem 'mail_form'
 gem 'resque', '~> 1.25.2'
+gem 'simple_form'
 
 group :development, :test do
   gem 'spring'
