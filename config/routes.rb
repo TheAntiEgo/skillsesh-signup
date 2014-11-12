@@ -3,6 +3,15 @@ Rails.application.routes.draw do
   root :to => 'signups#index'
   
   ##
+  #Mail form
+  ##
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  resources "contacts", only: [:new, :create]
+  get 'contacts/new'
+
+  get 'contacts/create'
+  
+  ##
   # Omniauth
   ##
   constraints :provider => /facebook|google|linkedin/ do

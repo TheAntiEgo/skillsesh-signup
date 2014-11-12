@@ -178,6 +178,9 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    simple_form (3.0.2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -243,6 +246,7 @@ DEPENDENCIES
   resque (~> 1.25.2)
   sass-rails
   shoulda
+  simple_form
   spring
   uglifier
   unicorn
