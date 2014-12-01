@@ -8,14 +8,14 @@ class SignupsController < ApplicationController
   
   def create
     if @user && @user.authentications.exists?(:provider => oauth[:provider], :provider_id => oauth[:uid])
-      redirect_back_or_to_root
+      redirect_to profile_path
     elsif @user && !Authentication.has_omniauth?(oauth)
       @user.authentications.create(:provider => oauth[:provider], :provider_id => oauth[:uid])
-      redirect_back_or_to_root
+      redirect_to profile_path
     elsif !@user && Authentication.has_omniauth?(oauth)
       @user = Authentication.with_omniauth(oauth).user
       set_remember_token @user
-      redirect_back_or_to_root
+      redirect_to profile_path
     else
       @user = User.from_omniauth(oauth)
       @user.authentications << Authentication.from_omniauth(oauth)

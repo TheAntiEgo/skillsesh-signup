@@ -1,8 +1,10 @@
 <div id="accordion" class="panel-group">
   <% if @user && @profile.id == @user.id %>
-    <button class="btn btn-success btn-md add-btn" type="button">
+  <div class="text-center">
+    <button class="button small add-btn" type="button">
       <span class="glyphicon glyphicon-plus"></span> Add a new session
     </button>
+</div>
     <div class="panel panel-default" id="course-new">
       <%= bootstrap_form_for Course.new do |f| %>
         <div class="panel-heading">
@@ -10,14 +12,14 @@
           <%= f.text_area :goal, inputmode: "latin-prose", placeholder: "What will your student accomplish by the end of the session?", :required => true %>
         </div>
         <div class="panel-body">
-          <%= f.text_area :how, inputmode: "latin-prose", placeholder: "What're are you going to do?", :required => true %>
+          <%= f.text_area :how, inputmode: "latin-prose", placeholder: "What are you going to do?", :required => true %>
           <%= f.text_area :requirements, inputmode: "latin-prose", placeholder: "Are there any prerequisites?" %>
           <%= f.number_field :duration, :append => "hour(s)", :minimum => "0.5", :step => "0.5", :value => "1.00", :required => true %>
           <%= f.number_field :price, prepend: "$", append: '.00', placeholder: "So, how much?", :min => "10", :value => 10, :required => true %>
         </div>
         <div class="panel-footer">
-          <button class="btn btn-primary btn-md cancel-btn" type="button">Cancel</button>
-          <%= f.submit :class => "btn btn-danger btn-md", :value => "Create" %>
+          <button class="button small cancel-btn" type="button">Cancel</button>
+          <%= f.submit :class => "button small", :value => "Create" %>
         </div>
       <% end %>
     </div>
@@ -78,9 +80,9 @@
         </div>        
       </div>
       <div class="panel-footer">
-        <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= course.id %>">See more</button>
-        <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#modal-ask-question-<%= course.id %>" href="#">Question?</button>
-        <button type="button" class="btn-sm btn-danger" data-toggle="modal" data-target="#modal-set-appointment-<%= course.id %>" href="#">Book it!</button>
+        <button type="button" class="button small" data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= course.id %>">See more</button>
+        <button type="button" class="btn-info small" data-toggle="modal" data-target="#modal-ask-question-<%= course.id %>" href="#">Question?</button>
+        <button type="button" class="btn-info small" data-toggle="modal" data-target="#modal-set-appointment-<%= course.id %>" href="#">Book it!</button>
       </div>
     </div>
     <%= render :partial => 'profiles/profile_question', :locals => {course: course} if @profile != @user && @user %>

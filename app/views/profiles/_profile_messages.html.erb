@@ -3,7 +3,7 @@
       <div class="panel panel-default">
           <div class="panel-heading">
             <div class="row">
-              <div class="col-md-3">
+              <div class="small-3 columns">
               <% if convo.is_unread_by == @user %>
                 <%= link_to user_path(convo.merchant) do %>
                   <%= image_tag convo.merchant.profile.photo, :class => "img-responsive img-circle" %>      
@@ -14,14 +14,14 @@
                 <% end %>
               <% end %>
               </div>                
-              <div class="col-md-8">
+              <div class="medium-8 columns">
                   <p class="panel-message">
                       <%= convo.body[-1] %>        
                   </p>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-offset-3 col-md-7">
+              <div class="medium-offset-3 medium-7 columns">
                 <% if convo.merchant_read_at.nil? %>
                   <small> <%= convo.merchant.profile.first_name %> hasn't replied yet</small>
                 <% elsif convo.is_unread_by == @user %>
@@ -36,7 +36,7 @@
             <div class="panel-body">
                <% convo.body.reverse[1..-1].each_index do |index| %>
                   <div class="row">
-                    <div class="col-md-3">
+                    <div class="medium-3 columns">
                   <% if convo.is_unread_by == @user && index.odd? %>
                     <%= link_to user_path(convo.merchant) do %>
                       <%= image_tag convo.merchant.profile.photo, :class => "img-responsive img-circle" %>      
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="panel-footer">
-            <button type="button" class="btn-sm btn-primary" data-toggle="collapse" data-parent="#accordion-msgs" href="#collapse-<%= convo.id %>">
+            <button type="button" class="btn-sm button" data-toggle="collapse" data-parent="#accordion-msgs" href="#collapse-<%= convo.id %>">
               See more
             </button>
             <button type="button" class="btn-sm btn-info">

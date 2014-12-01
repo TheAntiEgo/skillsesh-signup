@@ -7,52 +7,50 @@
 
 <body>
 <br>
-  <div class="jumbotron text-center col-xs-12 col-xs-offset-0">
-    <div class="container-fluid">
+  <div class="jumbotron text-center small-12 columns">
       <header>
         <div class="row">
-          <div class="col-xs-12">
+            <div class="small-12 small-offset-0 columns">
              <br>
-            <h2 class="hero-action text-center" style="font-size: 300%">Learn
+                <h2 class="TextShadow text-center" style="font-size: 240%">Learn
             Skills From the People in Your Community!</h2><br>
           </div>
         </div>
       </header>
 
       <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <div class="text-right btnmain">
-            <button class="btn btn-lg btn-info" data-target="#basicModal1"
-            data-toggle="modal" style="font-size: 175%;">Teach a Skill</button>
+          <div class="small-12 medium-6 columns smaller">
+              <div class="small-text-center medium-text-right">
+                  <button class="btn-info" data-reveal-id="TeachModal" style="font-size: 130%;">Teach a Skill</button>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="dropdown text-left btnmain">
-            <a href="#Learn" class="btn btn-lg btn-primary" style="font-size: 175%;">Learn a Skill</a>
+                <div class="small-12 medium-6 columns">
+                    <div class="small-text-center btnmain medium-text-left">
+            <a href="#Learn" class="button" style="font-size: 130%;">Learn a Skill</a>
           </div><br><br>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container text-center col-xs-12 col-xs-offset-0">
-    
-      <div class="container">
+<div class="container text-center small-12 small-offset-0 columns">
+      
         <section class="tutors">
-          <div class="intro"></div>
-
+          <div class="intro">
+          </div>
           <div class="tutors-listing">
             <div class="row">
               <% @profiles.each do |profile| %>
 
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="small-12 medium-3 columns">
                 <div class="row tutor-unit">
-                  <div class=
-                  "col-sm-10 col-sm-offset-1 col-xs-8 col-xs-offset-2 highlightit">
-                  <%= link_to user_path(profile) do %><%= image_tag profile.photo, :class => 'img-responsive img-circle tutor-photo shadow1' %><% end %>
+                  <div class="small-6 medium-8 medium-offset-2 columns highlightit">
+                  <%= link_to user_path(profile) do %>
+                  <%= image_tag profile.photo, :class => 'tutor-photo shadow1' %>
+                  <% end %>
                   </div>
 
-                  <div class="col-xs-12 try-up">
+                  <div class="small-6 medium-12 columns">
                     <h4 class="tutor-name text-center">
                     <%= profile.first_name %></h4><strong class=
                     "tutor-skills"><% profile.skills.each do |skill| %>
@@ -62,108 +60,77 @@
                   </div>
                 </div>
               </div><% end %>
-            </div>
-          
         </section>
 <div>
 <a name="Learn"></a>
 </div>
 <br><br><br><br>
-</div>
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1"
-    <div class="col-xs-12 text-center">
+    
+    <div class="small-12 columns text-center smaller">
     <br>
-    <h2 style="font-size: 300%"> It's easy to learn with SkillSesh</h2>
+    <h2 class="TextShadow" style="font-size: 250%"> It's easy to learn with SkillSesh</h2>
      <br><br>
-      <div class="col-sm-4">
-        <div class="col-sm-12 container shadow1 rad bluet steps">
+      <div class="medium-4 columns">
+        <div class="small-12 columns shadow1 rad bluet steps">
         <br>
         <br>
         
         <img class="img-responsive center-block" src="/images/find.png" style="height: 150px; width: auto;"/>
-      <h3> Find a tutor by typing a skill in the search bar above.</h3>
-      <br>
+      <h4> Find a tutor by typing a skill in the search bar above.</h4>
+      <br><br>
      
       </div>
       </div>
-      <div class="col-sm-4">
-        <div class="col-sm-12 container shadow1 rad bluet steps">
+      <div class="medium-4 columns">
+        <div class="small-12 columns container shadow1 rad bluet steps">
         <br>
         <br>
         <img class="img-responsive center-block" src="/images/icon_2472.png" style="height: 150px; width: auto;"/>
-        <h3> After reading profiles, book a session via messaging.</h3>
+        <h4> After reading profiles, book a session via messaging.</h4>
         <br>
         
       </div>
       </div>
-      <div class="col-sm-4">
-        <div class="col-sm-12 container shadow1 rad bluet steps">
+      <div class="medium-4 columns">
+        <div class="small-12 columns container shadow1 rad bluet steps">
         <br>
         <br>
         <img class="img-responsive center-block" src="/images/Skillsesh_Five.png" style="height: 150px; width: auto;"/>
-        <h3> You're on your way to improving your skills! Great Job.</h3>
+        <h4> You're on your way to improving your skills! Great Job.</h4>
         <br>
       </div>
       </div> 
     </div>
-  </div><br><br><br>
-  
+  </div>
+<br><br><br>
+  <button class="btn-info" data-reveal-id="SocialShare" style="font-size: 175%;">Teach a Skill</button>
 
-
-</div>
-
-      <div class="modal fade" data-focus-on="input:first" id="basicModal2"
-      tabindex="-1">
-        <div class="modal-content">
-          <%= form_tag subscribe_path, :remote => true, :class => "subscribeForm" do %>
-
-          <div class="modal-header">
-            <button class="close" data-dismiss="modal" type="button"></button>
-
-            <h4 class="modal-title" id="myModalLabel"></h4>
-
-            <h1 class="text-center">Join us when we launch!</h1>
-          </div>
-
-          <div class="modal-body text-center">
-            <div class="form-group">
-              <%= label_tag 'email', "Enter your email address", :class => "sr-only" %><%= email_field_tag 'email', nil, :placeholder => "joe@example.com", :class => "form-control" %>
-            </div><br>
-            <%= submit_tag "Submit", class: "btn btn-large btn-primary" %>
-          </div><% end %>
-        </div>
-      </div>
-
-      <div class="modal fade" data-replace="true" id="myModal" tabindex="-1">
-        <div class="modal-content">
-          <div class="modal-body text-center">
-            <h2 class="modal-title" id="myModalLabel">Get your friends involved
-            too!</h2><br>
+          <div id="SocialShare" class="reveal-modal text-center" data-reveal>
+            <h2>Get your friends involved too!</h2><br>
+            <a class="close-reveal-modal">&#215;</a>
             <%= render '/partials/sharebutt.html' %><br>
             <br>
             <br>
           </div>
-        </div>
-      </div>
 
-      <div class="modal fade" data-width="760" id="basicModal1" tabindex="-1">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" data-dismiss="modal" type="button"></button>
-
-            <h4 class="modal-title" id="myModalLabel"></h4>
-
-            <h1 class="text-center">Sign Up With</h1>
-          </div>
-
-          <div class="modal-body text-center">
-            <%= render '/partials/loginbutt.html' %><br>
+      <div id="TeachModal" class="reveal-modal text-center" data-reveal>
+        <h1>Sign Up With</h1>
+          <div>
+            <%= render '/partials/loginbutt.html' %>
+            <br>
             We use these services to help verify who you are. Learn more.
           </div>
+         <a class="close-reveal-modal">&#215;</a>
         </div>
-      </div>
-    </div>
-  </div>
+
+
+<div class= "small-12 medium-3 columns">
+What day and time would you like to meet up?
+<input id="datetimepicker" type="text">
+</div>
+</div>
+<%= render '/partials/reviewstars.html.erb' %>
 </body>
+
 </html>

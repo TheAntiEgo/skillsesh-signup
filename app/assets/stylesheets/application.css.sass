@@ -1,15 +1,7 @@
 
-
-@import "bootstrap-sprockets"
-
-@import "bootstrap"
-
+@import "foundation_and_overrides"
 
 @import "SocialLogin"
-
-@import "bootstrap-modal-bs3patch"
-
-@import "bootstrap-modal"
 
 @import "bootstrap-tagsinput"
 
@@ -17,25 +9,16 @@
 
 @import "typeahead"
 
-@import "bootstrap-datetimepicker"
+@import "star-rating"
 
-@import "editable/bootstrap-editable"
+@import "jquery.datetimepicker"
+
+@import "foundation-icons"
+
 
 .jumbotron header
   margin:
-    bottom: 33.16px
-
-.hero-action
-  margin:
-    bottom: 18.662px
-
-.dropdown-menu
-  text-align: center
-  width: 100%
-
-.dropdown
-  margin:
-    bottom: 10.503px
+    bottom: 33.14px
 
 .small
   margin: 5.911px
@@ -46,40 +29,26 @@
 
 .tutor-unit
   margin:
-    bottom: 50px
-    top: 20px
+    bottom: 40px !important
     right: 10px
     left: 10px
-  
-  border-radius: 10px
-  position: relative !important
-  top: 30px !important
+  border-radius: 25px
   text-align: center 
   padding-bottom: 0px !important
   background-color: rgba(168, 231, 199, 0.06)
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
 
 
 .tutor-name
-  position: relative !important
-  top: -50px !important
-  color: #00a550
-  font-weight: bold
-  font-size: 170%
+  font-size: 150%
   
 .tutor-skills
-  position: relative !important
-  top: -50px !important
-  bottom: -50px !important
+  
   
 .tutor-profile1
   text-align: center
-  
-.mission p
-  margin:
-    bottom: 18px
 
 .team h2
   margin:
@@ -88,18 +57,6 @@
 .team-member
   margin:
     bottom: 42.635px
-
-@media (min-width: $screen-md-min)
-  .tutor-unit
-    padding-bottom: 20px
-    padding-top: 20px
-@media (min-width: $screen-xs-min)
-  .team-member
-    padding: 70px
-    
-@media (max-width: $screen-sm-max)
-  .btnmain
-    text-align: center 
       
 body
   padding-top: 50px   
@@ -108,15 +65,16 @@ header
   margin-bottom: 0px !important  
   
 .jumbotron 
+  padding-top: 0px!important
   padding-bottom: 0px !important
   margin-bottom: 0px !important
-  background-image: url(/images/skillbanner.png)
+  background-image: url()
   background-size: cover 
   background-repeat: no-repeat
   background-color: white
   background-position: center  
   
-@media (max-width: $screen-sm-max)
+@media (max-width: $screen)
   .jumbotron
     background-image: url(/images/Skillsesh_IllustrationToons_Wood2.png)
  
@@ -131,32 +89,18 @@ header
 h1
   margin-top: 0px !important
   
-.navbar
-  background-color: #ffffff !important
-  color: #00a550 !important
   
-.navbar-form
-  border-style: none !important
-  
-  
-.navbar-collapse
-  font-size: 100% !important
-
-.btn-sm
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  
-.btn-primary  
+.button  
+  border-radius: 100px
   border: 1px solid #4579b3!important 
   color: white
   background-color: #4579b3!important
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
   
   
-.btn-primary:hover 
+.button:hover 
   background-color: #ffffff !important
   color: #4579b3
   border-style: solid
@@ -168,9 +112,10 @@ h1
   border: 1px solid #00a550!important 
   color: #ffffff
   background-color: #00a550!important
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  border-radius: 100px  
   
   
 .btn-info:hover 
@@ -210,15 +155,17 @@ h1
 .label-info
   color: #ffffff !important
   background-color: #4579b3!important
-  border-radius: 10px  
+  border: 1px solid #4579b3!important 
+  border-radius: 100px 
+  padding: 4px
   margin: 
-    bottom: 8px
+    bottom: 6px
   font-size: 100%
-  line-height: 2
+  line-height: 1
   background-color: #4579b3!important
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
 
 .label-inert
   margin:
@@ -239,7 +186,12 @@ h1
 .profile-photo
   margin:
     bottom: 0px
-  z-index: 10
+  float: none!important
+  
+  
+.row .row  
+  margin-left: -0.1rem
+  margin-right: -0.1rem
     
 .unread
   border: 3px red solid
@@ -249,10 +201,13 @@ h1
 
 .panel-group .panel
   margin:
-    bottom: 36px
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+    bottom: 34px
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+    
+.panel 
+  color: #838383
 
 .editable-unsaved
   font:
@@ -262,43 +217,30 @@ h1
 .panel-message
   padding:
     top: 10.5px
-
-@media (max-width: $screen-xs-max)
-  .navbar-brand
-    width: 75%
-    
-  input
-    font-size: 16px
           
 .shadow1
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)   
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)   
  
 .nav-shadow1
   -webkit-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.45)  
   -moz-box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.45)    
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.45)  
+  background-color: white  
 
-@media (min-width: $screen-sm-min)
+@media (min-width: $screen)
   .profile-photo
     padding: 15px !important 
-
-   
+    
   .profile-name
     padding-top: 18px
-   
-  .modal-dialog
-    margin: 0 0 0 0
 
 .tutor-photo
   position: relative !important
-  top: -50px !important
-  bottom: 50px !important
+  border-radius: 100%
+  margin-top: 10px
 
-.try-up
-  position: relative !important
-  top: 15px !important
 
 .panel-heading
   background-color: rgba(168, 231, 199, 0.06)!important
@@ -312,27 +254,23 @@ h1
 
 .tutor-profile2
   background-color: rgba(168, 231, 199, 0.06)!important  
-  border-radius: 10px
+  border-radius: 25px
   margin-top: 20px
   -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  
-.biopad
-  margin-left: 14px
-  margin-right: 14px
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
 
 .profpad
   padding-bottom: 20px
   
 .divider 
   background-color: rgba(168, 231, 199, 0.06)!important   
-  -webkit-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  -moz-box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
-  box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, 0.45)  
+  -webkit-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  -moz-box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.45)  
   
 .rad    
-  border-radius: 10px    
+  border-radius: 25px    
 
 .bluet
   color: #4579b3
@@ -371,7 +309,7 @@ h1
     line-height: inherit  
       
 @grid-float-breakpoint   
-  @screen-md-min !default
+  @screen !default
       
   opacity: 1.0
    
@@ -387,3 +325,72 @@ h1
  
 .hidden 
   display: none
+    
+.reveal-modal
+  border-radius: 25px
+  
+.googlebtn
+  background-color: #df4a32 !important
+  border-color: #df4a32 !important
+  
+.googlebtn:hover 
+  color: #df4a32 !important  
+  
+.facebookbtn  
+  background-color: #4f69a2 !important
+  border-color: #4f69a2 !important
+  
+.facebookbtn:hover 
+  color: #4f69a2 !important
+  
+.linkedinkbtn  
+  background-color: #1ab4ee !important
+  border-color: #1ab4ee !important
+  
+.linkedinkbtn:hover 
+  color: #1ab4ee !important
+  
+.top-bar
+  background-color: #ffffff !important
+  color: #00a550 !important
+
+.top-bar-section li:not(.has-form) a:not(.button)
+  background-color: #ffffff !important
+  color: #00a550 !important
+  
+.smaller  
+  padding: 0px !important
+  
+  
+.top-bar-section li:not(.has-form) a:not(.button):hover   
+  color: #ffffff !important
+  background-color: #00a550 !important
+  
+.TextShadow
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.45)
+    
+a
+  color: #00a550
+ 
+  
+input
+  -webkit-border-radius: 25px !important
+  
+textarea  
+  -webkit-border-radius: 25px !important
+  
+.bootstrap-tagsinput 
+  -webkit-border-radius: 25px !important
+
+.editable-submit
+  @extend .button
+    
+.control-label
+  @extend h4    
+    
+.top-bar .toggle-topbar.menu-icon a
+  top: -18px
+ 
+.menu-icon
+  color: red !important
+  

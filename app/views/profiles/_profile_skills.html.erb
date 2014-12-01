@@ -1,11 +1,11 @@
 <div class="profile-skills">
-  <h2 class="text-left">
+  <h2 class="text-center">
     Skills
   </h2>
   <% if @user && @profile.id == @user.id %>
     <%= form_for @profile, :remote => true do |f| %>
       <%= f.text_field :skills, :class => "form_control",  :data => {:role => "tagsinput"}, :inputmode => "latin", :value => stringify(@profile.skills) %>
-      <%= f.submit "Update skills", :class => "btn btn-success"%>
+      <%= f.submit "Update skills", :class => "button small btn-info"%>
     <% end %>
   <% else %>
   <% @profile.skills.distinct.each do |s| %>

@@ -1,98 +1,59 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-  <title>Skillsesh</title>
-  <%= stylesheet_link_tag 'application', :media => 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat|Lara|Droid+Sans">
-<link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+<html lang="en">
+  <head>
+     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script>
- 
-$(function(){
- 
-    $(document).on( 'scroll', function(){
- 
-        if ($(window).scrollTop() > 100) {
-            $('.scroll-top-wrapper').addClass('show');
-        } else {
-            $('.scroll-top-wrapper').removeClass('show');
-        }
-    });
+    <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat|Lora|Droid+Sans">
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    
+   
+  </head>
 
- 
-    $('.scroll-top-wrapper').on('click', scrollToTop);
-});
- 
-function scrollToTop() {
-    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
-    element = $('body');
-    offset = element.offset();
-    offsetTop = offset.top;
-    $('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
-}
-
-$(window).on('load resize', function() {
-    $('body').css({"padding-top": $(".navbar").height() + "px"});
-});
-</script>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=815265865170699&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-
-
-</head>
-<body>
-  <%= render :partial => "partials/navbar" %>
-  <%= yield %>
-<div class="scroll-top-wrapper shadow1 ">
+  <body> 
+    <div class="scroll-top-wrapper shadow1 ">
     <span class="scroll-top-inner">
         <i class="fa fa-2x fa-arrow-circle-up"></i>
     </span>
 </div>
-</body>
+    <%= render '/partials/navbar.html.erb' %>
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
 <footer>
       <div class="container">
 <section class="share">
 <br><br>
   
-    <div class="row shadow1 rad">
+    <div class="row rad">
       <div class="row text-center">
-        <div class="col-xs-12">
+        <div class="small-12 columns">
      <br>
-          <div class="col-xs-7 col-sm-2">
+          <div class="small-7 medium-2 columns">
         <div class="fb-like-box" data-href="https://www.facebook.com/skillsesh" data-height="180" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
             </div>
-          <div class="col-xs-2 col-sm-1">
+          <div class="small-2 medium-1 columns">
              <a href="https://plus.google.com/108372836959462323148/posts" target="_blank"><img src='/images/google.png', style="width:50px;height:50px", border="0"></a>  
           </div>
-          <div class="col-xs-2 col-sm-1">
+          <div class="small-2 medium-1 columns">
             <a href="https://twitter.com/SkillSesh" target="_blank"><img src='/images/twitter.png', style="width:50px;height:50px", border="0"></a> 
             <br><br/>
           </div>
-          <div class=" col-xs-12 col-sm-4" >
-          <ul class="nav navbar-nav h4 align-left">
-              <li><%= link_to "Home", root_path %></li>  
-              <li><%= link_to "About",about_path %></li>
-                <li><%= link_to "FAQ",faq_path %></li>
-                <li><%= link_to "Terms",tos_path %></li> 
+          <div class=" small-12 medium-4 columns" >
+          <div class="h4 align-left">
+              <%= link_to "Home", root_path %>  
+              <%= link_to "About",about_path %>
+                <%= link_to "FAQ",faq_path %>
+                <%= link_to "Terms",tos_path %> 
                 <% if current_user? %>  
-                <li><%= link_to "Profile", profile_path %></li>
-                <li><%= link_to "Signout", signout_path %> </li>
+                <%= link_to "Profile", profile_path %>
+                <%= link_to "Signout", signout_path %> 
                 <% end %>
                 
-            </ul> 
+            </div> 
           </div>
 
         </div>
@@ -100,5 +61,6 @@ $(window).on('load resize', function() {
     </div>
   </section>
       </div>
-    </footer>
+    </footer>    
+  </body>
 </html>

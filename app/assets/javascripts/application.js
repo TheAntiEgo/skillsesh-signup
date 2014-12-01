@@ -12,18 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require typeahead.bundle
 //= require bootstrap-sprockets
-//= require bootstrap-modal
-//= require bootstrap-modalmanager
 //= require bootstrap-tagsinput
 //= require bootstrap-datetimepicker
 //= require editable/bootstrap-editable
 //= require editable/rails
 //= require_tree .
-
-var updateOptions, textValidator, numberValidator, textAreaValidator, showButton, showForm, putSuccess, putError, initRecord, searchEngine,
-    $subscribeForm, $tagInput, $editableRecord, $newRecord, $addButton, $cancelButton;
+//= require scrolltop
+//= require star-rating
+//= require jquery.datetimepicker
+var updateOptions, textValidator, numberValidator, textAreaValidator, showbutton, showForm, putSuccess, putError, initRecord, searchEngine,
+    $subscribeForm, $tagInput, $editableRecord, $newRecord, $addbutton, $cancelbutton;
 
 // Default options for pre-rendered editables
 updateOptions = {
@@ -84,17 +85,17 @@ initRecord = function($collection, options){
 
 // Swap 'add course' button with form
 showForm = function(event){
-    $addButton.hide(300);
+    $addbutton.hide(300);
     $newRecord.show(300);
 };
 
 // Swap form with button
-showButton = function(event){
+showbutton = function(event){
     $newRecord.hide(300);
-    $addButton.show(300);
+    $addbutton.show(300);
 };
 
-// Construct a Blooudhound object
+// Construct a Bloodhound object
 searchEngine = new Bloodhound({
   prefetch: { url: 'http://lesson-single.codio.io:3000/skills' },
     datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
@@ -107,8 +108,8 @@ $(document).ready(function(){
     $subscribeForm = $('.subscribeForm');
     $tagInput = $('.bootstrap-tagsinput > input');
     $newRecord = $('#course-new');
-    $addButton = $('.add-btn');
-    $cancelButton = $('.cancel-btn');
+    $addbutton = $('.add-btn');
+    $cancelbutton = $('.cancel-btn');
     $editableRecord = $('.editable-record');
 
     //Hide new course form
@@ -116,8 +117,8 @@ $(document).ready(function(){
 
     // Event handlers
     $subscribeForm.on('ajax:before', function(){ $('#myModal').modal(); });
-    $addButton.on('click', showForm);
-    $cancelButton.on('click', showButton);
+    $addbutton.on('click', showForm);
+    $cancelbutton.on('click', showbutton);
 
     // Fetch or locally load JSON of skills
     searchEngine.initialize();
@@ -139,3 +140,13 @@ $(document).ready(function(){
     initRecord($editableRecord, $.extend(updateOptions, putSuccess, putError));
 });
 
+
+$(function(){ $(document).foundation(); });
+
+$(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=815265865170699&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));

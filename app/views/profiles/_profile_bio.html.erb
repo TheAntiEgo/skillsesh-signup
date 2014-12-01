@@ -1,11 +1,11 @@
 <div class="profile-bio">
   <div class="row">
-    <div class="col-xs-12">
-      <h2>
+    <div class="small-12 columns">
+      <h2 class="text-center">
         Bio
       </h2>
     </div>
-    <div class="col-xs-12 breakit">
+    <div class="small-12 columns">
       <p>
       <% if @user && @profile.id == @user.id %>
         <%= editable @profile, :bio, {:title => "Edit your bio", :type => "textarea", :class=>"editable-record"} %>
