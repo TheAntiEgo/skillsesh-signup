@@ -1,43 +1,63 @@
-<script>$(document).ready(function () {
-        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-    });</script>
+<style>
+      
+        .main-section {
+            height: 100%;
+        }
 
-<div class="fixed">
-  <nav class="top-bar nav-shadow1" data-topbar role="navigation">
-   <ul class="title-area">
-    <li class="name">
-      <a href="/">
-      <img src="/images/Skillsesh_FiveLong.png" style="height: 60px;"/>
-      </a>
-    </li>
-  </ul>
+        .f-topbar-fixed {
+            padding-top: 0 !important;
+        }
 
-<section class="top-bar-section">
-    <ul class="right">
-      <li> <a href="http://lesson-single.codio.io:3000/" style="height: 45px;">
-        <i class="fi-home" style="font-size:25px;"></i></a> </li>
-      <li> <%= link_to "About",about_path %> </li>
-      <li><%= link_to "FAQ",faq_path %></li>
-      <% if current_user? %>  
-      <li><%= link_to "Profile", profile_path %></li>
-                <li><%= link_to "Signout", signout_path %> </li>
-                <% end %>
-                <% if !current_user? %>  
-             <li><button class="btn-info" data-reveal-id="LoginModal">
-              Login
-          </button></li>
-       <% end %>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-     </ul>
-  </section>  
-    
+        .top-bar {
+            transform: translate3d(0, 0, 0);
+        }
+
+        .off-canvas {
+            position: fixed;
+            height: 100%;
+        }
+        
+        .off-canvas .inner-wrap {
+            height: 100%;
+        }
+      
+        @media only screen and (max-width: 40em) { 
+        /* max-width 640px, mobile-only styles */
+
+            .top-bar .button {
+                top: 0; 
+            }
+        }
+      
+    </style>
  
-    <div class="small-3 small-offset-2 medium-3 columns">
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+            <nav class="left-off-canvas-menu">
+                <ul class="off-canvas-list">
+                    <li><label >Dashboard</label></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Conversations</a></li>
+                    <li><a href="#">Account</a></li>                                        
+                </ul>            
+            </nav>
+       
+            <div class="main-section nav-shadow1">
+              <div class="fixed">
+                  <div class="top-bar nav-shadow1" data-topbar role="navigation">
+                      <ul class="title-area">
+                          <li class="name">
+                              <h1><a href="/">Skillsesh</a></h1>
+                          </li>
+                          <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                      </ul>
+                      <section class="top-bar-section">
+                          <div class="small-12 medium-3 medium-offset-2 columns">
       <ul class="left">
       <!-- Search | has-form wrapper -->
       <li class="has-form">
         <div class="row collapse">
-          <div class="large-12 small-9 columns">
+          <div class="large-8 small-9 columns">
             <input type="text" placeholder="Find a Skill">
           </div>
           <div class="large-4 small-3 columns">
@@ -46,14 +66,16 @@
         </div>
     </ul>
   </div>
-</nav>
-</div>  
-
-
-<div id="LoginModal" class="reveal-modal text-center" data-reveal>
-        <h1>Login With</h1>
-          <div>
-            <%= render '/partials/loginbutt.html' %>
-        </div>
- <a class="close-reveal-modal">&#215;</a>
-</div>
+                          <ul class="right">
+                              <li><a href="#">About</a></li>
+                              <li><a href="#">FAQ</a></li>
+                              <li><a class="left-off-canvas-toggle" href="#">Dashboard</a></li>
+                              <li class="has-form">
+                                  <a href="#" class="button">Join in</a>
+                              </li>
+                          </ul>
+                      </section>
+                  </div>
+                </div>
+          </div>
+              

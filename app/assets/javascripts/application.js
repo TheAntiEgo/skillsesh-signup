@@ -104,6 +104,8 @@ searchEngine = new Bloodhound({
 
 // Only execute what *needs* to be initialized at ready
 $(document).ready(function(){
+    $(document).foundation();
+  
     // Cache selectors
     $subscribeForm = $('.subscribeForm');
     $tagInput = $('.bootstrap-tagsinput > input');
@@ -140,8 +142,6 @@ $(document).ready(function(){
     initRecord($editableRecord, $.extend(updateOptions, putSuccess, putError));
 });
 
-
-$(function(){ $(document).foundation(); });
 
 $(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

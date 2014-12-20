@@ -1,66 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat|Lora|Droid+Sans">
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-    
-   
-  </head>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href=
+  "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" id=
+  "font-awesome-css" media="screen" rel="stylesheet" type="text/css">
 
-  <body> 
-    <div class="scroll-top-wrapper shadow1 ">
-    <span class="scroll-top-inner">
-        <i class="fa fa-2x fa-arrow-circle-up"></i>
-    </span>
-</div>
-    <%= render '/partials/navbar.html.erb' %>
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
-<footer>
-      <div class="container">
-<section class="share">
-<br><br>
-  
-    <div class="row rad">
-      <div class="row text-center">
-        <div class="small-12 columns">
-     <br>
-          <div class="small-7 medium-2 columns">
-        <div class="fb-like-box" data-href="https://www.facebook.com/skillsesh" data-height="180" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
-            </div>
-          <div class="small-2 medium-1 columns">
-             <a href="https://plus.google.com/108372836959462323148/posts" target="_blank"><img src='/images/google.png', style="width:50px;height:50px", border="0"></a>  
-          </div>
-          <div class="small-2 medium-1 columns">
-            <a href="https://twitter.com/SkillSesh" target="_blank"><img src='/images/twitter.png', style="width:50px;height:50px", border="0"></a> 
-            <br><br/>
-          </div>
-          <div class=" small-12 medium-4 columns" >
-          <div class="h4 align-left">
-              <%= link_to "Home", root_path %>  
-              <%= link_to "About",about_path %>
-                <%= link_to "FAQ",faq_path %>
-                <%= link_to "Terms",tos_path %> 
-                <% if current_user? %>  
-                <%= link_to "Profile", profile_path %>
-                <%= link_to "Signout", signout_path %> 
-                <% end %>
+  <title><%= content_for?(:title) ? yield(:title) : "Skillsesh" %></title>
+  <link href=
+  "http://fonts.googleapis.com/css?family=Montserrat|Lora|Droid+Sans" rel=
+  "stylesheet" type="text/css">
+  <%= stylesheet_link_tag    "application" %><%= javascript_include_tag "vendor/modernizr" %><%= javascript_include_tag "application" %><%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="off-canvas-wrap" data-offcanvas="">
+    <div class="inner-wrap">
+      <nav class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><label>Dashboard</label></li>
+
+          <li>
+            <a href="#">Profile</a>
+          </li>
+
+          <li>
+            <a href="#">Conversations</a>
+          </li>
+
+          <li>
+            <a href="#">Account</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-section">
+        <div class="fixed">
+          <div class="top-bar" data-topbar="">
+            <ul class="title-area">
+              <li class="name">
+                <a href="/"><img src="/images/Skillsesh_FiveLong.png" style=
+                "height: 50px;"></a>
+              </li>
+
+              <li class="toggle-topbar menu-icon">
+                <a href="#"><span></span></a>
+              </li>
+            </ul>
+
+            <section class="top-bar-section">
+              <div class="small-12 medium-3 medium-offset- large-offset-2 columns">
+                <ul class="right">
+                  <!-- Search | has-form wrapper -->
+
+                  <li class="has-form">
+                    <div class="row collapse">
+                      <div class="large-9 small-9 columns">
+                        <input placeholder="Find a Skill" type="text">
+                      </div>
+
+                      <div class="large-3 small-3 columns">
+                        <a class="fi-magnifying-glass" class="" href="#" style=
+                        "font-size: 28px; font-style: italic" style=""></a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <ul class="right">
+                <li>
+                  <a class="fi-home" href="http://lesson-single.codio.io:3000/"
+                  style=
+                  "font-size: 25px; font-style: italic; height: 45px"></a>
+                </li>
+
+                <li><%= link_to "About",about_path %></li>
+
+                <li><%= link_to "FAQ",faq_path %></li>
+
+                <li>
+                  <a class="left-off-canvas-toggle" href="#">Dashboard</a>
+                </li><% if current_user? %>
+
+                <li><%= link_to "Profile", profile_path %></li>
+
+                <li>
+                <%= link_to "Signout", signout_path %></li><% end %><% if !current_user? %>
+
+                <li><button class="btn-info" data-reveal-id=
+                "LoginModal">Login</button></li><% end %>
+
                 
-            </div> 
+              </ul>
+            </section>
           </div>
-
         </div>
+
+        <%= yield %>
       </div>
+    </div><a class="exit-off-canvas"></a>
+  </div>
+
+  <div class="scroll-top-wrapper shadow1">
+    <span class="scroll-top-inner fa fa-2x fa-arrow-circle-up" style=
+    "font-style: "></span>
+  </div>
+
+  <footer>
+    <div class="container">
+      <section class="share">
+
+        <div class="row rad">
+          <div class="row text-center">
+            <div class="small-12 columns">
+              <br>
+
+              <div class="small-7 medium-2 columns">
+                <div class="fb-like-box" data-colorscheme="light" data-header=
+                "false" data-height="180" data-href=
+                "https://www.facebook.com/skillsesh" data-show-border="false"
+                data-show-faces="true" data-stream="false"></div>
+              </div>
+
+              <div class="small-2 medium-1 columns">
+                <a href="https://plus.google.com/108372836959462323148/posts"
+                target="_blank"><img border="0" src='/images/google.png' style=
+                "width:50px;height:50px"></a>
+              </div>
+
+              <div class="small-2 medium-1 columns">
+                <a href="https://twitter.com/SkillSesh" target=
+                "_blank"><img border="0" src='/images/twitter.png' style=
+                "width:50px;height:50px"></a><br>
+                <br>
+              </div>
+
+              <div class=" small-12 medium-4 columns">
+                <div class="h4 align-left">
+                  <%= link_to "Home", root_path %><%= link_to "About",about_path %><%= link_to "FAQ",faq_path %><%= link_to "Terms",tos_path %><% if current_user? %><%= link_to "Profile", profile_path %><%= link_to "Signout", signout_path %><% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-      </div>
-    </footer>    
-  </body>
+  </footer>
+
+  <div class="reveal-modal text-center" data-reveal="" id="LoginModal">
+    <h1>Login With</h1>
+
+    <div>
+      <%= render '/partials/loginbutt.html' %>
+    </div><a class="close-reveal-modal">&#215;</a>
+  </div>
+</body>
 </html>
